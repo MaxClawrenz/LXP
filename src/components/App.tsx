@@ -1,7 +1,13 @@
-import styles from "../style.module.css";
+import Header from "./Header/Header";
+import MainPage from "./MainPage";
 
 function App() {
-  return <div className={styles.main}>Let's check</div>;
+  return (
+    <>
+      <Header />
+      <MainPage />
+    </>
+  );
 }
 
 export default App;

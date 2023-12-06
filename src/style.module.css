@@ -1,3 +1,127 @@
-.main{
-    color: red;
+.HeaderTitle{
+    color: #151D2D;
+    font-family: SF UI Display;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.HeaderTitleLXP{
+    font-weight: 700;
+}
+.HeaderIcon{
+    margin-right: 10px;
+}
+.HeaderLeft {
+    display: flex;
+    align-items: center;
+    width: 196px;
+    margin-right: 70px;
+}
+.HeaderSearch{
+    width: 528px;
+    height: 19px;
+    border-radius: 9px;
+    background: rgba(0, 0, 0, 0.06);
+    border: none;
+    padding: 11px 20px;
+    color: #151D2D;
+}
+.HeaderSearch:focus{
+    outline: none;
+}
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.HeaderButton{
+    border-radius: 9px;
+    background: #0091D5;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 301px;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 35px;
+}
+.HeaderButton:hover{
+    background: rgba(0, 0, 0, 0.60);
+}
+.TabElement{
+    padding: 11px 0 11px 15px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 177px;
+    cursor: pointer;
+}
+.TabElement svg{
+    margin-right: 10px;
+}
+.TabElement:hover{
+    background-color: #0091D5;
+    color: #FFF;
+}
+.TabElement:hover .NewsIcon path, .TabElement:hover .PopularIcon path{
+    fill: #FFF;
+}
+.TabElement:hover .SubscribesIcon path, .TabElement:hover .ChannelsIcon path, .TabElement:hover .SavedIcon path{
+    stroke: #FFF;
+}
+.TabElement:hover .SubscribesIcon rect, .TabElement:hover .SubscribesIcon line{
+    stroke: #FFF;
+}
+
+.ChannelElement{
+    list-style: none;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 11px 0 11px 15px;
+    width: 177px;
+    display: flex;
+    align-items: center;
+}
+.channelIconLeft{
+    margin-right: 15px;
+}
+.TabMenu{
+    margin-bottom: 60px;
+    padding-left: 0;
+}
+.ChannelsLeftMenu{
+    padding-left: 0;
+}
+.MainPage {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.PopularAutors {
+    width: 301px;
+    border-radius: 15px;
+    background: #FFF;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.PopularAutorsHeader {
+    display: flex;
+    color: #151D2D;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.PopularAutorsHeader svg{
+    margin-right: 15px;
 }
