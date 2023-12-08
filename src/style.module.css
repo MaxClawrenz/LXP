@@ -125,3 +125,22 @@
 .PopularAutorsHeader svg{
     margin-right: 15px;
 }
+
+.mainContainer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.blockForButtonAddCover {
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    border-radius: 15px;
+  }
+
+  .iconAddCover {
+    width: 10px;
+    height: 10px;
+    margin-right: 12px;
+  }
