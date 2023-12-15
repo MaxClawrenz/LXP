@@ -191,6 +191,7 @@
 
   .nameTab_active {
     border-bottom: 2px solid #0091D5;
+    cursor: pointer;
   }
 
   .blockForCreateArticle {
@@ -453,3 +454,93 @@
     line-height: 1.6;
   }
 
+  .blockForComments {
+    border-radius: 15px;
+    background: #FFF;
+    margin-top: 35px;
+    box-sizing: border-box;
+    padding: 25px;
+  }
+
+  .componentComment {
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    margin-bottom: 25px;
+  }
+
+  .titlePost {
+    color: #000;
+    font-family: SF UI Display Bold;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .blockWithAythorCommentAndTime {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .authorComment {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+
+  .avatarAuthorComment {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .imgAvatarAuthorComment {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    object-fit: contain;
+  }
+
+  .nameAuthorCommet {
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .timeAgoCreateComment {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .textComment {
+    margin-top: 20px;
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .btnAnswer {
+    margin-top: 30px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.50);
+    font-family: SF UI Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .btnAnswer:hover {
+    color: #3766A9;
+  }

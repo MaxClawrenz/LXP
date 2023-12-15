@@ -1,3 +1,4 @@
+import CommentsForMyChannel from './CommentsForMyChannel';
 import MyFirstArticle from './MyFirstArticle';
 import MySubscriebers from './MySubsribers';
 import PostCardForMyChannel from './PostCardForMyChannel';
@@ -36,8 +37,9 @@ function ArticlesForMyChannel() {
                     </div>
                 </div>
            </div>
-                <MyFirstArticle/>
-                <PostCardForMyChannel/>
+                {/* <MyFirstArticle/>
+                <PostCardForMyChannel/> */}
+                <CommentsForMyChannel/>
            </div>
         <MySubscriebers/>
        </div>

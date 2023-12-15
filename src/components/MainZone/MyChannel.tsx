@@ -8,7 +8,7 @@ function MyChannel() {
     <div className={style_channels.channel_block}>
         <AddCoverChannel />
         <MyChannelInfo />
-        <ArticlesForMyChannel />
+        <ArticlesForMyChannel />  
     </div>
     )
   }
