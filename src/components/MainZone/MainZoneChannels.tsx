@@ -1,10 +1,11 @@
+import { IMainZoneChannels } from '../../interfaces/IMainZoneChannels';
 import MyChannel from './MyChannel';
 
 
-function MainZoneChannels() {
+function MainZoneChannels(props:IMainZoneChannels) {
     return (
     <div className="MainZone">
-        <MyChannel />
+        <MyChannel userId={0}/>
 
     </div>
     )

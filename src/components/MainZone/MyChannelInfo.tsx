@@ -2,7 +2,7 @@ import style_channels from './style_channels.module.css';
 
 function MyChannelInfo() {
     return (
-        <div className={style_channels.blockForMyChannelInfo}>
+        <div className={style_channels.blockForMyChannelInfo_cover}>
            <div className={style_channels.blockForTopButtons}>
                 <div className={style_channels.avatarChannelButton}>
                     <div className={style_channels.hoverBlockImg}>

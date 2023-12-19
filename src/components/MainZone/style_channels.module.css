@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 44px;
+    margin-bottom: 35px;
   }
 
   .iconAddCover {
@@ -51,8 +52,17 @@
     flex-direction: column;
     padding: 25px;
     box-sizing: border-box;
-    margin-top: 35px;
   }
+
+  .blockForMyChannelInfo_cover {
+    border-radius: 0 0 15px 15px;
+    width: 100vh;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    box-sizing: border-box;
+  }  
 
   .blockForTopButtons {
     display: flex;
@@ -543,4 +553,18 @@
 
   .btnAnswer:hover {
     color: #3766A9;
+  }
+
+  .imgCoverChannel {
+    width: 100vh;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .blockForImgCoverChannel {
+    width: 100vh;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
   }
