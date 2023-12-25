@@ -1,4 +1,5 @@
 import { ITabElement } from "../../../interfaces/ITabElement";
+import news from "../../../store/news";
 import styles from "../../../style.module.css";
 
 function TabElement(props: ITabElement) {

@@ -28,7 +28,7 @@ function SubscribesIcon() {
       <path
         d="M6.3158 7.36843L7.75019 8.80282C8.12627 9.1789 8.73093 9.1948 9.12626 8.83901L13.6842 4.73685"
         stroke="#151D2D"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   );

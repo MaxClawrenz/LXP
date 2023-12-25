@@ -8,21 +8,40 @@ import styles from "../../../style.module.css";
 import { Link, Route } from "react-router-dom";
 import TabRoute from "./TabRouteComponent";
 
-
 function TabLeftMenu() {
   return (
-    
     <ul className={styles.TabMenu}>
-        <Link to="/">
-          <TabRoute name="Свежее"><NewsIcon /></TabRoute>
-        </Link> 
-        
-        <Link to="/_wt/eqvatoria_lxp_popular"> <TabRoute name="Популярное"><PopularIcon /></TabRoute></Link>
-        <Link to="/_wt/eqvatoria_lxp_subscribes"> <TabRoute name="Подписки"><SubscribesIcon /></TabRoute></Link>
-        <Link to="/_wt/eqvatoria_lxp_channels"> <TabRoute name="Каналы"><ChannelsIcon /></TabRoute></Link>
-        <Link to="/_wt/eqvatoria_lxp_saved"> <TabRoute name="Сохранённое"><SavedIcon /></TabRoute></Link>
+      <Link to="/_wt/lxp">
+        <TabRoute name="Свежее">
+          <NewsIcon />
+        </TabRoute>
+      </Link>
+
+      <Link to="/_wt/eqvatoria_lxp_popular">
+        {" "}
+        <TabRoute name="Популярное">
+          <PopularIcon />
+        </TabRoute>
+      </Link>
+      <Link to="/_wt/eqvatoria_lxp_subscribes">
+        {" "}
+        <TabRoute name="Подписки">
+          <SubscribesIcon />
+        </TabRoute>
+      </Link>
+      <Link to="/_wt/eqvatoria_lxp_channels">
+        {" "}
+        <TabRoute name="Каналы">
+          <ChannelsIcon />
+        </TabRoute>
+      </Link>
+      <Link to="/_wt/eqvatoria_lxp_saved">
+        {" "}
+        <TabRoute name="Сохранённое">
+          <SavedIcon />
+        </TabRoute>
+      </Link>
     </ul>
-   
   );
 }
 
