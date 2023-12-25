@@ -1,6 +1,14 @@
+import { observer } from "mobx-react-lite";
 import styles from "../../style.module.css";
+import AutorElement from "./AutorElement";
+import { useEffect } from "react";
+import popularAutors from "../../store/popularAutors";
 
 function PopularAutors() {
+  useEffect(() => {
+    popularAutors.getPopularAutors();
+  }, []);
+
   return (
     <div className={styles.PopularAutors}>
       <div className={styles.PopularAutorsHeader}>
@@ -21,8 +29,16 @@ function PopularAutors() {
         </svg>
         Популярные авторы
       </div>
+      {popularAutors.popularAutors.map((user, index) => (
+        <AutorElement
+          key={index}
+          pict_url={""}
+          fio={"Максим Туктаров"}
+          rating={1000}
+        />
+      ))}
     </div>
   );
 }
 
-export default PopularAutors;
+export default observer(PopularAutors);

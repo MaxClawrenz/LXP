@@ -34,6 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 44px;
 }
 .HeaderButton{
     border-radius: 9px;
@@ -97,6 +98,7 @@
 }
 .TabMenu{
     margin-bottom: 60px;
+    margin-top: 0px;
     padding-left: 0;
 }
 .ChannelsLeftMenu{
@@ -106,6 +108,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-grow: 1;
 }
 .PopularAutors {
     width: 301px;
@@ -121,13 +124,12 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-bottom: 27px;
 }
 .PopularAutorsHeader svg{
     margin-right: 15px;
 }
-.body{
-    background-color: #F2F3F5;
-}
+
 .mainContainer{
     display: flex;
     align-items: flex-start;
@@ -272,3 +274,4 @@ line-height: normal;
 .news_observer{
     width: 100%;
 }
+

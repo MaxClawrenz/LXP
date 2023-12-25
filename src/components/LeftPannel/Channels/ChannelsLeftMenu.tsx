@@ -4,7 +4,7 @@ import styles from "../../../style.module.css";
 function ChannelsLeftMenu() {
   return (
     <ul className={styles.ChannelsLeftMenu}>
-      <ChannelElement name="Chanel's name" pict_url="123" />
+      <ChannelElement name="Chanel's name" pict_url="" />
     </ul>
   );
 }
