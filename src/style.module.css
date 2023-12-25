@@ -129,6 +129,7 @@
 .PopularAutorsHeader svg{
     margin-right: 15px;
 }
+
 .mainContainer{
     display: flex;
     align-items: flex-start;
@@ -273,3 +274,4 @@ line-height: normal;
 .news_observer{
     width: 100%;
 }
+
