@@ -1,73 +1,22 @@
+import { IMySubscriebers } from '../../interfaces/IMySubscriebers';
+import CardSubscrieber from './CardSubscrieber';
 import style_channels from './style_channels.module.css';
 
-function MySubscriebers() {
+function MySubscriebers(props:IMySubscriebers) {
     return (               
            <div className={style_channels.blockForSubscriber}>
                 <div className={style_channels.blockForTitlesSubsriberAndCount}>
                     <div className={style_channels.titleBlocksubscriber}>Подписчики</div>
-                    <div className={style_channels.countBlocksubscriber}>25555</div>
+                    <div className={style_channels.countBlocksubscriber}>{props.arrCountSubscriptionsChannels}</div>
                 </div>
                 <div className={style_channels.blockWithPhotosSubscribers}>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
-                    <div className={style_channels.cardSubscriber}>
-                        <a href='https://via.placeholder.com/150/92c952' className='linkSubscriber'>
-                            <img className={style_channels.imgSubsriber} src='https://via.placeholder.com/150/92c952' alt='' id=''/>
-                        </a>
-                    </div>
+                    {props.arrSubscriptionsInChannel.map( (subscriber) => (
+                        <CardSubscrieber 
+                        subscriberId={subscriber.subscriberId} 
+                        subscriberFullname={subscriber.subscriberFullname} 
+                        subscriberPhoto={subscriber.subscriberPhoto} 
+                        />
+                    ))}
                 </div>
                 <div className='linkShowAllSubscribers'><a href='#' className='linkShowSubscribes'>Показать всех</a></div>
            </div>

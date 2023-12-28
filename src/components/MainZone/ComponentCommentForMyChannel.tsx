@@ -1,25 +1,26 @@
 
+import { IComponentCommentForMyChannel } from '../../interfaces/IComponentCommentForMyChannel';
 import style_channels from './style_channels.module.css';
 
-function ComponentCommentForMyChannel() {
+function ComponentCommentForMyChannel(props:IComponentCommentForMyChannel) {
     return (      
             <div className={style_channels.componentComment}>
                 <div className={style_channels.titlePost}>
-                Adobe анонсировала несколько новых нейросетей — в том числе для создания векторных иллюстраций
+                {props.commentNamePost}
                 </div>
                 <div className={style_channels.blockWithAythorCommentAndTime}>
                     <div className={style_channels.authorComment}>
                         <div className={style_channels.avatarAuthorComment}>
-                            <img className={style_channels.imgAvatarAuthorComment} src='https://via.placeholder.com/150/92c952' alt=''/>
+                            <img className={style_channels.imgAvatarAuthorComment} src={props.avatarUserCommentId} alt=''/>
                         </div>
-                        <div className={style_channels.nameAuthorCommet}>Туктаров Максим</div>
+                        <div className={style_channels.nameAuthorCommet}>{props.commentPersonFullname}</div>
                     </div>
-                    <div className={style_channels.timeAgoCreateComment}>15 минут </div>
+                    <div className={style_channels.timeAgoCreateComment}>{props.commentCreateDate}</div>
                 </div>
                 <div className={style_channels.textComment}>
-                Ура ура! Новые фишки подъехали! Кто уже пробовал?
+                {props.commentMessage}
                 </div>
-                <div className={style_channels.btnAnswer}>Ответить</div>
+                <div className={style_channels.btnAnswer} id='`${props.commentId}`'>Ответить</div>
             </div>
 
     )

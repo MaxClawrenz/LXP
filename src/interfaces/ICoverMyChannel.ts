@@ -1,5 +1,5 @@
 export interface ICoverMyChannel{
-    userId: number,
-    channelId: number
-    imgId: number,
+    channelId: number,
+    authorID: number,
+    coverChannelID: number,
 }

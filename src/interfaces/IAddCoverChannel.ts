@@ -1,4 +1,6 @@
 export interface IAddCoverChannel{
-    userId: number,
-    channelId: number
+    key: number,
+    channelId: number,
+    authorID: number,
+    coverChannelID: number,
 }

@@ -1,17 +1,19 @@
+import { IArticlesForMyChannel } from '../../interfaces/IArticlesForMyChannel';
 import CommentsForMyChannel from './CommentsForMyChannel';
 import MyFirstArticle from './MyFirstArticle';
 import MySubscriebers from './MySubsribers';
 import PostCardForMyChannel from './PostCardForMyChannel';
 import style_channels from './style_channels.module.css';
 
-function ArticlesForMyChannel() {
+
+function ArticlesForMyChannel(props: IArticlesForMyChannel) {
     return (
         <div className={style_channels.blockForMyChannelArticles}>
         <div className={style_channels.createAndNewArticles}>
            <div className={style_channels.blockForCreateArticle}>
                 <div className={style_channels.topBlockTitle}>
                     <div className={style_channels.avatarBlock}>
-                        <img alt='' src='https://via.placeholder.com/150/771796' className={style_channels.imgChannelAvatar}/>
+                        <img alt='' src='`/download_file.html?file_id=${props.avatarChannelID}`' className={style_channels.imgChannelAvatar}/>
                     </div>
                     <div className={style_channels.btnNewPost}>Новая запись</div>
                 </div>
@@ -37,11 +39,27 @@ function ArticlesForMyChannel() {
                     </div>
                 </div>
            </div>
-                {/* <MyFirstArticle/>
-                <PostCardForMyChannel/> */}
-                <CommentsForMyChannel/>
+           {props.createMyFirstPost && props.arrPostsInChannel.length === 0 &&
+                <MyFirstArticle 
+                channelId={props.channelId} 
+                authorID={props.authorID}
+                />
+           }
+           {props.viewMyPosts && props.arrPostsInChannel.length > 0 &&
+                props.arrPostsInChannel.map((post) => (
+                    <PostCardForMyChannel key={post.postChannelsId} postChannelsId={post.postChannelsId} postChannelsTitle={post.postChannelsTitle} postChannelsAnonce={post.postChannelsAnonce} postText={post.postText} postCreateDate={post.postCreateDate} arrCountLikesPost={post.arrCountLikesPost} arrCountCommentsPost={post.arrCountCommentsPost} arrCountSubscriptionsPost={post.arrCountSubscriptionsPost} channelId={props.channelId} channelName={props.channelName} authorID={props.authorID} avatarChannelID={props.avatarChannelID} arrKnowlegesPost={post.arrKnowlegesPost} arrTagsPost={post.arrTagsPost} />
+           ))
+           }
+           {props.viewMyComments && props.arrComments.length > 0 &&
+                <CommentsForMyChannel arrComments={props.arrComments} />
+           }
            </div>
-        <MySubscriebers/>
+        {props.arrSubscriptionsInChannel.length > 0 &&
+        <MySubscriebers 
+        arrSubscriptionsInChannel={props.arrSubscriptionsInChannel} 
+        arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels}
+        />
+        }
        </div>
 
     )

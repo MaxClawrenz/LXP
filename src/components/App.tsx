@@ -7,6 +7,7 @@ import styles from "../style.module.css";
 
 
 function App() {
+ 
   return (
     <>
       <Header />
@@ -16,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="*" element={<MainPage />} />
-          <Route path="/_wt/eqvatoria_lxp_channels" element={<MainPageChannels />} />
+          <Route path="/_wt/eqvatoria_lxp_channels" element={<MainPageChannels userId={0}/>} />
         </Routes>
       </div>
     </>

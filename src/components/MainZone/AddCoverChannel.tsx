@@ -1,6 +1,7 @@
+import { IAddCoverChannel } from '../../interfaces/IAddCoverChannel';
 import style_channels from './style_channels.module.css';
 
-function AddCoverChannel() {
+function AddCoverChannel(props:IAddCoverChannel) {
     return (
          <div className={style_channels.blockForButtonAddCover}>
             <button className={style_channels.btnDialogForAddCover} >

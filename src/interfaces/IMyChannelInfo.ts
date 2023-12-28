@@ -1,12 +1,16 @@
 export interface IMyChannelInfo{
-    userId: number,
+    key: number,
     channelId: number,
-    avatarChannelId: number,
-    nameChannel: string,
-    decriptChannel: string,
-    authorId: number,
-    activeTabPost: any,
-    setActiveTabPost: any,
-    activeTabComment: any,
-    setActiveTabComment: any
+    channelName: string;
+    authorID: number,
+    authorFullname: string,
+    channelDecript: string,
+    avatarChannelID: number,
+    coverChannelID: number,
+    arrPostsInChannel: any[],
+    arrSubscriptionsInChannel: any[],
+    arrKnowlegesParts: any[],
+    arrTags: any[],
+    arrComments: any[],
+    arrCountSubscriptionsChannels: number
 }

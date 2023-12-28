@@ -1,14 +1,20 @@
 export interface IArticlesForMyChannel{
-    userId: number,
     channelId: number,
-    avatarChannelId: number,
-    nameChannel: string,
-    decriptChannel: string,
-    authorId: number,
+    channelName: string,
+    authorID: number,
+    authorFullname: string,
+    avatarChannelID: number,
+    coverChannelID: number,
+    arrPostsInChannel: any[],
+    arrSubscriptionsInChannel: any[],
+    arrKnowlegesParts: any[],
+    arrTags: any[],
+    arrComments: any[],
     viewMyPosts: any,
     setViewMyPosts: any,
     viewMyComments: any,
     setViewMyComments: any,
     createMyFirstPost: any,
-    setCreateMyFirstPost: any
+    setCreateMyFirstPost: any,
+    arrCountSubscriptionsChannels: number
 }

@@ -1,10 +1,13 @@
+import { IMainPageChannels } from "../interfaces/IMainPageChannels";
 import style from "../style.module.css";
 import MainZoneChannels from "./MainZone/MainZoneChannels";
 
-function MainPageChannels() {
+
+function MainPageChannels(props: IMainPageChannels) {
+  
   return (
     <div className={style.MainPage}>
-      <MainZoneChannels />
+      <MainZoneChannels/>
     </div>
   );
 }
