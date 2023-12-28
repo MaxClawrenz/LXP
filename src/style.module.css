@@ -34,6 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 44px;
 }
 .HeaderButton{
     border-radius: 9px;
@@ -97,6 +98,7 @@
 }
 .TabMenu{
     margin-bottom: 60px;
+    margin-top: 0px;
     padding-left: 0;
 }
 .ChannelsLeftMenu{
@@ -106,6 +108,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-grow: 1;
 }
 .PopularAutors {
     width: 301px;
@@ -121,6 +124,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-bottom: 27px;
 }
 .PopularAutorsHeader svg{
     margin-right: 15px;
@@ -130,6 +134,146 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+}
+
+.PostCard{
+    width: 568px;
+    height: 272px;
+    border-radius: 15px;
+    background: #FFF;
+    box-sizing: border-box;
+    padding: 20px 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+.LeftZone {
+    margin-right: 70px;
+    width: 196px;
+}
+.MainZone {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.RightZone {
+    margin-left: 35px;
+}
+
+.channelBlock {
+    display: flex;
+    align-items: center;
+    margin-right: 11px;
+}
+
+.leftHeader {
+    display: flex;
+    align-items: center;
+}
+.cardKnowledge{
+    margin-right: 11px;
+    color: rgba(0, 0, 0, 0.50);
+    font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.cardTime{
+    color: rgba(0, 0, 0, 0.50);
+    font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+.channelPict{
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 11px;
+}
+.buttonSubscribe{
+    color: #0091D5;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+}
+.channelName{
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.cardTitle{
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+.cardDesc{
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bottomZone{
+    display: flex;
+}
+.numberCount{
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 8px;
+    margin-right: 26px;
+}
+.likesCount, .commentsCount, .favouriteCount{
+    display: flex;
+    align-items: center;
+}
+.AutorPict{
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    margin-right: 11px;
+}
+.AutorName,.AutorRate{
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.AutorElement{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 17px;
+}
+.AutorLeft{
+    display: flex;
+    align-items: center;
+}
+.news_observer{
+    width: 100%;
 }
 
 .blockForButtonAddCover {
@@ -144,3 +288,4 @@
     height: 10px;
     margin-right: 12px;
   }
+

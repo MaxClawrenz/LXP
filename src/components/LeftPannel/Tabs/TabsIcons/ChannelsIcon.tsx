@@ -20,11 +20,7 @@ function ChannelsIcon() {
         stroke="#151D2D"
         strokeLinecap="round"
       />
-      <path
-        d="M4.36002 11.56H7.40002"
-        stroke="#151D2D"
-        strokeLinecap="round"
-      />
+      <path d="M4.36002 11.56H7.40002" stroke="#151D2D" strokeLinecap="round" />
     </svg>
   );
 }

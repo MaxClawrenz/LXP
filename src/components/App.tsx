@@ -14,10 +14,9 @@ function App() {
       <div className={styles.mainContainer}>
         <LeftZone />
         
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="*" element={<MainPage />} />
-          <Route path="/_wt/eqvatoria_lxp_channels" element={<MainPageChannels userId={0}/>} />
+        <Routes>       
+          <Route path="/_wt/eqvatoria_lxp_channels" element={<MainPageChannels/>} />
+          <Route path="/_wt/lxp" element={<MainPage />} />
         </Routes>
       </div>
     </>
