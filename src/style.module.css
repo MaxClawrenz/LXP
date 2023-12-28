@@ -63,6 +63,7 @@
     justify-content: flex-start;
     width: 177px;
     cursor: pointer;
+    color: rgba(21, 29, 45, 1);
 }
 .TabElement svg{
     margin-right: 10px;
@@ -166,6 +167,7 @@
     display: flex;
     align-items: center;
     margin-right: 11px;
+    width: 136px;
 }
 
 .leftHeader {
@@ -179,6 +181,9 @@
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+display: flex;
+margin-right: 50px;
+cursor: pointer;
 }
 .cardTime{
     color: rgba(0, 0, 0, 0.50);

@@ -7,7 +7,6 @@ class News {
     newsArr:IPostCard[] = [];
     isLoading:boolean = false;
     _limit:number = 4;
-    //_target: string | number = new Date().toJSON().split('T')[0];
     _target: string | number = 0;
 
     constructor(){
