@@ -135,6 +135,7 @@
     align-items: flex-start;
     justify-content: space-between;
 }
+
 .PostCard{
     width: 568px;
     height: 272px;
@@ -274,4 +275,17 @@ line-height: normal;
 .news_observer{
     width: 100%;
 }
+
+.blockForButtonAddCover {
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    border-radius: 15px;
+  }
+
+  .iconAddCover {
+    width: 10px;
+    height: 10px;
+    margin-right: 12px;
+  }
 
