@@ -20,7 +20,7 @@ function ComponentCommentForMyChannel(props:IComponentCommentForMyChannel) {
                 <div className={style_channels.textComment}>
                 {props.commentMessage}
                 </div>
-                <div className={style_channels.btnAnswer} id='`${props.commentId}`'>Ответить</div>
+                <div className={style_channels.btnAnswer} id={`${props.commentId}`}>Ответить</div>
             </div>
 
     )
