@@ -13,7 +13,7 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
            <div className={style_channels.blockForCreateArticle}>
                 <div className={style_channels.topBlockTitle}>
                     <div className={style_channels.avatarBlock}>
-                        <img alt='' src='`/download_file.html?file_id=${props.avatarChannelID}`' className={style_channels.imgChannelAvatar}/>
+                        <img alt='' src={`/download_file.html?file_id=${props.avatarChannelID}`} className={style_channels.imgChannelAvatar}/>
                     </div>
                     <div className={style_channels.btnNewPost}>Новая запись</div>
                 </div>
