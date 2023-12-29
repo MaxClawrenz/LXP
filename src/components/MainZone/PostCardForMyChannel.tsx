@@ -9,7 +9,7 @@ function PostCardForMyChannel(props: IPostCardForMyChannel) {
                     <div className={style_channels.cardMyArticles}>
                         <div className={style_channels.titleCardMyArticle}>
                             <div className={style_channels.avatarChannel}>
-                                <img src='`/download_file.html?file_id=${props.avatarChannelID}`' className={style_channels.imgAvatarChannelArticle} alt=''/>
+                                <img src={`/download_file.html?file_id=${props.avatarChannelID}`} className={style_channels.imgAvatarChannelArticle} alt=''/>
                             </div>
                             <div className={style_channels.nameChannel}>{props.channelName}</div>
 

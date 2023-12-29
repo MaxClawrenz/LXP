@@ -31,7 +31,7 @@ function MyChannelInfo(props:IMyChannelInfo) {
                             <path d="M17.5527 0H0.665214C0.298415 0 0 0.324684 0 0.723771V16.2762C0 16.6753 0.298415 17 0.665214 17H17.5527C17.9195 17 18.2179 16.6753 18.2179 16.2762V0.723771C18.2179 0.324684 17.9195 0 17.5527 0ZM17.1504 1.16142V10.3524L13.7932 6.69949C13.5743 6.46177 13.2184 6.46192 12.9996 6.69995L8.25151 11.866L5.21858 8.56624C5.11253 8.4507 4.97145 8.38703 4.82134 8.38703C4.67137 8.38703 4.53043 8.45055 4.42438 8.56594L1.06746 12.2184V1.16142H17.1504ZM1.06746 15.8386V13.8608L4.82134 9.7765L7.85413 13.0763C7.96032 13.1918 8.1014 13.2556 8.25151 13.2556C8.40134 13.2556 8.54242 13.192 8.64833 13.0766L13.3966 7.91037L17.1506 11.9948V15.8386H1.06746Z" fill="white" />
                         </svg>
 
-                        <img alt='' className={style_channels.imgChannel} src="`/download_file.html?file_id=${props.avatarChannelID}`" id="" />
+                        <img alt='' className={style_channels.imgChannel} src={`/download_file.html?file_id=${props.avatarChannelID}`} id="" />
                     </div>
                 </div>
                 <div className={style_channels.btnsChangeAndTheme}>
@@ -47,7 +47,7 @@ function MyChannelInfo(props:IMyChannelInfo) {
             <div className={style_channels.channelDescript}>{props.channelDecript}</div>
             <div className={style_channels.changeDescript}>Изменить описание</div>
             <div className={style_channels.authorChannel}>Авторы канала:
-                <span className={style_channels.nameAuthor}><a className={style_channels.linkAuthor} href='`/_wt/${props.authorID}`' target='_blank'> {props.authorFullname}</a></span>
+                <span className={style_channels.nameAuthor}><a className={style_channels.linkAuthor} href={`/_wt/${props.authorID}`} target='_blank'> {props.authorFullname}</a></span>
             </div>
             <div className={style_channels.tabsForCommentsOrArticles}>
                 <div className={activeTabPost} id={style_channels.articlesChannel} onClick={() => {setViewMyPosts(true), setViewMyComments(false), setActiveTabComment(style_channels.nameTab), setActiveTabPost(style_channels.nameTab_active)}}>Статьи</div>
