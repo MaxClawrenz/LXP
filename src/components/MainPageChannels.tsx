@@ -4,10 +4,9 @@ import MainZoneChannels from "./MainZone/MainZoneChannels";
 
 
 function MainPageChannels() {
-  
   return (
     <div className={style.MainPage}>
-      <MainZoneChannels/>
+      <MainZoneChannels />
     </div>
   );
 }
