@@ -14,7 +14,7 @@ function App() {
 
         <Routes>
           <Route
-            path="/_wt/eqvatoria_lxp_channels/:id"
+            path="/_wt/eqvatoria_lxp_channels"
             element={<MainPageChannels />}
           />
           <Route path="/_wt/lxp" element={<MainPage />} />
