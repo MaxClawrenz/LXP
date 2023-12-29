@@ -3,7 +3,7 @@ import style from "../style.module.css";
 import MainZoneChannels from "./MainZone/MainZoneChannels";
 
 
-function MainPageChannels(props: IMainPageChannels) {
+function MainPageChannels() {
   
   return (
     <div className={style.MainPage}>
