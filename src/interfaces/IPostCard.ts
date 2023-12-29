@@ -1,12 +1,11 @@
-import { CSSProperties } from "react";
-
 export interface IPostCard {
     id: string,
     channel_pict: string,
     channel_name: string,
     channel_id: string,
     knowledge_name: string,
-    time_posted: string,
+    time_posted: number,
+    create_date: string,
     is_follow: boolean,
     post_name: string,
     post_text: string,

@@ -1,3 +1,3 @@
 export interface IMainPageChannels{
-    userId: number,
+    userId?: number,
 }
