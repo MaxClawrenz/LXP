@@ -1,5 +1,3 @@
-import { CSSProperties } from "react";
-
 export interface IPostCard {
     id: string,
     channel_pict: string,

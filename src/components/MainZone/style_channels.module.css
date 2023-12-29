@@ -1,0 +1,582 @@
+.blockForButtonAddCover {
+    background-color: #FFF;
+    display: flex;
+    border-radius: 15px;
+    width: 100vh;
+    height: 69px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 44px;
+    margin-bottom: 35px;
+  }
+
+  .iconAddCover {
+    margin-right: 12px;
+  }
+
+  .btnDialogForAddCover {
+    width: 241px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    background: #FFF;
+    cursor: pointer;
+  }
+
+.btnDialogForAddCover:hover {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}  
+
+  .btnTextForAddCover {
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .channel_block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blockForMyChannelInfo {
+    width: 100vh;
+    background-color: #FFF;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    box-sizing: border-box;
+  }
+
+  .blockForMyChannelInfo_cover {
+    border-radius: 0 0 15px 15px;
+    width: 100vh;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    box-sizing: border-box;
+  }  
+
+  .blockForTopButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .imgChannel {
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
+    border: 3px solid #FFF;
+  }
+
+  #iconChangedAvatar {
+    position: absolute;
+    display: none;
+  }
+
+  .hoverBlockImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    border: 3px solid #FFF;
+    cursor: pointer;
+  }
+
+  .hoverBlockImg:hover {
+    background: rgba(196, 196, 196, 0.40);
+  }
+
+  .hoverBlockImg:hover #iconChangedAvatar {
+    display: block;
+  }
+
+  .btnsChangeAndTheme {
+    display: flex;
+  }
+
+  .buttonChange {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    background: #FFF;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+  .buttonChange:hover {
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+  }
+
+  .buttonSelectTheme {
+    border-radius: 5px;
+    background: #0091D5;
+    padding: 8px 15px 8px 15px;
+    color: #FFF;
+    font-size: 14px;
+    font-family: SF UI Display Regular;
+    font-style: normal;
+    line-height: normal;
+    cursor: pointer;
+    height: 34px;
+    box-sizing: border-box;
+  }
+
+  .buttonSelectTheme:hover {
+    background: rgba(0, 0, 0, 0.60);
+  }
+
+  .titleChannel {
+    color: #151D2D;
+    font-family: SF UI Display Regular;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 15px;
+  }
+
+  .changeDescript {
+    color: #3766A9;
+    font-family: SF UI Display Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+
+  .authorChannel {
+    color: #151D2D;
+    font-family: SF UI Display Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 53px;
+  }
+
+  .nameAuthor {
+    color: #3766A9;
+    font-family: SF UI Display Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .linkAuthor {
+    text-decoration: none;
+  }
+
+  .tabsForCommentsOrArticles {
+    display: flex;
+    justify-content: start;
+  }
+
+  .nameTab {
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 11px;
+    cursor: pointer;
+    margin-right: 34px;
+  }
+
+  .nameTab_active {
+    border-bottom: 2px solid #0091D5;
+    cursor: pointer;
+    margin-right: 34px;
+  }
+
+  .blockForCreateArticle {
+    border-radius: 15px;
+    background: #FFF;
+    margin-top: 35px;
+    padding: 25px;
+    box-sizing: border-box;
+  }
+
+  .topBlockTitle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px;
+  }
+
+  .avatarBlock {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    margin-right: 20px;
+  }
+
+  .imgChannelAvatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    margin-right: 20px;
+  }
+
+  .channelDescript {
+    color: #151D2D;
+    font-family: SF UI Display Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 14px;
+    margin-bottom: 30px;
+  }
+
+  .btnNewPost {
+    color: rgba(0, 0, 0, 0.80);
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .btnNewPost:hover {
+    color: #FFAE00;
+  }
+
+  .blockForBtnsPhotoAndLink {
+    display: flex;
+    align-items: center;
+  }
+
+  .btnPhotoVideo {
+    display: flex;
+    margin-right: 10px;
+    border-radius: 100px;
+    background: rgba(51, 51, 51, 0.06);
+    padding: 5px 15px 5px 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .btnPhotoVideo:hover {
+    background: rgba(51, 51, 51, 0.15);
+  }
+
+  .iconPhotoAndVideo, .iconLink {
+    margin-right: 10px;
+  }
+
+  .textBtn {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .blockCreateFirstArticle {
+    background: #FFF;
+    border-radius: 15px;
+    box-sizing: border-box;
+    margin-top: 35px;
+    padding: 90px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .descriptCreateFirstArticle {
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 25px;
+  }
+
+  .btnCreateFirstArticle {
+    border-radius: 6px;
+    background: #0091D5;
+    color: #FFF;
+    padding: 8px 24px 8px 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .btnCreateFirstArticle:hover {
+    background: rgba(0, 0, 0, 0.60);
+  }
+
+  .blockForMyChannelArticles {
+    display: flex;
+  }
+
+  .createAndNewArticles {
+    width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 35px;
+  }
+
+  .blockForSubscriber {
+    width: 33%;
+    background: #FFF;
+    margin-top: 35px;
+    border-radius: 15px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 206px;
+  }
+
+  .blockForTitlesSubsriberAndCount {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  .titleBlocksubscriber {
+    color: #000;
+    font-family: SF UI Display Bold;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .countBlocksubscriber {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .cardSubscriber {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    margin-right: 14px;
+  margin-bottom: 14px;
+  }
+
+  .blockWithPhotosSubscribers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: start;
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+
+  .imgSubsriber {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+
+  .blockForMyReadyArticles {
+    margin-top: 35px;
+  }
+
+  .cardMyArticles {
+    border-radius: 15px;
+    background: #FFF;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .titleCardMyArticle {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatarChannel {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .imgAvatarChannelArticle {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  .nameChannel {
+    margin-right: 25px;
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .channelTheme, .articleTimeAgo {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 25px;
+  }
+
+  .titleForArticle {
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 30px;
+  }
+
+  .textShortForArticle {
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 15px;
+  }
+
+  .blockForStatisticArticle {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .likesCountForArticle, .commentsCountForArticles, .bookmarksCountForArticles {
+    display: flex;
+    margin-right: 27px;
+  }
+
+  .likeIconArticle, .iconComments, .iconBookmarks {
+    margin-right: 8px;
+  }
+
+  .textStatistic {
+    color: rgba(0, 0, 0, 0.65);
+    font-family: SF UI Display Regular;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .blockForComments {
+    border-radius: 15px;
+    background: #FFF;
+    margin-top: 35px;
+    box-sizing: border-box;
+    padding: 25px;
+  }
+
+  .componentComment {
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    margin-bottom: 25px;
+  }
+
+  .titlePost {
+    color: #000;
+    font-family: SF UI Display Bold;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .blockWithAythorCommentAndTime {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .authorComment {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+
+  .avatarAuthorComment {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .imgAvatarAuthorComment {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    object-fit: contain;
+  }
+
+  .nameAuthorCommet {
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .timeAgoCreateComment {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .textComment {
+    margin-top: 20px;
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .btnAnswer {
+    margin-top: 30px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.50);
+    font-family: SF UI Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .btnAnswer:hover {
+    color: #3766A9;
+  }
+
+  .imgCoverChannel {
+    width: 100vh;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .blockForImgCoverChannel {
+    width: 100vh;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+  }
