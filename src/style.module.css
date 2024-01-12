@@ -64,8 +64,24 @@
     width: 177px;
     cursor: pointer;
     color: rgba(21, 29, 45, 1);
+    border-radius: 5px;
+}
+.TabElementSelected{
+    padding: 11px 0 11px 15px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 177px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.06);
+    color: rgba(21, 29, 45, 1);
+    border-radius: 5px;
 }
 .TabElement svg{
+    margin-right: 10px;
+}
+.TabElementSelected svg{
     margin-right: 10px;
 }
 .TabElement:hover{
@@ -80,6 +96,16 @@
 }
 .TabElement:hover .SubscribesIcon rect, .TabElement:hover .SubscribesIcon line{
     stroke: #FFF;
+}
+
+.TabElementSelected .NewsIcon path, .TabElementSelected .PopularIcon path{
+    fill: rgba(0, 145, 213, 1);
+}
+.TabElementSelected .SubscribesIcon path, .TabElementSelected .ChannelsIcon path, .TabElementSelected .SavedIcon path{
+    stroke: rgba(0, 145, 213, 1);
+}
+.TabElementSelected .SubscribesIcon rect, .TabElementSelected .SubscribesIcon line{
+    stroke: rgba(0, 145, 213, 1);
 }
 
 .ChannelElement{
