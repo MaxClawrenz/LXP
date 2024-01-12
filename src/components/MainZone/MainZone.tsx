@@ -9,7 +9,12 @@ function MainZone() {
   useEffect(() => {
     const newsObserver = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !news.isLoading) news.getNews();
+        if (
+          entries[0].isIntersecting &&
+          !news.isLoading &&
+          news._target !== "empty"
+        )
+          news.getNews();
       },
       {
         rootMargin: "0px",
@@ -43,6 +48,7 @@ function MainZone() {
           comments_count={post.comments_count}
           favourite_count={post.favourite_count}
           my_favourite={post.my_favourite}
+          create_date={post.create_date}
         />
       ))}
       {news.isLoading && <div>Loading...</div>}

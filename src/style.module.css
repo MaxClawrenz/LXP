@@ -63,6 +63,7 @@
     justify-content: flex-start;
     width: 177px;
     cursor: pointer;
+    color: rgba(21, 29, 45, 1);
 }
 .TabElement svg{
     margin-right: 10px;
@@ -135,6 +136,7 @@
     align-items: flex-start;
     justify-content: space-between;
 }
+
 .PostCard{
     width: 568px;
     height: 272px;
@@ -166,6 +168,7 @@
     display: flex;
     align-items: center;
     margin-right: 11px;
+    width: 136px;
 }
 
 .leftHeader {
@@ -179,6 +182,9 @@
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+display: flex;
+margin-right: 50px;
+cursor: pointer;
 }
 .cardTime{
     color: rgba(0, 0, 0, 0.50);
@@ -311,4 +317,17 @@ line-height: normal;
 .news_observer{
     width: 100%;
 }
+
+.blockForButtonAddCover {
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    border-radius: 15px;
+  }
+
+  .iconAddCover {
+    width: 10px;
+    height: 10px;
+    margin-right: 12px;
+  }
 

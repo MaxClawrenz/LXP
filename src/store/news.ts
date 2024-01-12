@@ -6,17 +6,19 @@ import PostCard from "../components/MainZone/PostCard";
 import { useState } from "react";
 
 class News {
-    newsArr: IPostCard[] = [];
-    isLoading: boolean = false;
-    _limit: number = 4;
-    //_target: string | number = new Date().toJSON().split('T')[0];
-    _target: string | number = 0;
+
+    newsArr:IPostCard[] = []; //пустой массив для новых постов
+    isLoading:boolean = false; //признак выполнения загрузки. По умолчанию false, в момент начала загрузки ставится в true
+    _limit:number = 4; //количество запрашиваемых с сервера постов
+    _target: string | number = 0; //дата последнего выгруженного поста
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    async getNews() {
+
+    //метод для загрузки новых постов
+    async getNews(){ 
         this.isLoading = true;
         try {
             const response: AxiosResponse<IResPosts> = await axios.get('/custom_web_template.html?object_code=lxp_news', {
