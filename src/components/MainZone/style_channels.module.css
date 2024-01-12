@@ -2,7 +2,7 @@
     background-color: #FFF;
     display: flex;
     border-radius: 15px;
-    width: 100vh;
+    width: 85vh;
     height: 69px;
     align-items: center;
     justify-content: center;
@@ -56,11 +56,11 @@
 
   .blockForMyChannelInfo_cover {
     border-radius: 0 0 15px 15px;
-    width: 100vh;
+    width: 85vh;
     background-color: #FFF;
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    padding: 0 25px 25px 25px;
     box-sizing: border-box;
   }  
 
@@ -87,8 +87,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 14px;
-    border: 3px solid #FFF;
     cursor: pointer;
+    margin-top: -25px;
   }
 
   .hoverBlockImg:hover {
@@ -101,6 +101,7 @@
 
   .btnsChangeAndTheme {
     display: flex;
+    margin-top: 25px;
   }
 
   .buttonChange {
@@ -203,6 +204,14 @@
     border-bottom: 2px solid #0091D5;
     cursor: pointer;
     margin-right: 34px;
+    color: #000;
+    font-family: SF UI Display Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 11px;
+    cursor: pointer;
   }
 
   .blockForCreateArticle {
@@ -323,6 +332,8 @@
 
   .blockForMyChannelArticles {
     display: flex;
+    justify-content: space-between;
+    width: 85vh;
   }
 
   .createAndNewArticles {
@@ -388,7 +399,8 @@
   .imgSubsriber {
     width: 30px;
     height: 30px;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 3px;
   }
 
   .blockForMyReadyArticles {
@@ -412,6 +424,26 @@
     width: 20px;
     height: 20px;
     margin-right: 10px;
+  }
+
+  .channelTheme {
+    cursor: pointer;
+  }
+
+  .channelTheme:hover {
+    cursor: pointer;
+  }
+
+  .iconTheme path {
+    cursor: pointer;
+    stroke: #0091D5;
+    stroke-width: 1.5;
+  }
+
+  .iconTheme:hover path {
+    stroke-width: 1.5;
+    fill: #0091D5;
+    stroke: #FFF;
   }
 
   .imgAvatarChannelArticle {
@@ -568,15 +600,67 @@
   }
 
   .imgCoverChannel {
-    width: 100vh;
+    width: 85vh;
     height: 230px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
   }
 
   .blockForImgCoverChannel {
-    width: 100vh;
+    width: 85vh;
     height: 230px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
   }
+
+  .blockForActionsOtherChannel {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
+    margin-bottom: -18px;
+  }
+
+  .btnsPopularAndNew {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .btnPopularOrNew {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    cursor: pointer;
+    margin-right: 37px;
+  }
+
+  .blockForTagsAndAnother {
+    display: flex;
+  }
+
+  .blockForTags {
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+  }
+
+  .blockForTags li {
+    margin-right: 15px;
+  }
+
+  .btnAnother {
+    display: flex;
+    align-items: center;
+  }
+
+  .btnAnotherText {
+    color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-right: 8px;
+  }
+
+ 
