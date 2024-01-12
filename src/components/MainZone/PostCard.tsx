@@ -1,10 +1,13 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { IPostCard } from "../../interfaces/IPostCard";
 import styles from "../../style.module.css";
 import CommentIcon from "./MainIcons/CommentIcon";
 import FavouriteIcon from "./MainIcons/FavouriteIcon";
 import LikeIcon from "./MainIcons/LikeIcon";
 import React from "react";
+import news from "../../store/news";
+import LikeIconActive from "./MainIcons/LikeIconActive";
+import FavouriteIconActive from "./MainIcons/FavouriteIconActive";
 import useTime from "../../hooks/useTime";
 import useTimeName from "../../hooks/useTimeName";
 import MapIcon from "./MainIcons/MapIcon";
@@ -57,21 +60,25 @@ function PostCard(props: IPostCard) {
         <div className={styles.cardDesc}>{props.post_text}</div>
       </div>
       <div className={styles.bottomZone}>
-        <div className={styles.likesCount}>
-          <LikeIcon />
-          <span className={styles.numberCount}>{props.likes_count}</span>
+        <div className={styles.likesCount} onClick={()=>{news.getLike(props.id)}}>
+          {!props.my_like && <LikeIcon />}
+          {props.my_like && <LikeIconActive/>}
+          {!props.my_like &&<span className={styles.numberCount}>{props.likes_count}</span>}
+          {props.my_like &&<span className={styles.numberCount_active}>{props.likes_count}</span>}
         </div>
         <div className={styles.commentsCount}>
           <CommentIcon />
           <span className={styles.numberCount}>{props.comments_count}</span>
         </div>
-        <div className={styles.favouriteCount}>
-          <FavouriteIcon />
-          <span className={styles.numberCount}>{props.favourite_count}</span>
+        <div className={styles.favouriteCount} onClick={()=>{news.getFavourites(props.id)}}>
+          {!props.my_favourite && <FavouriteIcon />}
+          {props.my_favourite &&<FavouriteIconActive />}
+          {!props.my_favourite &&<span className={styles.numberCount}>{props.favourite_count}</span>}
+          {props.my_favourite &&<span className={styles.numberCount_favourite_active}>{props.favourite_count}</span>}
         </div>
       </div>
     </div>
   );
 }
 
-export default React.memo(PostCard);
+export default  React.memo(PostCard);

@@ -1,14 +1,24 @@
 import { ITabElement } from "../../../interfaces/ITabElement";
-import news from "../../../store/news";
+import tabNavigation from "../../../store/tabNavigation";
 import styles from "../../../style.module.css";
+import { observer } from "mobx-react-lite";
 
 function TabElement(props: ITabElement) {
   return (
-    <li className={styles.TabElement}>
+    <li
+      onClick={() => {
+        tabNavigation.navigatorUpdate(props.name);
+      }}
+      className={
+        tabNavigation.navigator[props.name]
+          ? styles.TabElementSelected
+          : styles.TabElement
+      }
+    >
       {props.children}
       {props.name}
     </li>
   );
 }
 
-export default TabElement;
+export default observer(TabElement);
