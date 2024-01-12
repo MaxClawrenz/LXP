@@ -47,6 +47,7 @@ function MainZone() {
           my_like={post.my_like}
           comments_count={post.comments_count}
           favourite_count={post.favourite_count}
+          my_favourite={post.my_favourite}
           create_date={post.create_date}
         />
       ))}

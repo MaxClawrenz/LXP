@@ -13,4 +13,5 @@ export interface IPostCard {
     my_like: boolean,
     comments_count: number,
     favourite_count: number,
+    my_favourite:boolean,
 }
