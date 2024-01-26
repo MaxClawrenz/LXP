@@ -5,7 +5,6 @@ import OtherChannel from "./OtherChannel";
 import style from "../../style.module.css";
 import style_channels from './style_channels.module.css';
 import { useLocation } from "react-router-dom";
-import React from "react";
 
 
            

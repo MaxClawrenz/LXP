@@ -34,7 +34,7 @@ function ArticlesForOtherChannel(props: IArticlesForOtherChannel) {
           
            {props.arrPostsInChannel.length > 0 &&
                 props.arrPostsInChannel.map((post) => (
-                    <PostCardForMyChannel key={post.postChannelsId} postChannelsId={post.postChannelsId} postChannelsTitle={post.postChannelsTitle} postChannelsAnonce={post.postChannelsAnonce} postText={post.postText} postCreateDate={post.postCreateDate} arrCountLikesPost={post.arrCountLikesPost} arrCountCommentsPost={post.arrCountCommentsPost} arrCountSubscriptionsPost={post.arrCountSubscriptionsPost} channelId={props.channelId} channelName={props.channelName} authorID={props.authorID} avatarChannelID={props.avatarChannelID} arrKnowlegesPost={post.arrKnowlegesPost} arrTagsPost={post.arrTagsPost} />
+                    <PostCardForMyChannel key={post.postChannelsId} postChannelsId={post.postChannelsId} postChannelsTitle={post.postChannelsTitle} postChannelsAnonce={post.postChannelsAnonce} postText={post.postText} postCreateDate={post.postCreateDate} arrCountLikesPost={post.arrCountLikesPost} arrCountCommentsPost={post.arrCountCommentsPost} arrCountSubscriptionsPost={post.arrCountSubscriptionsPost} channelId={props.channelId} channelName={props.channelName} authorID={props.authorID} avatarChannelID={props.avatarChannelID} arrKnowlegesPost={post.arrKnowlegesPost} arrTagsPost={post.arrTagsPost} arrKnowlegesParts={props.arrKnowlegesParts} />
            ))
            }
            {props.arrComments.length > 0 &&

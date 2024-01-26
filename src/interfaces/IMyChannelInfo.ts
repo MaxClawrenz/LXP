@@ -12,5 +12,6 @@ export interface IMyChannelInfo{
     arrKnowlegesParts: any[],
     arrTags: any[],
     arrComments: any[],
-    arrCountSubscriptionsChannels: number
+    arrCountSubscriptionsChannels: number,
+    arrAuthors: any[]
 }
