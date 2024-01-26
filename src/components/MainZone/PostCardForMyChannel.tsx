@@ -1,8 +1,15 @@
 
+import useTime from '../../hooks/useTime';
+import useTimeName from '../../hooks/useTimeName';
 import { IPostCardForMyChannel } from '../../interfaces/IPostCardForMyChannel';
 import style_channels from './style_channels.module.css';
 
 function PostCardForMyChannel(props: IPostCardForMyChannel) {
+
+    // const { hours, minutes } = useTime(props.postCreateDate);
+    // const hoursName = useTimeName(hours, ["час", "часа", "часов"]);
+    // const minutesName = useTimeName(minutes, ["минута", "минуты", "минут"]);
+    
     return (
                   
                 <div className={style_channels.blockForMyReadyArticles}>
@@ -13,8 +20,8 @@ function PostCardForMyChannel(props: IPostCardForMyChannel) {
                             </div>
                             <div className={style_channels.nameChannel}>{props.channelName}</div>
 
-                            {props.arrKnowlegesPost.map((knowlege) => (
-                            <div className={style_channels.channelTheme} key={knowlege.knowlegePostId} title={knowlege.knowlegePostName}>
+                            {props.arrKnowlegesParts.map((knowlege) => (
+                            <div className={style_channels.channelTheme} key={knowlege.knowlegeId} title={knowlege.knowlegeName}>
                                 <svg className={style_channels.iconTheme} xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
                                     <g clipPath="url(#clip0_565_7)">
                                     <path d="M0.623337 5.77214C0.623337 4.48716 0.623337 3.84467 0.965733 3.46994C1.0873 3.33689 1.23504 3.2304 1.3997 3.15715C1.86349 2.95083 2.47301 3.154 3.69204 3.56034C4.62273 3.87057 5.08807 4.02569 5.55828 4.00963C5.73098 4.00373 5.90266 3.98074 6.07082 3.94099C6.52869 3.83276 6.9368 3.56068 7.75311 3.0165L8.95853 2.21284C10.0042 1.51578 10.527 1.16725 11.1271 1.08688C11.7272 1.00651 12.3233 1.20521 13.5154 1.6026L14.5312 1.94116C15.3945 2.22894 15.8262 2.37284 16.0731 2.7154C16.32 3.05796 16.32 3.51298 16.32 4.42302V11.5113C16.32 12.7962 16.32 13.4388 15.9776 13.8135C15.8561 13.9466 15.7083 14.053 15.5436 14.1263C15.0799 14.3326 14.4703 14.1294 13.2513 13.723C12.3206 13.4129 11.8553 13.2577 11.3851 13.2738C11.2124 13.2797 11.0407 13.3026 10.8726 13.3424C10.4147 13.4506 10.0065 13.7227 9.19023 14.2669L7.98481 15.0705C6.93915 15.7676 6.41637 16.1162 5.81626 16.1965C5.21613 16.2769 4.62005 16.0782 3.42789 15.6808L2.41216 15.3422C1.54882 15.0545 1.11715 14.9106 0.870245 14.568C0.623337 14.2254 0.623337 13.7704 0.623337 12.8603V5.77214Z" />
@@ -30,7 +37,9 @@ function PostCardForMyChannel(props: IPostCardForMyChannel) {
                             </div>
                             ))}
 
-                            <div className={style_channels.articleTimeAgo}>{props.postCreateDate}</div>
+                            <div className={style_channels.articleTimeAgo}>
+                                {props.postCreateDate}
+                            </div>
                         </div>
                         <div className={style_channels.titleForArticle}>{props.postChannelsTitle}</div>
                         <div className={style_channels.textShortForArticle}>{props.postChannelsAnonce}</div>

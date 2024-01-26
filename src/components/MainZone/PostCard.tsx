@@ -11,7 +11,8 @@ import FavouriteIconActive from "./MainIcons/FavouriteIconActive";
 import useTime from "../../hooks/useTime";
 import useTimeName from "../../hooks/useTimeName";
 import MapIcon from "./MainIcons/MapIcon";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+
 
 function PostCard(props: IPostCard) {
   const { hours, minutes } = useTime(props.time_posted);
@@ -23,6 +24,7 @@ function PostCard(props: IPostCard) {
       <div className={styles.topZone}>
         <div className={styles.cardHeader}>
           <div className={styles.leftHeader}>
+         
             <Link to={`/_wt/eqvatoria_lxp_channels/${props.channel_id}`}>
               <div className={styles.channelBlock}>
                 <img

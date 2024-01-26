@@ -4,6 +4,7 @@ import LeftZone from "./LeftPannel/LeftZone";
 import MainPage from "./MainPage";
 import MainPageChannels from "./MainPageChannels";
 import styles from "../style.module.css";
+import MainZoneOtherChannel from "./MainZone/MainZoneOtherChannel";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             element={<MainPageChannels />}
           />
           <Route path="/_wt/lxp" element={<MainPage />} />
+          <Route path="/_wt/eqvatoria_lxp_channels/:channelId" element={<MainZoneOtherChannel />} />
         </Routes>
       </div>
     </>

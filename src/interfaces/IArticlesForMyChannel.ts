@@ -10,10 +10,10 @@ export interface IArticlesForMyChannel{
     arrKnowlegesParts: any[],
     arrTags: any[],
     arrComments: any[],
-    viewMyPosts: any,
-    setViewMyPosts: any,
+    viewMyPosts: boolean,
+    setViewMyPosts: React.Dispatch<React.SetStateAction<boolean>>,
     viewMyComments: any,
-    setViewMyComments: any,
+    setViewMyComments: React.Dispatch<React.SetStateAction<boolean>>,
     createMyFirstPost: any,
     setCreateMyFirstPost: any,
     arrCountSubscriptionsChannels: number
