@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { useState } from "react";
 import { IPostCard } from "../../interfaces/IPostCard";
 import styles from "../../style.module.css";
 import CommentIcon from "./MainIcons/CommentIcon";
@@ -12,11 +12,24 @@ import useTime from "../../hooks/useTime";
 import useTimeName from "../../hooks/useTimeName";
 import MapIcon from "./MainIcons/MapIcon";
 import { Link } from "react-router-dom";
+import MapTitle from "./MapTitle";
+import FollowIcon from "./MainIcons/FollowIcon";
+import { motion, AnimatePresence } from "framer-motion";
+import { observer } from "mobx-react-lite";
 
 function PostCard(props: IPostCard) {
   const { hours, minutes } = useTime(props.time_posted);
   const hoursName = useTimeName(hours, ["час", "часа", "часов"]);
   const minutesName = useTimeName(minutes, ["минута", "минуты", "минут"]);
+  const [mapShow, setMapShow] = useState<boolean>(false);
+
+  function handleMapWindow(event: React.MouseEvent<HTMLDivElement>) {
+    setMapShow(!mapShow);
+  }
+
+  function makeFollow() {
+    news.blogFollow(props.blog_id);
+  }
 
   return (
     <div className={styles.PostCard}>
@@ -33,9 +46,20 @@ function PostCard(props: IPostCard) {
                 <div className={styles.channelName}>{props.channel_name}</div>
               </div>
             </Link>
-            <div className={styles.cardKnowledge}>
+            <div onClick={handleMapWindow} className={styles.cardKnowledge}>
               <MapIcon />
-              {/* {props.knowledge_name} */}
+              <AnimatePresence>
+                {mapShow && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <MapTitle name={props.knowledge_name} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             <div className={styles.cardTime}>
               {hours > 24
@@ -48,11 +72,15 @@ function PostCard(props: IPostCard) {
             </div>
           </div>
           <div>
-            {!props.is_follow && (
-              <div className={styles.buttonSubscribe}>+ Подписаться</div>
+            {!props.is_follow && !props.is_my_blog && (
+              <div onClick={makeFollow} className={styles.buttonSubscribe}>
+                + Подписаться
+              </div>
             )}
-            {props.is_follow && (
-              <div className={styles.buttonSubscribe}>- Отписаться</div>
+            {props.is_follow && !props.is_my_blog && (
+              <div onClick={makeFollow} className={styles.buttonSubscribe}>
+                <FollowIcon />
+              </div>
             )}
           </div>
         </div>
@@ -60,25 +88,47 @@ function PostCard(props: IPostCard) {
         <div className={styles.cardDesc}>{props.post_text}</div>
       </div>
       <div className={styles.bottomZone}>
-        <div className={styles.likesCount} onClick={()=>{news.getLike(props.id)}}>
+        <div
+          className={styles.likesCount}
+          onClick={() => {
+            news.getLike(props.id);
+          }}
+        >
           {!props.my_like && <LikeIcon />}
-          {props.my_like && <LikeIconActive/>}
-          {!props.my_like &&<span className={styles.numberCount}>{props.likes_count}</span>}
-          {props.my_like &&<span className={styles.numberCount_active}>{props.likes_count}</span>}
+          {props.my_like && <LikeIconActive />}
+          {!props.my_like && (
+            <span className={styles.numberCount}>{props.likes_count}</span>
+          )}
+          {props.my_like && (
+            <span className={styles.numberCount_active}>
+              {props.likes_count}
+            </span>
+          )}
         </div>
         <div className={styles.commentsCount}>
           <CommentIcon />
           <span className={styles.numberCount}>{props.comments_count}</span>
         </div>
-        <div className={styles.favouriteCount} onClick={()=>{news.getFavourites(props.id)}}>
+        <div
+          className={styles.favouriteCount}
+          onClick={() => {
+            news.getFavourites(props.id);
+          }}
+        >
           {!props.my_favourite && <FavouriteIcon />}
-          {props.my_favourite &&<FavouriteIconActive />}
-          {!props.my_favourite &&<span className={styles.numberCount}>{props.favourite_count}</span>}
-          {props.my_favourite &&<span className={styles.numberCount_favourite_active}>{props.favourite_count}</span>}
+          {props.my_favourite && <FavouriteIconActive />}
+          {!props.my_favourite && (
+            <span className={styles.numberCount}>{props.favourite_count}</span>
+          )}
+          {props.my_favourite && (
+            <span className={styles.numberCount_favourite_active}>
+              {props.favourite_count}
+            </span>
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-export default  React.memo(PostCard);
+export default React.memo(observer(PostCard));

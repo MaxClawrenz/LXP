@@ -2,8 +2,6 @@ import axios, { AxiosResponse } from "axios";
 import { makeAutoObservable, runInAction } from "mobx"
 import { IPostCard } from "../interfaces/IPostCard";
 import { IResPosts } from "../interfaces/IResPosts";
-import PostCard from "../components/MainZone/PostCard";
-import { useState } from "react";
 
 class News {
 
@@ -39,16 +37,15 @@ class News {
 
     }
 
-    async getLike(postId: string) {
+    getLike(postId: string) {
         this.isLoading = true;
         try {
-            const response = await axios.get('/custom_web_template.html?object_code=add_like_lxp', {
+            axios.get('/custom_web_template.html?object_code=add_like_lxp', {
                 params: {
                     _value: postId
                 }
             });
             runInAction(() => {
-                
                 for(let item of this.newsArr){
                    if(item.id === postId){
                     if(item.my_like){
@@ -68,10 +65,10 @@ class News {
         }
     }
 
-    async getFavourites(postId: string) {
+    getFavourites(postId: string) {
         this.isLoading = true;
         try {
-            const response = await axios.get('/custom_web_template.html?object_code=add_favourites_lxp', {
+            axios.get('/custom_web_template.html?object_code=add_favourites_lxp', {
                 params: {
                     _value: postId
                 }
@@ -96,6 +93,24 @@ class News {
             this.isLoading = false;
         }
     }    
+
+    blogFollow(blogId: string){
+        axios.post("/custom_web_template.html?object_code=lxp_make_follow", {
+            params: {blog_id: blogId}
+        })
+        runInAction(()=>{    
+            this.newsArr = this.newsArr.map(post => {
+                if(post.blog_id === blogId){
+                    return {
+                        ...post,
+                        is_follow: !post.is_follow
+                    }
+                }else{
+                    return post
+                }
+            })
+        })
+    }
 
 }
 

@@ -178,6 +178,8 @@
 .LeftZone {
     margin-right: 70px;
     width: 196px;
+    position: sticky;
+    top: 8px;
 }
 .MainZone {
     display: flex;
@@ -188,6 +190,8 @@
 }
 .RightZone {
     margin-left: 35px;
+    position: sticky;
+    top: 8px;
 }
 
 .channelBlock {
@@ -211,6 +215,25 @@ line-height: normal;
 display: flex;
 margin-right: 50px;
 cursor: pointer;
+position: relative;
+}
+.mapTitleWindow {
+    position: absolute;
+    width: max-content;
+    background: #fff;
+    top: 28px;
+    padding: 8px;
+    box-shadow: 4px 4px 10px #00000026;
+    border-radius: 8px;
+    left: -18px;
+}
+.mapTitleWindow::before {
+    border: 10px solid #0000;
+    border-bottom: 6px solid #fff;
+    content: "";
+    position: absolute;
+    left: 17px;
+    top: -14px;
 }
 .cardTime{
     color: rgba(0, 0, 0, 0.50);
@@ -240,6 +263,9 @@ line-height: normal;
     background-color: unset;
     border: unset;
     cursor: pointer;
+    height: 25px;
+    display: flex;
+    align-items: center;
 }
 .channelName{
     color: #000;

@@ -49,6 +49,8 @@ function MainZone() {
           favourite_count={post.favourite_count}
           my_favourite={post.my_favourite}
           create_date={post.create_date}
+          is_my_blog={post.is_my_blog}
+          blog_id={post.blog_id}
         />
       ))}
       {news.isLoading && <div>Loading...</div>}
