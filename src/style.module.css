@@ -383,3 +383,16 @@ line-height: normal;
     margin-right: 12px;
   }
 
+.AutorPictSkelet{
+    border-radius: 8px;
+    height: 34px;
+    margin-right: 11px;
+    width: 34px;
+    background-color: gray;
+}
+.AutorNameSkelet{
+    width: 155px;
+    height: 17px;
+    background-color: gray;
+    border-radius: 4px;
+}
