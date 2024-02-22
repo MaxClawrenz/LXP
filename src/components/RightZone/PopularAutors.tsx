@@ -3,9 +3,11 @@ import styles from "../../style.module.css";
 import AutorElement from "./AutorElement";
 import { useEffect } from "react";
 import popularAutors from "../../store/popularAutors";
+import AuthorSkelet from "./AuthorSkelet";
 
 function PopularAutors() {
   useEffect(() => {
+    popularAutors.isLoading = true;
     popularAutors.getPopularAutors();
   }, []);
 
@@ -29,14 +31,23 @@ function PopularAutors() {
         </svg>
         Популярные авторы
       </div>
-      {popularAutors.popularAutors.map((user, index) => (
-        <AutorElement
-          key={index}
-          pict_url={""}
-          fio={"Максим Туктаров"}
-          rating={1000}
-        />
-      ))}
+      {!popularAutors.isLoading &&
+        popularAutors.popularAutors.map((user) => (
+          <AutorElement
+            key={user.user_id}
+            user_id={user.user_id}
+            username={user.username}
+            followers={user.followers}
+          />
+        ))}
+      {popularAutors.isLoading && (
+        <>
+          <AuthorSkelet />
+          <AuthorSkelet />
+          <AuthorSkelet />
+          <AuthorSkelet />
+        </>
+      )}
     </div>
   );
 }

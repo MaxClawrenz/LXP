@@ -5,10 +5,14 @@ function AutorElement(props: IAutor) {
   return (
     <div className={styles.AutorElement}>
       <div className={styles.AutorLeft}>
-        <img className={styles.AutorPict} src={props.pict_url} alt="" />
-        <span className={styles.AutorName}>{props.fio}</span>
+        <img
+          className={styles.AutorPict}
+          src={`/person_icon.html?id=${props.user_id}&type=150x150`}
+          alt=""
+        />
+        <span className={styles.AutorName}>{props.username}</span>
       </div>
-      <span className={styles.AutorRate}>{props.rating}</span>
+      <span className={styles.AutorRate}>{props.followers}</span>
     </div>
   );
 }
