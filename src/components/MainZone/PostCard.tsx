@@ -17,6 +17,7 @@ import FollowIcon from "./MainIcons/FollowIcon";
 import { motion, AnimatePresence } from "framer-motion";
 import { observer } from "mobx-react-lite";
 import popularAutors from "../../store/popularAutors";
+import MapIconOpened from "./MainIcons/MapIconOpened";
 
 function PostCard(props: IPostCard) {
   const { hours, minutes } = useTime(props.time_posted);
@@ -28,9 +29,9 @@ function PostCard(props: IPostCard) {
     setMapShow(!mapShow);
   }
 
-  function makeFollow() {
-    news.blogFollow(props.blog_id);
-    //popularAutors.getPopularAutors();
+  async function makeFollow() {
+    await news.blogFollow(props.blog_id);
+    popularAutors.getPopularAutors();
   }
 
   return (
@@ -49,7 +50,8 @@ function PostCard(props: IPostCard) {
               </div>
             </Link>
             <div onClick={handleMapWindow} className={styles.cardKnowledge}>
-              <MapIcon />
+              {!mapShow && <MapIcon />}
+              {mapShow && <MapIconOpened />}
               <AnimatePresence>
                 {mapShow && (
                   <motion.div

@@ -94,10 +94,7 @@ class News {
         }
     }    
 
-    blogFollow(blogId: string){
-        axios.post("/custom_web_template.html?object_code=lxp_make_follow", {
-            params: {blog_id: blogId}
-        })
+    async blogFollow(blogId: string){
         runInAction(()=>{    
             this.newsArr = this.newsArr.map(post => {
                 if(post.blog_id === blogId){
@@ -109,6 +106,9 @@ class News {
                     return post
                 }
             })
+        })
+        await axios.post("/custom_web_template.html?object_code=lxp_make_follow", {
+            params: {blog_id: blogId}
         })
     }
 

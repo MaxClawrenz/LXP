@@ -19,16 +19,18 @@
     margin-right: 70px;
 }
 .HeaderSearch{
-    width: 528px;
-    height: 19px;
-    border-radius: 9px;
-    background: rgba(0, 0, 0, 0.06);
-    border: none;
-    padding: 11px 20px;
-    color: #151D2D;
+    background-color: rgba(0,0,0,.06) !important;
+    border: unset !important;
+    border-radius: 9px !important;
+    box-sizing: border-box;
+    height: 41px;
+    padding: 0 20px !important;
+    width: 568px;
+    box-shadow: unset !important;
 }
 .HeaderSearch:focus{
     outline: none;
+    border: unset;
 }
 .Header {
     display: flex;
@@ -383,3 +385,20 @@ line-height: normal;
     margin-right: 12px;
   }
 
+.AutorPictSkelet{
+    border-radius: 8px;
+    height: 34px;
+    margin-right: 11px;
+    width: 34px;
+    background-color: gray;
+}
+.AutorNameSkelet{
+    width: 155px;
+    height: 17px;
+    background-color: gray;
+    border-radius: 4px;
+}
+
+.TabMenu {
+    width: 196px;
+}
