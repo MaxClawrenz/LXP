@@ -16,6 +16,7 @@ import MapTitle from "./MapTitle";
 import FollowIcon from "./MainIcons/FollowIcon";
 import { motion, AnimatePresence } from "framer-motion";
 import { observer } from "mobx-react-lite";
+import popularAutors from "../../store/popularAutors";
 
 function PostCard(props: IPostCard) {
   const { hours, minutes } = useTime(props.time_posted);
@@ -29,6 +30,7 @@ function PostCard(props: IPostCard) {
 
   function makeFollow() {
     news.blogFollow(props.blog_id);
+    //popularAutors.getPopularAutors();
   }
 
   return (
