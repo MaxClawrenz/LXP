@@ -126,14 +126,15 @@ class News {
                 for(let item of this.savedArr){
                    if(item.id === postId){
                     if(item.my_favourite){
-                        item.my_favourite = !item.my_favourite
-                        item.favourite_count = item.favourite_count - 1
+                        item.my_favourite = !item.my_favourite;
+                        item.favourite_count = item.favourite_count - 1;
                     }else {
                         item.my_favourite = !item.my_favourite
                         item.favourite_count = item.favourite_count + 1
                        }
                    } 
                 }  
+                this.savedArr = this.savedArr.filter(element => element.id !== postId);
             })
         } catch (err) {
             console.error('Пост не добавлен в избранное', err);

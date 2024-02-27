@@ -1,14 +1,14 @@
 import RightZone from "./RightZone/RightZone";
 import style from "../style.module.css";
-import MainPopular from "./MainZone/MainPopular";
+import MySubscribes from "./MainZone/MySubscribes";
 
-function PopularPage() {
+function SubscribesPage() {
   return (
     <div className={style.MainPage}>
-      <MainPopular />
+      <MySubscribes />
       <RightZone />
     </div>
   );
 }
 
-export default PopularPage;
+export default SubscribesPage;
