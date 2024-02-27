@@ -5,7 +5,7 @@ import PopularIcon from "./TabsIcons/PopularIcon";
 import SavedIcon from "./TabsIcons/SavedIcon";
 import SubscribesIcon from "./TabsIcons/SubscribesIcon";
 import styles from "../../../style.module.css";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TabRoute from "./TabRouteComponent";
 
 function TabLeftMenu() {
@@ -17,13 +17,13 @@ function TabLeftMenu() {
         </TabRoute>
       </Link>
 
-      <Link to="/_wt/eqvatoria_lxp_popular">
+      <Link to="/_wt/lxp_popular">
         {" "}
         <TabRoute name="Популярное">
           <PopularIcon />
         </TabRoute>
       </Link>
-      <Link to="/_wt/eqvatoria_lxp_subscribes">
+      <Link to="/_wt/lxp_subscribes">
         {" "}
         <TabRoute name="Подписки">
           <SubscribesIcon />

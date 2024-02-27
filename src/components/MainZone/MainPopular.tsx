@@ -1,20 +1,20 @@
 import { observer } from "mobx-react-lite";
-import saved from "../../store/news";
+import news from "../../store/news";
 import { useEffect, useRef } from "react";
 import PostCard from "./PostCard";
 import styles from "../../style.module.css";
 
-function MainSaved() {
+function MainPopular() {
   const bottomOfList = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const newsObserver = new IntersectionObserver(
       (entries) => {
         if (
           entries[0].isIntersecting &&
-          !saved.isLoading &&
-          saved._targetSaved !== "empty"
+          !news.isLoading &&
+          news._targetPop !== "empty"
         )
-          saved.getSaved();
+          news.getPopular();
       },
       {
         rootMargin: "0px",
@@ -31,7 +31,7 @@ function MainSaved() {
 
   return (
     <div className={styles.MainZone}>
-      {saved.savedArr.map((post) => (
+      {news.populArr.map((post) => (
         <PostCard
           id={post.id}
           key={post.id}
@@ -53,10 +53,10 @@ function MainSaved() {
           blog_id={post.blog_id}
         />
       ))}
-      {saved.isLoading && <div>Loading...</div>}
+      {news.isLoading && <div>Loading...</div>}
       <div ref={bottomOfList} className={styles.news_observer}></div>
     </div>
   );
 }
 
-export default observer(MainSaved);
+export default observer(MainPopular);
