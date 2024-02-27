@@ -3,9 +3,9 @@ import { makeAutoObservable, runInAction } from "mobx"
 import { IPostCard } from "../interfaces/IPostCard";
 import { IResPosts } from "../interfaces/IResPosts";
 
-class News {
+class SavedPosts {
 
-    newsArr:IPostCard[] = []; //пустой массив для новых постов
+    savedArr:IPostCard[] = []; //пустой массив для новых постов
     isLoading:boolean = false; //признак выполнения загрузки. По умолчанию false, в момент начала загрузки ставится в true
     _limit:number = 4; //количество запрашиваемых с сервера постов
     _target: string | number = 0; //дата последнего выгруженного поста
@@ -15,18 +15,18 @@ class News {
     }
 
 
-    //метод для загрузки новых постов
-    async getNews(){ 
+    //метод для загрузки сохраненных постов
+    async getSaved(){ 
         this.isLoading = true;
         try {
-            const response: AxiosResponse<IResPosts> = await axios.get('/custom_web_template.html?object_code=lxp_news', {
+            const response: AxiosResponse<IResPosts> = await axios.get('/custom_web_template.html?object_code=lxp_saved', {
                 params: {
                     _limit: this._limit,
                     _target: this._target
                 }
             });
             runInAction(() => {
-                this.newsArr.push(...response.data.posts);
+                this.savedArr.push(...response.data.posts);
                 this._target = response.data.new_target_date;
             })
         } catch (error) {
@@ -46,7 +46,7 @@ class News {
                 }
             });
             runInAction(() => {
-                for(let item of this.newsArr){
+                for(let item of this.savedArr){
                    if(item.id === postId){
                     if(item.my_like){
                         item.likes_count = item.likes_count - 1
@@ -75,7 +75,7 @@ class News {
             });
             runInAction(() => {
                 
-                for(let item of this.newsArr){
+                for(let item of this.savedArr){
                    if(item.id === postId){
                     if(item.my_favourite){
                         item.my_favourite = !item.my_favourite
@@ -96,7 +96,7 @@ class News {
 
     async blogFollow(blogId: string){
         runInAction(()=>{    
-            this.newsArr = this.newsArr.map(post => {
+            this.savedArr = this.savedArr.map(post => {
                 if(post.blog_id === blogId){
                     return {
                         ...post,
@@ -114,4 +114,4 @@ class News {
 }
 
 
-export default new News()
+export default new SavedPosts()

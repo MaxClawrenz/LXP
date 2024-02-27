@@ -35,7 +35,7 @@ function TabLeftMenu() {
           <ChannelsIcon />
         </TabRoute>
       </Link>
-      <Link to="/_wt/eqvatoria_lxp_saved">
+      <Link to="/_wt/lxp_saved">
         {" "}
         <TabRoute name="Сохранённое">
           <SavedIcon />
