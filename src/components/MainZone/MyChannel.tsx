@@ -24,6 +24,7 @@ function MyChannel(props:IMyChannel) {
                 arrComments={props.arrComments} 
                 arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels}
                 arrAuthors = {props.arrAuthors}
+                arrAllClassificators = {props.arrAllClassificators}
                 />
 
               {/* <OtherChannel 

@@ -9,9 +9,7 @@ import { useLocation } from "react-router-dom";
 
            
 function MainZoneOtherChannel() {  
-
-    //Проверку на наличие атрибута
-    // const channelId = document.getElementById('curObjId')!.querySelector<HTMLInputElement>('#curObjId')!.value;
+    
     const location = useLocation();
   
 

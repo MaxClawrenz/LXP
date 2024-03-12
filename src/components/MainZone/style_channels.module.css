@@ -88,6 +88,16 @@
     margin-top: 10px;
   }
 
+  .iconChangedAndTextFormEdit {
+    position: absolute;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+
   .changedText {
   color: #FFF;
   margin-top: 15px;
@@ -141,16 +151,49 @@
     margin-bottom: 20px;
   }
 
+  #iconChangedAvatarFormEdit {
+    margin-bottom: 0px;
+  }
+
+  .changedTextFormEditAvatar {
+    margin-top: 0px;
+    color: #FFF;
+  }
+
+  #iconChangedAvatarCover {
+    margin-bottom: 20px;
+  }
+
   .btnsChangeAndTheme {
     display: flex;
     margin-top: 25px;
-    justify-content: end;
-    align-items: end;
+    justify-content: center;
+    align-items: flex-start;
     flex-direction: column;
-    position: absolute;
-    right: 25px;
+    /* position: absolute;
+    right: 25px; */
     z-index: 1000000;
   }
+
+  /* Анимация для окна редактирования канала */
+  .fadeBtns-enter {
+    opacity: 0;
+  }
+  
+  .fadeBtns-enter-active {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .fadeBtns-exit {
+    opacity: 1;
+  }
+  
+  .fadeBtns-exit-active {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
 
   .buttonChange {
     width: 34px;
@@ -198,6 +241,32 @@
     border-radius: 10px;
     border: 0.5px solid rgba(0, 0, 0, 0.20);
     background: #FFF;
+    position: absolute;
+    margin-left: -90px;
+  }
+
+  .blockForIconChangeAndAvatar {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+
+  .iconAndTextFormEditAvatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    flex-direction: column;
+    width: inherit;
+    cursor: pointer;
+  }
+
+  .imgChannelEditForm {
+    border: 3px solid #fff;
+    border-radius: 14px;
+    height: 80px;
+    width: 80px;
   }
 
   .btnEditChannel, .btnChangeChannel {
@@ -710,6 +779,16 @@
     border-radius: 15px 15px 0 0;
   }
 
+  .blockForImgCoverChannelFormEdit {
+    width: 85vh;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .blockForActionsOtherChannel {
     display: flex;
     justify-content: space-between;
@@ -760,4 +839,256 @@
   margin-right: 8px;
   }
 
- 
+  .blockForFormEdit{
+  display: block;
+  position: fixed;
+  z-index: 100;
+  width: 100vh;
+  top: 0;
+  left: 26.3%;
+  height: 95%;
+  overflow-y: auto;
+}
+
+.GrayMaskForFormEdit {
+  height: 100vh;
+  width: 100%;
+  /* z-index: 18996; */
+  position: fixed;
+  right: auto;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(142, 142, 143, 0.6);
+}
+
+.avatarChannelButtonFormEdit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin-top: -45px;
+}
+
+.backgroundBlockForm {
+  background: #FFF;
+  /* display: flex; */
+  width: 85vh;
+  padding: 0 48px 48px 48px;
+  box-sizing: border-box;
+  border-radius: 0 0 14px 14px;
+}
+
+.blockForInfoFormEdit {
+  margin-top: 20px;
+}
+
+.titleAndCloseFormEdit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.titleFormEdit {
+  color: #151D2D;
+  font-size: 24px;
+  font-family: SF UI Display Bold !important;
+  font-weight: 500;
+}
+
+.btnCloseFormEdit {
+  cursor: pointer;
+}
+
+.inputsInfoEditForm {
+  margin-bottom: 20px;
+}
+
+.titleInputFormEdit {
+  font-size: 16px;
+  color: #151D2D;
+  margin-bottom: 10px;
+}
+
+.titleInputFormEdit {
+  color: #151D2D;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.inputStyleBlockFormEdit {
+  border: 1px solid #C0C0C0;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputFormEdit {
+  border: none;
+  font-size: 16px;
+  width: 90%;
+}
+
+.outputFormEdit {
+  border: none;
+  font-size: 16px;
+  color: #C0C0C0;
+}
+
+.authorsBlock {
+  padding-left: 0;
+  display: flex;
+  margin: 0;
+}
+
+.liBlockAuthor {
+  display: flex;
+  padding: 3px;
+  background: #EEE;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.authorName {
+  color: #151D2D;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.DeleteauthorName {
+  padding: 3px;
+  background: #D9D9D9;
+  cursor: pointer;
+}
+
+.inputFormEditAddAuthor {
+  width: 50%;
+  text-align: end;
+  border: none;
+  font-size: 16px;
+  color: #C0C0C0;
+}
+
+.blockForThemes {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-top: 1px solid #E6E6E6;
+  margin-top: 40px;
+}
+
+.titlesBlockThemes {
+  color: #151d2d;
+  font-family: SF UI Display Bold !important;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.textDescriptThemes {
+  color: #151D2D;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.allThemesBlock {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.radioLabel {
+  border: 0.5px solid #C0C0C0;
+  padding: 10px;
+  cursor: pointer;
+  color: #151D2D;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.blockButtonsSaveAndDel {
+  display: flex;
+}
+
+.btnSaveChannel {
+  width: 146px;
+  height: 36px;
+  margin-right: 35px;
+  color: #FFF;
+  background-color: #0091D5;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnSaveChannel:hover {
+  background-color: #3f3f3e;
+}
+
+.btnDeleteChannel {
+  width: 146px;
+  height: 36px;
+  color: #FFF;
+  background-color: #C7C7C7;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnDeleteChannel:hover {
+  background-color: #3f3f3e;
+}
+
+ /* Форма редактирования обложки канала */
+
+ .blockDialogForEditCover {
+  width: 50%;
+  position: fixed;
+  z-index: 101;
+  height: 50%;
+  top: 0;
+  left: 25%;
+  background-color: #FFF;
+  right: 20%;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 8px 0 #4c4e4f;
+}
+
+.title_and_close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.title_edit_cover {
+  color: #313a4a;
+  font-family: SF UI Display Bold !important;
+  font-size: 18px;
+}
+
+.btn_close_dialogEditCover {
+  cursor: pointer;
+}
+
+.text_editor {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.block_for_cropper {
+  margin-top: 20px;
+  box-sizing: border-box;
+}

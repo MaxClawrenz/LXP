@@ -13,5 +13,6 @@ export interface IBtnsEditAndChangeChannel{
     arrTags: any[],
     arrComments: any[],
     arrCountSubscriptionsChannels: number,
-    arrAuthors: any[]
+    arrAuthors: any[],
+    arrAllClassificators: any[]
 }

@@ -48,7 +48,9 @@ function MyChannelInfo(props:IMyChannelInfo) {
                arrTags={props.arrTags} 
                arrComments={props.arrComments} 
                arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels} 
-               arrAuthors={props.arrAuthors} />
+               arrAuthors={props.arrAuthors}
+               arrAllClassificators = {props.arrAllClassificators}
+               />
                
             </div>
             <div className={style_channels.titleChannel}>{props.channelName}</div>
