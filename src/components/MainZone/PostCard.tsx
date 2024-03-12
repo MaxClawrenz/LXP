@@ -52,7 +52,7 @@ function PostCard(props: IPostCard) {
     <AnimatePresence>
       <motion.div
         initial={{ height: 0, opacity: 0 }}
-        animate={{ height: "272px", opacity: 1 }}
+        animate={{ minHeight: "272px", height: "auto", opacity: 1 }}
         exit={{ height: 0, opacity: 0 }}
         style={{ overflow: "hidden" }}
         className={styles.PostCard}
@@ -77,7 +77,10 @@ function PostCard(props: IPostCard) {
                   {mapShow && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
+                      animate={{
+                        height: "auto",
+                        opacity: 1,
+                      }}
                       exit={{ height: 0, opacity: 0 }}
                       style={{ overflow: "hidden" }}
                     >
@@ -112,6 +115,15 @@ function PostCard(props: IPostCard) {
           </div>
           <div className={styles.cardTitle}>{props.post_name}</div>
           <div className={styles.cardDesc}>{props.post_text}</div>
+          {props.file_id && (
+            <div className={styles.postImgBlock}>
+              <img
+                className={styles.postImg}
+                src={`/download_file.html?file_id=${props.file_id}`}
+                alt="Вложение к посту"
+              />
+            </div>
+          )}
         </div>
         <div className={styles.bottomZone}>
           <div
