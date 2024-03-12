@@ -123,7 +123,7 @@ function PostCard(props: IPostCard) {
           <div
             className={styles.favouriteCount}
             onClick={() => {
-              news.getFavourites(props.id);
+              news.getFavourites(props.id, props.my_favourite);
             }}
           >
             {!props.my_favourite && <FavouriteIcon />}
