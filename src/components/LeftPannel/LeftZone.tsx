@@ -5,7 +5,7 @@ import styles from "../../style.module.css";
 function LeftZone() {
   return (
     <div className={styles.LeftZone}>
-      <div className="TabMenu">
+      <div className={styles.TabMenu}>
         <TabLeftMenu />
       </div>
       <div className="LastChannels">

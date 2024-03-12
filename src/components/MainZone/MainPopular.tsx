@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import PostCard from "./PostCard";
 import styles from "../../style.module.css";
 
-function MainZone() {
+function MainPopular() {
   const bottomOfList = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const newsObserver = new IntersectionObserver(
@@ -12,9 +12,9 @@ function MainZone() {
         if (
           entries[0].isIntersecting &&
           !news.isLoading &&
-          news._target !== "empty"
+          news._targetPop !== "empty"
         )
-          news.getNews();
+          news.getPopular();
       },
       {
         rootMargin: "0px",
@@ -31,7 +31,7 @@ function MainZone() {
 
   return (
     <div className={styles.MainZone}>
-      {news.newsArr.map((post) => (
+      {news.populArr.map((post) => (
         <PostCard
           id={post.id}
           key={post.id}
@@ -59,4 +59,4 @@ function MainZone() {
   );
 }
 
-export default observer(MainZone);
+export default observer(MainPopular);
