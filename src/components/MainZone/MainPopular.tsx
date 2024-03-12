@@ -51,6 +51,7 @@ function MainPopular() {
           create_date={post.create_date}
           is_my_blog={post.is_my_blog}
           blog_id={post.blog_id}
+          file_id={post.file_id}
         />
       ))}
       {news.isLoading && <div>Loading...</div>}

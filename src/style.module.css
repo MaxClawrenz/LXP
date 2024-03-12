@@ -179,7 +179,8 @@
 
 .PostCard{
     width: 568px;
-    height: 272px;
+    min-height: 272px;
+    height: auto;
     border-radius: 15px;
     background: #FFF;
     box-sizing: border-box;
@@ -519,4 +520,13 @@ line-height: normal;
 }
 .comment_element{
     margin-top: 27px;
+}
+
+.postImg{
+    width: 528px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+.postImgBlock{
+    margin: 15px 0;
 }
