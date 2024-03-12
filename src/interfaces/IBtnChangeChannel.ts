@@ -1,4 +1,4 @@
-export interface IMyChannelInfo{
+export interface IBtnChangeChannel{
     key: number,
     channelId: number,
     channelName: string;
