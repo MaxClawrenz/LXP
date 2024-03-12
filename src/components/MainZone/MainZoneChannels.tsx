@@ -1,4 +1,3 @@
-import { IMainZoneChannels } from '../../interfaces/IMainZoneChannels';
 import MyChannel from './MyChannel';
 import Channels from "../../store/MainZoneChannels";
 import { observer } from "mobx-react-lite";
@@ -28,6 +27,8 @@ function MainZoneChannels() {
           authorFullname={channel.authorFullname}
           arrComments={channel.arrComments} 
           arrCountSubscriptionsChannels={channel.arrCountSubscriptionsChannels}
+          arrAuthors = {channel.arrAuthors}
+          arrAllClassificators = {channel.arrAllClassificators}
           />
       ))}
     </div>

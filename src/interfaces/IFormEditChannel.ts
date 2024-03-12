@@ -1,4 +1,4 @@
-export interface IMyChannelInfo{
+export interface IFormEditChannel{
     key: number,
     channelId: number,
     channelName: string;
@@ -14,5 +14,7 @@ export interface IMyChannelInfo{
     arrComments: any[],
     arrCountSubscriptionsChannels: number,
     arrAuthors: any[],
+    editChannelForm: boolean,
+    setEditChannelForm: any,
     arrAllClassificators: any[]
 }

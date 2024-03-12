@@ -4,7 +4,7 @@ export interface IPostCardForMyChannel{
     postChannelsTitle: string;
     postChannelsAnonce: string;
     postText: string;
-    postCreateDate: string,
+    postCreateDate: number,
     arrCountLikesPost: number,
     arrCountCommentsPost: number,
     arrCountSubscriptionsPost: number,
@@ -13,5 +13,6 @@ export interface IPostCardForMyChannel{
     authorID: number,
     avatarChannelID: number,
     arrKnowlegesPost: any[],
-    arrTagsPost: any[]
+    arrTagsPost: any[],
+    arrKnowlegesParts:any[]
 }
