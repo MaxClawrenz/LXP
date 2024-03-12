@@ -35,7 +35,6 @@ function PostCard(props: IPostCard) {
   }
 
   return (
-
     <AnimatePresence>
       <motion.div
         initial={{ height: 0, opacity: 0 }}
