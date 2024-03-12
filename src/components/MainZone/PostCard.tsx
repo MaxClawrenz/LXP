@@ -36,19 +36,6 @@ function PostCard(props: IPostCard) {
 
   return (
 
-    <div className={styles.PostCard}>
-      <div className={styles.topZone}>
-        <div className={styles.cardHeader}>
-          <div className={styles.leftHeader}>
-         
-            <Link to={`/_wt/eqvatoria_lxp_channels/${props.channel_id}`}>
-              <div className={styles.channelBlock}>
-                <img
-                  className={styles.channelPict}
-                  src={props.channel_pict}
-                  alt="Картинка канала"
-                />
-                <div className={styles.channelName}>{props.channel_name}</div>
     <AnimatePresence>
       <motion.div
         initial={{ height: 0, opacity: 0 }}
