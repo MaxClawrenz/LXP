@@ -53,10 +53,10 @@ class News {
                 for(let item of this.newsArr){
                    if(item.id === postId){
                     if(item.my_like){
-                        item.likes_count = item.likes_count - 1
+                        item.likes_count--
                         item.my_like = !item.my_like
                     }else {
-                        item.likes_count = item.likes_count + 1
+                        item.likes_count++
                         item.my_like = !item.my_like
                        }
                    } 
@@ -64,10 +64,10 @@ class News {
                 for(let item of this.populArr){
                    if(item.id === postId){
                     if(item.my_like){
-                        item.likes_count = item.likes_count - 1
+                        item.likes_count--
                         item.my_like = !item.my_like
                     }else {
-                        item.likes_count = item.likes_count + 1
+                        item.likes_count++
                         item.my_like = !item.my_like
                        }
                    } 
@@ -75,10 +75,10 @@ class News {
                 for(let item of this.savedArr){
                    if(item.id === postId){
                     if(item.my_like){
-                        item.likes_count = item.likes_count - 1
+                        item.likes_count--
                         item.my_like = !item.my_like
                     }else {
-                        item.likes_count = item.likes_count + 1
+                        item.likes_count++
                         item.my_like = !item.my_like
                        }
                    } 
@@ -91,7 +91,7 @@ class News {
         }
     }
 
-    getFavourites(postId: string) {
+    getFavourites(postId: string, favourite: boolean) {
         this.isLoading = true;
         try {
             axios.get('/custom_web_template.html?object_code=add_favourites_lxp', {
@@ -104,22 +104,22 @@ class News {
                 for(let item of this.newsArr){
                    if(item.id === postId){
                     if(item.my_favourite){
-                        item.my_favourite = !item.my_favourite
-                        item.favourite_count = item.favourite_count - 1
-                    }else {
-                        item.my_favourite = !item.my_favourite
-                        item.favourite_count = item.favourite_count + 1
+                        item.my_favourite = !item.my_favourite;
+                        item.favourite_count--;
+                    }else{
+                        item.my_favourite = !item.my_favourite;
+                        item.favourite_count++;
                        }
                    } 
                 }  
                 for(let item of this.populArr){
                    if(item.id === postId){
                     if(item.my_favourite){
-                        item.my_favourite = !item.my_favourite
-                        item.favourite_count = item.favourite_count - 1
+                        item.my_favourite = !item.my_favourite;
+                        item.favourite_count--;
                     }else {
-                        item.my_favourite = !item.my_favourite
-                        item.favourite_count = item.favourite_count + 1
+                        item.my_favourite = !item.my_favourite;
+                        item.favourite_count++;
                        }
                    } 
                 }  
@@ -127,14 +127,27 @@ class News {
                    if(item.id === postId){
                     if(item.my_favourite){
                         item.my_favourite = !item.my_favourite;
-                        item.favourite_count = item.favourite_count - 1;
-                    }else {
-                        item.my_favourite = !item.my_favourite
-                        item.favourite_count = item.favourite_count + 1
-                       }
+                        item.favourite_count--;
+                    }
                    } 
                 }  
-                this.savedArr = this.savedArr.filter(element => element.id !== postId);
+
+                //тут надо добавить добавление постов из newsArr в savedArr при условии, если savedArr не пустой 
+                        //или если в нем нет поста с таким же айди
+                        if(!favourite){
+                            const foundSavedIndex = this.savedArr.findIndex(element => element.id === postId);
+                            if(foundSavedIndex === -1){
+                                const foundNew = this.newsArr.find(element => element.id === postId);
+                                //const foundNew2 = this.populArr.find(element => element.id === postId);
+                                if(foundNew) this.savedArr.push(foundNew);
+                            }
+                        }else{
+                            //удаление из массива сохраненных постов (savedArr) постов, которые были убраны из избранного
+                            this.savedArr = this.savedArr.filter(element => element.id !== postId);
+                        }
+
+
+                //после этого добавить сортировку по дате
             })
         } catch (err) {
             console.error('Пост не добавлен в избранное', err);
@@ -202,7 +215,7 @@ class News {
 
     }
     //метод для загрузки сохраненных постов
-    async getSaved(){ 
+    async getSaved(){
         this.isLoading = true;
         try {
             const response: AxiosResponse<IResPosts> = await axios.get('/custom_web_template.html?object_code=lxp_saved', {
@@ -212,7 +225,14 @@ class News {
                 }
             });
             runInAction(() => {
-                this.savedArr.push(...response.data.posts);
+                //добавляем загруженные сохраненные посты в массив только в случае, если их нет в массиве
+                response.data.posts.forEach(post => {
+                    console.table(post)
+                    if(!this.savedArr.some(savedPost => savedPost.id === post.id)){
+                        this.savedArr.push(post);
+                    }
+                })
+                //this.savedArr.push(...response.data.posts);
                 this._targetSaved = response.data.new_target_date;
             })
         } catch (error) {

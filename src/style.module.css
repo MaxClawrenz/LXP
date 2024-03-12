@@ -158,6 +158,18 @@
 .PopularAutorsHeader svg{
     margin-right: 15px;
 }
+.CommentsHeader {
+    display: flex;
+    color: #151D2D;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 27px;
+}
+.CommentsHeader svg{
+    margin-left: 15px;
+}
 
 .mainContainer{
     display: flex;
@@ -255,6 +267,7 @@ line-height: normal;
     height: 20px;
     border-radius: 4px;
     margin-right: 11px;
+    object-fit: contain;
 }
 .buttonSubscribe{
     color: #0091D5;
@@ -339,7 +352,6 @@ line-height: normal;
 }
 .likeCount_active svg{
     stroke: rgba(255, 0, 0, 0.81);
-    
 }
 
 .favouriteCount{
@@ -350,6 +362,7 @@ line-height: normal;
     height: 34px;
     border-radius: 8px;
     margin-right: 11px;
+    object-fit: cover;
 }
 .AutorName,.AutorRate{
     color: #000;
@@ -362,7 +375,7 @@ line-height: normal;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 17px;
+    margin-top: 12px;
 }
 .AutorLeft{
     display: flex;
@@ -472,4 +485,38 @@ line-height: normal;
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+.author_pict_img{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+.comment_header_left{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.comment_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.comment_time{
+    color: rgba(0, 0, 0, 0.5);
+}
+.author_fullname{
+    line-height: 16.71px;
+}
+.comment_text{
+    margin: 8px 0;
+    line-height: 16.71px;
+}
+.post_name{
+    font-weight: 700;
+    line-height: 16.71px;
+}
+.comment_element{
+    margin-top: 27px;
 }
