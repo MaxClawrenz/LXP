@@ -11,7 +11,7 @@ import FavouriteIconActive from "./MainIcons/FavouriteIconActive";
 import useTime from "../../hooks/useTime";
 import useTimeName from "../../hooks/useTimeName";
 import MapIcon from "./MainIcons/MapIcon";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import MapTitle from "./MapTitle";
 import FollowIcon from "./MainIcons/FollowIcon";
 import { motion, AnimatePresence } from "framer-motion";
@@ -35,20 +35,6 @@ function PostCard(props: IPostCard) {
   }
 
   return (
-
-    <div className={styles.PostCard}>
-      <div className={styles.topZone}>
-        <div className={styles.cardHeader}>
-          <div className={styles.leftHeader}>
-         
-            <Link to={`/_wt/eqvatoria_lxp_channels/${props.channel_id}`}>
-              <div className={styles.channelBlock}>
-                <img
-                  className={styles.channelPict}
-                  src={props.channel_pict}
-                  alt="Картинка канала"
-                />
-                <div className={styles.channelName}>{props.channel_name}</div>
     <AnimatePresence>
       <motion.div
         initial={{ height: 0, opacity: 0 }}
@@ -97,7 +83,6 @@ function PostCard(props: IPostCard) {
                   : minutes
                   ? `${minutes} ${minutesName}`
                   : "1 минута"}
-
               </div>
             </div>
             <div>
