@@ -3,8 +3,8 @@ import { IMyChannelInfo } from '../../interfaces/IMyChannelInfo';
 import ArticlesForMyChannel from './ArticlesForMyChannel';
 import CoverMyChannel from './CoverMyChannel';
 import style_channels from './style_channels.module.css';
-import AddCoverChannel from './AddCoverChannel';
 import BtnChangeChannel from './BtnChangeChannel';
+import EditAvatarChannelForm from './EditAvatarChannelForm';
 
 function MyChannelInfo(props:IMyChannelInfo) {
 
@@ -13,13 +13,25 @@ function MyChannelInfo(props:IMyChannelInfo) {
     const [createMyFirstPost, setCreateMyFirstPost] = useState<boolean>(false);
     const [activeTabPost, setActiveTabPost] = useState<string>(style_channels.nameTab_active);
     const [activeTabComment, setActiveTabComment] = useState<string>(style_channels.nameTab);
+    const [coverChannel, setCoverChannel] = useState<number>(props.coverChannelID);
+    const [channelCoverDialog, setchannelCoverDialog] = useState<boolean>(false);
+
+    const [avatarChannel, setAvatarChannel] = useState<number>(props.avatarChannelID);
+    const [channelAvatarDialog, setChannelAvatarDialog] = useState<boolean>(false);
 
     return (
         <>
-    <CoverMyChannel channelId={props.channelId} authorID={props.authorID} coverChannelID={props.coverChannelID} />
+    { channelAvatarDialog &&
+        <div className={style_channels.blockForMyCoverEdit}>
+             <EditAvatarChannelForm channelId={props.channelId} coverChannelID={props.coverChannelID} avatarChannel={avatarChannel} setAvatarChannel={setAvatarChannel} channelAvatarDialog={channelAvatarDialog} setChannelAvatarDialog={setChannelAvatarDialog} />
+        </div>
+    }
+
+    <CoverMyChannel channelId={props.channelId} authorID={props.authorID} coverChannelID={props.coverChannelID} coverChannel={coverChannel} setCoverChannel={setCoverChannel} channelCoverDialog={channelCoverDialog} setchannelCoverDialog={setchannelCoverDialog} />
         <div className={style_channels.blockForMyChannelInfo_cover}>
             <div className={style_channels.blockForTopButtons}>
-                <div className={style_channels.avatarChannelButton}>
+
+                <div className={style_channels.avatarChannelButton} onClick={() => {setChannelAvatarDialog(true)}}>
                     <div className={style_channels.hoverBlockImg}>
                         <div className={style_channels.iconChangedAndText}>
                             <div className={style_channels.blockicon}>
@@ -30,27 +42,33 @@ function MyChannelInfo(props:IMyChannelInfo) {
                             </div>
                             <div className={style_channels.changedText}>Изменить</div>
                         </div>
-                        <img alt='' className={style_channels.imgChannel} src={`/download_file.html?file_id=${props.avatarChannelID}`} id="" />
+                        <img alt='' className={style_channels.imgChannel} src={`/download_file.html?file_id=${avatarChannel}`} id="" />
                     </div>
                 </div>
+
                <BtnChangeChannel 
-               key={props.channelId} 
-               channelId={props.channelId} 
-               channelName={props.channelName} 
-               authorID={props.authorID} 
-               authorFullname={props.authorFullname} 
-               channelDecript={props.channelDecript} 
-               avatarChannelID={props.avatarChannelID} 
-               coverChannelID={props.coverChannelID} 
-               arrPostsInChannel={props.arrPostsInChannel} 
-               arrSubscriptionsInChannel={props.arrSubscriptionsInChannel} 
-               arrKnowlegesParts={props.arrKnowlegesParts} 
-               arrTags={props.arrTags} 
-               arrComments={props.arrComments} 
-               arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels} 
-               arrAuthors={props.arrAuthors}
-               arrAllClassificators = {props.arrAllClassificators}
-               />
+                        key={props.channelId}
+                        channelId={props.channelId}
+                        channelName={props.channelName}
+                        authorID={props.authorID}
+                        authorFullname={props.authorFullname}
+                        channelDecript={props.channelDecript}
+                        avatarChannelID={props.avatarChannelID}
+                        coverChannelID={props.coverChannelID}
+                        arrPostsInChannel={props.arrPostsInChannel}
+                        arrSubscriptionsInChannel={props.arrSubscriptionsInChannel}
+                        arrKnowlegesParts={props.arrKnowlegesParts}
+                        arrTags={props.arrTags}
+                        arrComments={props.arrComments}
+                        arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels}
+                        arrAuthors={props.arrAuthors}
+                        arrAllClassificators={props.arrAllClassificators}
+                        coverChannel={coverChannel}
+                        setCoverChannel={setCoverChannel} 
+                        avatarChannel={avatarChannel} 
+                        setAvatarChannel={setAvatarChannel} 
+                        channelAvatarDialog={channelAvatarDialog} 
+                        setChannelAvatarDialog={setChannelAvatarDialog}               />
                
             </div>
             <div className={style_channels.titleChannel}>{props.channelName}</div>
@@ -92,6 +110,7 @@ function MyChannelInfo(props:IMyChannelInfo) {
                 arrComments={props.arrComments} 
                 arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels}
                 />
+
         </>
     )
   }
