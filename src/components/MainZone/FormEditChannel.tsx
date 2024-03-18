@@ -5,6 +5,7 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Cropper from 'react-easy-crop';
 import EditCoverChannelForm from './EditCoverChannelForm';
+import EditAvatarChannelForm from './EditAvatarChannelForm';
 
 
 
@@ -32,9 +33,11 @@ function FormEditChannel(props:IFormEditChannel) {
         <>
         <div className={style_channels.GrayMaskForFormEdit}></div>
         {channelCoverDialog &&
+            <EditCoverChannelForm channelId={props.channelId} coverChannelID={props.coverChannelID} channelCoverDialog={channelCoverDialog} setchannelCoverDialog={setchannelCoverDialog} coverChannel={props.coverChannel} setCoverChannel={props.setCoverChannel} />
+        }
 
-       <EditCoverChannelForm channelId={0} coverChannelID={props.coverChannelID} channelCoverDialog={channelCoverDialog} setchannelCoverDialog={setchannelCoverDialog} />
-
+        {props.channelAvatarDialog &&
+            <EditAvatarChannelForm channelId={props.channelId} coverChannelID={props.coverChannelID} avatarChannel={props.avatarChannel} setAvatarChannel={props.setAvatarChannel} channelAvatarDialog={props.channelAvatarDialog} setChannelAvatarDialog={props.setChannelAvatarDialog} />
         }
 
                <div className={style_channels.blockForFormEdit}>
@@ -49,11 +52,11 @@ function FormEditChannel(props:IFormEditChannel) {
                                             </div>
                                             <div className={style_channels.changedText}>Изменить</div>
                             </div>
-                            <img src={`/download_file.html?file_id=${props.coverChannelID}`} className={style_channels.imgCoverChannel} alt=''/>
+                            <img src={`/download_file.html?file_id=${props.coverChannel}`} className={style_channels.imgCoverChannel} alt=''/>
                         </div>
                         <div className={style_channels.backgroundBlockForm}>
                             <div className={style_channels.avatarChannelButtonFormEdit}>
-                                <div className={style_channels.blockForIconChangeAndAvatar}>
+                                <div className={style_channels.blockForIconChangeAndAvatar} onClick={() => {props.setChannelAvatarDialog(true)}}>
                                     <div className={style_channels.iconAndTextFormEditAvatar}>
                                         <svg id={style_channels.iconChangedAvatarFormEdit} xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
                                             <path d="M8.25138 7.67001C9.2549 7.67001 10.0715 6.7817 10.0715 5.68985C10.0715 4.59784 9.2549 3.70953 8.25138 3.70953C7.24786 3.70953 6.43143 4.59784 6.43143 5.68985C6.43143 6.7817 7.24786 7.67001 8.25138 7.67001ZM8.25138 4.87095C8.66641 4.87095 9.00402 5.23828 9.00402 5.68985C9.00402 6.14126 8.66641 6.50859 8.25138 6.50859C7.83649 6.50859 7.49888 6.14126 7.49888 5.68985C7.49888 5.23828 7.83649 4.87095 8.25138 4.87095Z" fill="white" />
@@ -61,7 +64,7 @@ function FormEditChannel(props:IFormEditChannel) {
                                         </svg>
                                         <div className={style_channels.changedTextFormEditAvatar}>Изменить</div>
                                     </div>
-                                    <img alt='' className={style_channels.imgChannelEditForm} src={`/download_file.html?file_id=${props.avatarChannelID}`} id="" />
+                                    <img alt='' className={style_channels.imgChannelEditForm} src={`/download_file.html?file_id=${props.avatarChannel}`} id="" />
                                 </div>
                             </div>
                             <div className={style_channels.blockForInfoFormEdit}>

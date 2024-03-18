@@ -5,11 +5,12 @@ import { IOtherChannel } from '../../interfaces/IOtherChannel';
 import ArticlesForOtherChannel from './ArticlesForOtherChannel';
 
 function OtherChannel(props:IOtherChannel) {
-
+    const [coverChannel, setCoverChannel] = useState<number>(props.coverChannelID);
+    const [channelCoverDialog, setchannelCoverDialog] = useState<boolean>(false);
     return (
         <>
   
-    <CoverMyChannel channelId={props.channelId} authorID={props.authorID} coverChannelID={props.coverChannelID} />
+    <CoverMyChannel channelId={props.channelId} authorID={props.authorID} coverChannelID={props.coverChannelID} coverChannel={coverChannel} setCoverChannel={setCoverChannel} channelCoverDialog={false} setchannelCoverDialog={setchannelCoverDialog} />
         <div className={style_channels.blockForMyChannelInfo_cover}>
             <div className={style_channels.blockForTopButtons}>
                 <div className={style_channels.avatarChannelButton}>

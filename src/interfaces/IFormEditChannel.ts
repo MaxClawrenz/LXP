@@ -16,5 +16,11 @@ export interface IFormEditChannel{
     arrAuthors: any[],
     editChannelForm: boolean,
     setEditChannelForm: any,
-    arrAllClassificators: any[]
+    arrAllClassificators: any[],
+    coverChannel: number,
+    setCoverChannel: any,
+    avatarChannel: number, 
+    setAvatarChannel: any,
+    channelAvatarDialog: boolean, 
+    setChannelAvatarDialog: any
 }

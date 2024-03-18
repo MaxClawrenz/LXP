@@ -14,5 +14,11 @@ export interface IBtnEditChannel{
     arrComments: any[],
     arrCountSubscriptionsChannels: number,
     arrAuthors: any[],
-    arrAllClassificators: any[]
+    arrAllClassificators: any[],
+    coverChannel: number,
+    setCoverChannel: any,
+    avatarChannel: number, 
+    setAvatarChannel: any,
+    channelAvatarDialog: boolean, 
+    setChannelAvatarDialog: any
 }
