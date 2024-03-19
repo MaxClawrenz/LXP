@@ -41,7 +41,8 @@ class News {
 
     }
 
-    getLike(postId: string) {
+    getLike(postId: string, event: React.MouseEvent<HTMLDivElement>) {
+        event.preventDefault();
         this.isLoading = true;
         try {
             axios.get('/custom_web_template.html?object_code=add_like_lxp', {
@@ -91,7 +92,8 @@ class News {
         }
     }
 
-    getFavourites(postId: string, favourite: boolean) {
+    getFavourites(postId: string, favourite: boolean, event: React.MouseEvent<HTMLDivElement>) {
+        event.preventDefault();
         this.isLoading = true;
         try {
             axios.get('/custom_web_template.html?object_code=add_favourites_lxp', {

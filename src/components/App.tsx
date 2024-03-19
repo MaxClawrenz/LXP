@@ -10,7 +10,7 @@ import MainZoneOtherChannel from "./MainZone/MainZoneOtherChannel";
 import SavedPage from "./SavedPage";
 import PopularPage from "./PopularPage";
 import SubscribesPage from "./SubscribesPage";
-
+import PostPage from "./PostPage";
 
 function App() {
   return (
@@ -25,7 +25,11 @@ function App() {
             element={<MainPageChannels />}
           />
           <Route path="/_wt/lxp" element={<MainPage />} />
-          <Route path="/_wt/eqvatoria_lxp_channels/:channelId" element={<MainZoneOtherChannel />} />
+          <Route
+            path="/_wt/eqvatoria_lxp_channels/:channelId"
+            element={<MainZoneOtherChannel />}
+          />
+          <Route path="/_wt/lxp_post/:id" element={<PostPage />} />
           <Route path="/_wt/lxp_saved" element={<SavedPage />} />
           <Route path="/_wt/lxp_popular" element={<PopularPage />} />
           <Route path="/_wt/lxp_subscribes" element={<SubscribesPage />} />

@@ -11,7 +11,7 @@ import FavouriteIconActive from "./MainIcons/FavouriteIconActive";
 import useTime from "../../hooks/useTime";
 import useTimeName from "../../hooks/useTimeName";
 import MapIcon from "./MainIcons/MapIcon";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import MapTitle from "./MapTitle";
 import FollowIcon from "./MainIcons/FollowIcon";
 import { motion, AnimatePresence } from "framer-motion";
@@ -26,134 +26,139 @@ function PostCard(props: IPostCard) {
   const [mapShow, setMapShow] = useState<boolean>(false);
 
   function handleMapWindow(event: React.MouseEvent<HTMLDivElement>) {
+    event.preventDefault();
     setMapShow(!mapShow);
   }
 
-  async function makeFollow() {
+  async function makeFollow(event: React.MouseEvent<HTMLDivElement>) {
+    event.preventDefault();
     await news.blogFollow(props.blog_id);
     popularAutors.getPopularAutors();
   }
 
   return (
     <AnimatePresence>
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ minHeight: "272px", height: "auto", opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        style={{ overflow: "hidden" }}
-        className={styles.PostCard}
-      >
-        <div className={styles.topZone}>
-          <div className={styles.cardHeader}>
-            <div className={styles.leftHeader}>
-              <Link to={`/_wt/eqvatoria_lxp_channels/${props.channel_id}`}>
-                <div className={styles.channelBlock}>
-                  <img
-                    className={styles.channelPict}
-                    src={props.channel_pict}
-                    alt="Картинка канала"
-                  />
-                  <div className={styles.channelName}>{props.channel_name}</div>
+      <Link to={`/_wt/lxp_post/${props.id}`}>
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ minHeight: "272px", height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          style={{ overflow: "hidden" }}
+          className={styles.PostCard}
+        >
+          <div className={styles.topZone}>
+            <div className={styles.cardHeader}>
+              <div className={styles.leftHeader}>
+                <Link to={`/_wt/eqvatoria_lxp_channels/${props.channel_id}`}>
+                  <div className={styles.channelBlock}>
+                    <img
+                      className={styles.channelPict}
+                      src={props.channel_pict}
+                      alt="Картинка канала"
+                    />
+                    <div className={styles.channelName}>
+                      {props.channel_name}
+                    </div>
+                  </div>
+                </Link>
+                <div onClick={handleMapWindow} className={styles.cardKnowledge}>
+                  {!mapShow && <MapIcon />}
+                  {mapShow && <MapIconOpened />}
+                  <AnimatePresence>
+                    {mapShow && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{
+                          height: "auto",
+                          opacity: 1,
+                        }}
+                        exit={{ height: 0, opacity: 0 }}
+                        style={{ overflow: "hidden" }}
+                      >
+                        <MapTitle name={props.knowledge_name} />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </Link>
-              <div onClick={handleMapWindow} className={styles.cardKnowledge}>
-                {!mapShow && <MapIcon />}
-                {mapShow && <MapIconOpened />}
-                <AnimatePresence>
-                  {mapShow && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{
-                        height: "auto",
-                        opacity: 1,
-                      }}
-                      exit={{ height: 0, opacity: 0 }}
-                      style={{ overflow: "hidden" }}
-                    >
-                      <MapTitle name={props.knowledge_name} />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <div className={styles.cardTime}>
+                  {hours > 24
+                    ? props.create_date
+                    : hours < 24 && hours
+                    ? `${hours} ${hoursName}`
+                    : minutes
+                    ? `${minutes} ${minutesName}`
+                    : "1 минута"}
+                </div>
               </div>
-              <div className={styles.cardTime}>
-                {hours > 24
-                  ? props.create_date
-                  : hours < 24 && hours
-                  ? `${hours} ${hoursName}`
-                  : minutes
-                  ? `${minutes} ${minutesName}`
-                  : "1 минута"}
-
+              <div>
+                {!props.is_follow && !props.is_my_blog && (
+                  <div onClick={makeFollow} className={styles.buttonSubscribe}>
+                    + Подписаться
+                  </div>
+                )}
+                {props.is_follow && !props.is_my_blog && (
+                  <div onClick={makeFollow} className={styles.buttonSubscribe}>
+                    <FollowIcon />
+                  </div>
+                )}
               </div>
             </div>
-            <div>
-              {!props.is_follow && !props.is_my_blog && (
-                <div onClick={makeFollow} className={styles.buttonSubscribe}>
-                  + Подписаться
-                </div>
+            <div className={styles.cardTitle}>{props.post_name}</div>
+            <div className={styles.cardDesc}>{props.post_text}</div>
+            {props.file_id && (
+              <div className={styles.postImgBlock}>
+                <img
+                  className={styles.postImg}
+                  src={`/download_file.html?file_id=${props.file_id}`}
+                  alt="Вложение к посту"
+                />
+              </div>
+            )}
+          </div>
+          <div className={styles.bottomZone}>
+            <div
+              className={styles.likesCount}
+              onClick={(event) => {
+                news.getLike(props.id, event);
+              }}
+            >
+              {!props.my_like && <LikeIcon />}
+              {props.my_like && <LikeIconActive />}
+              {!props.my_like && (
+                <span className={styles.numberCount}>{props.likes_count}</span>
               )}
-              {props.is_follow && !props.is_my_blog && (
-                <div onClick={makeFollow} className={styles.buttonSubscribe}>
-                  <FollowIcon />
-                </div>
+              {props.my_like && (
+                <span className={styles.numberCount_active}>
+                  {props.likes_count}
+                </span>
+              )}
+            </div>
+            <div className={styles.commentsCount}>
+              <CommentIcon />
+              <span className={styles.numberCount}>{props.comments_count}</span>
+            </div>
+            <div
+              className={styles.favouriteCount}
+              onClick={(event) => {
+                news.getFavourites(props.id, props.my_favourite, event);
+              }}
+            >
+              {!props.my_favourite && <FavouriteIcon />}
+              {props.my_favourite && <FavouriteIconActive />}
+              {!props.my_favourite && (
+                <span className={styles.numberCount}>
+                  {props.favourite_count}
+                </span>
+              )}
+              {props.my_favourite && (
+                <span className={styles.numberCount_favourite_active}>
+                  {props.favourite_count}
+                </span>
               )}
             </div>
           </div>
-          <div className={styles.cardTitle}>{props.post_name}</div>
-          <div className={styles.cardDesc}>{props.post_text}</div>
-          {props.file_id && (
-            <div className={styles.postImgBlock}>
-              <img
-                className={styles.postImg}
-                src={`/download_file.html?file_id=${props.file_id}`}
-                alt="Вложение к посту"
-              />
-            </div>
-          )}
-        </div>
-        <div className={styles.bottomZone}>
-          <div
-            className={styles.likesCount}
-            onClick={() => {
-              news.getLike(props.id);
-            }}
-          >
-            {!props.my_like && <LikeIcon />}
-            {props.my_like && <LikeIconActive />}
-            {!props.my_like && (
-              <span className={styles.numberCount}>{props.likes_count}</span>
-            )}
-            {props.my_like && (
-              <span className={styles.numberCount_active}>
-                {props.likes_count}
-              </span>
-            )}
-          </div>
-          <div className={styles.commentsCount}>
-            <CommentIcon />
-            <span className={styles.numberCount}>{props.comments_count}</span>
-          </div>
-          <div
-            className={styles.favouriteCount}
-            onClick={() => {
-              news.getFavourites(props.id, props.my_favourite);
-            }}
-          >
-            {!props.my_favourite && <FavouriteIcon />}
-            {props.my_favourite && <FavouriteIconActive />}
-            {!props.my_favourite && (
-              <span className={styles.numberCount}>
-                {props.favourite_count}
-              </span>
-            )}
-            {props.my_favourite && (
-              <span className={styles.numberCount_favourite_active}>
-                {props.favourite_count}
-              </span>
-            )}
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </Link>
     </AnimatePresence>
   );
 }

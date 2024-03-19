@@ -8,10 +8,8 @@ function SavedPostsComments() {
   useEffect(() => {
     if (comments.allComments.length === 0) {
       comments.isLoading = true;
-      comments.getAllComments();
-    } else {
-      comments.getAllComments();
     }
+    comments.getAllComments();
   }, []);
 
   return (

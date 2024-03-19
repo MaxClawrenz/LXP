@@ -1,6 +1,7 @@
-function useTime(allSeconds: number){
-    const hours = Math.floor(allSeconds / 3600);
-    const minutes = Math.floor((allSeconds % 3600) / 60);
+function useTime(allSeconds: number | undefined){
+
+    const hours = allSeconds ? Math.floor(allSeconds / 3600) : 0;
+    const minutes = allSeconds ? Math.floor((allSeconds % 3600) / 60) : 0;
 
     return {
         hours,
