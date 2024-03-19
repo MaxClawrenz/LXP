@@ -48,8 +48,13 @@ function BtnChangeChannel(props:IBtnChangeChannel) {
                             arrComments={props.arrComments}
                             arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels}
                             arrAuthors={props.arrAuthors}
-                            arrAllClassificators = {props.arrAllClassificators}
-                        />
+                            arrAllClassificators={props.arrAllClassificators}
+                            coverChannel={props.coverChannel}
+                            setCoverChannel={props.setCoverChannel} 
+                            avatarChannel={props.avatarChannel} 
+                            setAvatarChannel={props.setAvatarChannel} 
+                            channelAvatarDialog={props.channelAvatarDialog} 
+                            setChannelAvatarDialog={props.setChannelAvatarDialog} />
                         </div>
                         </CSSTransition>
                     }

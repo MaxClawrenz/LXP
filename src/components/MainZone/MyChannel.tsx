@@ -27,22 +27,6 @@ function MyChannel(props:IMyChannel) {
                 arrAllClassificators = {props.arrAllClassificators}
                 />
 
-              {/* <OtherChannel 
-                key={props.channelId}
-                channelId={props.channelId}
-                channelName={props.channelName}
-                authorID={props.authorID}
-                channelDecript={props.channelDecript}
-                avatarChannelID={props.avatarChannelID}
-                coverChannelID={props.coverChannelID}
-                arrPostsInChannel={props.arrPostsInChannel}
-                arrSubscriptionsInChannel={props.arrSubscriptionsInChannel}
-                arrKnowlegesParts={props.arrKnowlegesParts}
-                arrTags={props.arrTags}
-                authorFullname={props.authorFullname}
-                arrComments={props.arrComments} 
-                arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels}
-                /> */}
     </div>
     )
   }

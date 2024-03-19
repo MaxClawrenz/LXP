@@ -1,9 +1,11 @@
 import { ICoverMyChannel } from '../../interfaces/ICoverMyChannel';
+import EditCoverChannelForm from './EditCoverChannelForm';
 import style_channels from './style_channels.module.css';
 
 function CoverMyChannel(props:ICoverMyChannel) {
     return (
-        <div className={style_channels.blockForImgCoverChannel}>
+    <>
+        <div className={style_channels.blockForImgCoverChannel} onClick={() => {props.setchannelCoverDialog(true)} }>
             <div className={style_channels.iconChangedAndText}>
                             <div className={style_channels.blockicon}>
                                 <svg id={style_channels.iconChangedAvatar} xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
@@ -13,9 +15,16 @@ function CoverMyChannel(props:ICoverMyChannel) {
                             </div>
                             <div className={style_channels.changedText}>Изменить</div>
             </div>
-            <img src={`/download_file.html?file_id=${props.coverChannelID}`} className={style_channels.imgCoverChannel} alt=''/>
+            <img src={`/download_file.html?file_id=${props.coverChannel}`} className={style_channels.imgCoverChannel} alt=''/>
         </div>
 
+    { props.channelCoverDialog &&
+        <div className={style_channels.blockForMyCoverEdit}>
+            <EditCoverChannelForm channelId={props.channelId} coverChannelID={props.coverChannelID} channelCoverDialog={props.channelCoverDialog} setchannelCoverDialog={props.setchannelCoverDialog} coverChannel={props.coverChannel} setCoverChannel={props.setCoverChannel} />
+        </div>
+    }
+
+</>
     )
   }
   
