@@ -7,7 +7,9 @@ import AuthorSkelet from "./AuthorSkelet";
 
 function PopularAutors() {
   useEffect(() => {
-    popularAutors.isLoading = true;
+    if (popularAutors.popularAutors.length === 0) {
+      popularAutors.isLoading = true;
+    }
     popularAutors.getPopularAutors();
   }, []);
 

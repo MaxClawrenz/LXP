@@ -20,7 +20,12 @@ function SubscribeElement(props: ISubscribeElement) {
   return (
     <li className={style.subscribe_element}>
       <div className={style.subscribe_left_zone}>
-        <img className={style.channel_icon} width={20} src={props.pict_url} />
+        <img
+          className={style.channel_icon}
+          width={20}
+          height={20}
+          src={props.pict_url}
+        />
         <span className={style.channel_name}>{props.name}</span>
       </div>
       <div
