@@ -42,6 +42,30 @@ class postBody {
             this.isLoading = false;
         }
     }
+
+    //метод обновления лайка
+    updateLikes(){
+        runInAction(()=>{
+            if(this.post.my_like){
+                this.post.likes_count--;
+            }else{
+                this.post.likes_count++
+            }
+            this.post.my_like = !this.post.my_like;
+        })
+    }
+
+    //метод обновления счетчика сохраненных
+    updateFavorites(){
+        runInAction(()=>{
+            if(this.post.my_favourite){
+                this.post.favourite_count--;
+            }else{
+                this.post.favourite_count++
+            }
+            this.post.my_favourite = !this.post.my_favourite;
+        })
+    }
 }
 
 export default new postBody()

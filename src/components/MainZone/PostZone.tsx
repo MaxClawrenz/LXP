@@ -7,6 +7,7 @@ import useTimeName from "../../hooks/useTimeName";
 import { observer } from "mobx-react-lite";
 import postBody from "../../store/postBody";
 import PostImages from "./PostImages";
+import PostFooter from "./PostFooter";
 
 function PostZone() {
   const { hours, minutes } = useTime(postBody.post.time_posted);
@@ -67,6 +68,14 @@ function PostZone() {
         {postBody.post.file_id && (
           <PostImages fileIds={postBody.post.file_id} />
         )}
+        <PostFooter
+          id={postBody.post.id}
+          my_like={postBody.post.my_like}
+          likes_count={postBody.post.likes_count}
+          comments_count={postBody.post.comments_count}
+          my_favourite={postBody.post.my_favourite}
+          favourite_count={postBody.post.favourite_count}
+        />
       </div>
     </div>
   );

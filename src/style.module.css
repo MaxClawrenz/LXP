@@ -563,7 +563,7 @@ line-height: normal;
     white-space: pre-wrap;
 }
 .postImages{
-    margin-top: 40px;
+    margin: 40px 0;
 }
 .postImage{
     width: 100%;
