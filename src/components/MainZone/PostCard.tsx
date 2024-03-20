@@ -1,13 +1,8 @@
 import { useState } from "react";
 import { IPostCard } from "../../interfaces/IPostCard";
 import styles from "../../style.module.css";
-import CommentIcon from "./MainIcons/CommentIcon";
-import FavouriteIcon from "./MainIcons/FavouriteIcon";
-import LikeIcon from "./MainIcons/LikeIcon";
 import React from "react";
 import news from "../../store/news";
-import LikeIconActive from "./MainIcons/LikeIconActive";
-import FavouriteIconActive from "./MainIcons/FavouriteIconActive";
 import useTime from "../../hooks/useTime";
 import useTimeName from "../../hooks/useTimeName";
 import MapIcon from "./MainIcons/MapIcon";
@@ -18,6 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { observer } from "mobx-react-lite";
 import popularAutors from "../../store/popularAutors";
 import MapIconOpened from "./MainIcons/MapIconOpened";
+import PostFooter from "./PostFooter";
 
 function PostCard(props: IPostCard) {
   const { hours, minutes } = useTime(props.time_posted);
@@ -115,48 +111,14 @@ function PostCard(props: IPostCard) {
               </div>
             )}
           </div>
-          <div className={styles.bottomZone}>
-            <div
-              className={styles.likesCount}
-              onClick={(event) => {
-                news.getLike(props.id, event);
-              }}
-            >
-              {!props.my_like && <LikeIcon />}
-              {props.my_like && <LikeIconActive />}
-              {!props.my_like && (
-                <span className={styles.numberCount}>{props.likes_count}</span>
-              )}
-              {props.my_like && (
-                <span className={styles.numberCount_active}>
-                  {props.likes_count}
-                </span>
-              )}
-            </div>
-            <div className={styles.commentsCount}>
-              <CommentIcon />
-              <span className={styles.numberCount}>{props.comments_count}</span>
-            </div>
-            <div
-              className={styles.favouriteCount}
-              onClick={(event) => {
-                news.getFavourites(props.id, props.my_favourite, event);
-              }}
-            >
-              {!props.my_favourite && <FavouriteIcon />}
-              {props.my_favourite && <FavouriteIconActive />}
-              {!props.my_favourite && (
-                <span className={styles.numberCount}>
-                  {props.favourite_count}
-                </span>
-              )}
-              {props.my_favourite && (
-                <span className={styles.numberCount_favourite_active}>
-                  {props.favourite_count}
-                </span>
-              )}
-            </div>
-          </div>
+          <PostFooter
+            id={props.id}
+            my_like={props.my_like}
+            likes_count={props.likes_count}
+            comments_count={props.comments_count}
+            my_favourite={props.my_favourite}
+            favourite_count={props.favourite_count}
+          />
         </motion.div>
       </Link>
     </AnimatePresence>
