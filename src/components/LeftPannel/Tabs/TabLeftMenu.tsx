@@ -29,7 +29,7 @@ function TabLeftMenu() {
           <SubscribesIcon />
         </TabRoute>
       </Link>
-      <Link to="/_wt/eqvatoria_lxp_channels">
+      <Link to="/_wt/lxp_channels">
         {" "}
         <TabRoute name="Каналы">
           <ChannelsIcon />
