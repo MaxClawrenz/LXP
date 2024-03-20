@@ -6,6 +6,8 @@ import Stack from '@mui/material/Stack';
 import Cropper from 'react-easy-crop';
 import EditCoverChannelForm from './EditCoverChannelForm';
 import EditAvatarChannelForm from './EditAvatarChannelForm';
+import { observer } from 'mobx-react-lite';
+import EditFormChannel from '../../store/EditFormChannel';
 
 
 
@@ -13,6 +15,7 @@ function FormEditChannel(props:IFormEditChannel) {
     const [channelCoverDialog, setchannelCoverDialog] = useState<boolean>(false);
     const [channelName, setChannelName] = useState<string>(props.channelName);
     const [channelDecript, setChannelDecript] = useState<string>(props.channelDecript);
+    const [arrAuthors, setArrAuthors] = useState<any>(props.arrAuthors);
 
     const handleChannelNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setChannelName(e.target.value);
@@ -24,6 +27,7 @@ function FormEditChannel(props:IFormEditChannel) {
 
     // Демо-данные для чипса
       const handleDeleteAuthor = () => {
+        // EditFormChannel.deleteAuthor(props.channelId, author.authorInArrId);
         console.info('You clicked the delete icon.');
       };
 
@@ -98,9 +102,9 @@ function FormEditChannel(props:IFormEditChannel) {
                                     <div className={style_channels.titleInputFormEdit}>Авторы канала</div>
                                     <div className={style_channels.inputStyleBlockFormEdit}>
                                        
-                                    {props.arrAuthors.length > 1 &&
+                                    {arrAuthors.length > 1 &&
                                         <Stack direction="row" spacing={1}>
-                                            {props.arrAuthors.map( (author) => (
+                                            {arrAuthors.map( (author: any) => (
                                                 <Chip
                                                 sx={{ fontSize: 14}}
                                                 label={author.authorInArrFullname}
@@ -114,9 +118,9 @@ function FormEditChannel(props:IFormEditChannel) {
                                         </Stack>
                                     }
 
-                                    {props.arrAuthors.length === 1 &&
+                                    {arrAuthors.length === 1 &&
                                         <Stack direction="row" spacing={1}>
-                                            {props.arrAuthors.map( (author) => (
+                                            {arrAuthors.map( (author:any) => (
                                                
                                                 <Chip
                                                 sx={{ fontSize: 14}}
@@ -174,5 +178,5 @@ function FormEditChannel(props:IFormEditChannel) {
     )
   }
   
-  export default FormEditChannel;
+  export default observer(FormEditChannel);
   

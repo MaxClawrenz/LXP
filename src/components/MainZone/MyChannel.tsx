@@ -1,6 +1,5 @@
 import { IMyChannel } from '../../interfaces/IMyChannel';
 import MyChannelInfo from './MyChannelInfo';
-import OtherChannel from './OtherChannel';
 import style_channels from './style_channels.module.css';
 
 
@@ -25,6 +24,7 @@ function MyChannel(props:IMyChannel) {
                 arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels}
                 arrAuthors = {props.arrAuthors}
                 arrAllClassificators = {props.arrAllClassificators}
+                
                 />
 
     </div>
