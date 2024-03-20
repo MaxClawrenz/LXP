@@ -20,13 +20,10 @@ function App() {
         <LeftZone />
 
         <Routes>
-          <Route
-            path="/_wt/eqvatoria_lxp_channels"
-            element={<MainPageChannels />}
-          />
+          <Route path="/_wt/lxp_channels" element={<MainPageChannels />} />
           <Route path="/_wt/lxp" element={<MainPage />} />
           <Route
-            path="/_wt/eqvatoria_lxp_channels/:channelId"
+            path="/_wt/lxp_channels/:channelId"
             element={<MainZoneOtherChannel />}
           />
           <Route path="/_wt/lxp_post/:id" element={<PostPage />} />

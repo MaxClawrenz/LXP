@@ -32,9 +32,7 @@ function PostZone() {
               <div className={style.backBlock}>
                 <BackIcon />
               </div>
-              <Link
-                to={`/_wt/eqvatoria_lxp_channels/${postBody.post.channel_id}`}
-              >
+              <Link to={`/_wt/lxp_channels/${postBody.post.channel_id}`}>
                 <div className={style.channelBlock}>
                   <img
                     className={style.channelPict}

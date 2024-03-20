@@ -45,7 +45,7 @@ function PostCard(props: IPostCard) {
           <div className={styles.topZone}>
             <div className={styles.cardHeader}>
               <div className={styles.leftHeader}>
-                <Link to={`/_wt/eqvatoria_lxp_channels/${props.channel_id}`}>
+                <Link to={`/_wt/lxp_channels/${props.channel_id}`}>
                   <div className={styles.channelBlock}>
                     <img
                       className={styles.channelPict}

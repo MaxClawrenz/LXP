@@ -1,7 +1,8 @@
-import MyChannel from './MyChannel';
+import MyChannel from "./MyChannel";
 import Channels from "../../store/MainZoneChannels";
 import { observer } from "mobx-react-lite";
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import style from "../../style.module.css";
 
 function MainZoneChannels() {
   useEffect(() => {
@@ -9,10 +10,10 @@ function MainZoneChannels() {
   }, []);
 
   return (
-    <div className="MainZone">
+    <div className={style.MainZone}>
       {Channels.channelsArr.slice(0, 1).map((channel) => (
         // Отрисовываем компонент только для первого элемента в массиве
-          <MyChannel 
+        <MyChannel
           key={channel.channelId}
           channelId={channel.channelId}
           channelName={channel.channelName}
@@ -25,11 +26,11 @@ function MainZoneChannels() {
           arrKnowlegesParts={channel.arrKnowlegesParts}
           arrTags={channel.arrTags}
           authorFullname={channel.authorFullname}
-          arrComments={channel.arrComments} 
+          arrComments={channel.arrComments}
           arrCountSubscriptionsChannels={channel.arrCountSubscriptionsChannels}
-          arrAuthors = {channel.arrAuthors}
-          arrAllClassificators = {channel.arrAllClassificators}
-          />
+          arrAuthors={channel.arrAuthors}
+          arrAllClassificators={channel.arrAllClassificators}
+        />
       ))}
     </div>
   );
