@@ -126,6 +126,8 @@
 }
 .channelIconLeft{
     margin-right: 15px;
+    border-radius: 4px;
+    object-fit: cover;
 }
 .TabMenu{
     margin-bottom: 60px;
@@ -373,6 +375,11 @@ line-height: normal;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    display: flex;
+    align-items: center;
+}
+.AutorName:visited{
+    color: #000;
 }
 .AutorElement{
     display: flex;
