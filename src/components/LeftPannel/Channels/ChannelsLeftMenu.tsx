@@ -1,12 +1,21 @@
 import ChannelElement from "./ChannelElement";
 import styles from "../../../style.module.css";
+import { observer } from "mobx-react-lite";
+import visitedChannels from "../../../store/visitedChannels";
 
 function ChannelsLeftMenu() {
   return (
     <ul className={styles.ChannelsLeftMenu}>
-      <ChannelElement name="Chanel's name" pict_url="" />
+      {visitedChannels.channelsArr.map((channel) => (
+        <ChannelElement
+          name={channel.name}
+          pict_id={channel.pict_id}
+          channel_id={channel.pict_id}
+          count={channel.count}
+        />
+      ))}
     </ul>
   );
 }
 
-export default ChannelsLeftMenu;
+export default observer(ChannelsLeftMenu);
