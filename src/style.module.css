@@ -445,11 +445,29 @@ line-height: normal;
     background-clip: content-box;
     border-radius: 4px;
 }
+.UniversalSkelet{
+    --bg-size: 500%;
+    --color-one: gray;
+    --color-two: white;
+    font-size: clamp(3rem, 25vmin, 8rem);
+    background: linear-gradient(
+        100deg,
+        var(--color-one),
+        var(--color-two),
+        var(--color-one)
+      )
+      0 0 / var(--bg-size) 100%;
+    color: transparent;
+    /* background-clip: content-box; */
+}
 @media (prefers-reduced-motion: no-preference) {
     .AutorNameSkelet {
       animation: move-bg 10s linear infinite;
     }
     .AutorPictSkelet {
+      animation: move-bg 10s linear infinite;
+    }
+    .UniversalSkelet {
       animation: move-bg 10s linear infinite;
     }
     @keyframes move-bg {
@@ -465,7 +483,7 @@ line-height: normal;
     background: #fff;
     width: 100%;
     border-radius: 15px;
-    padding: 0 25px;
+    padding: 28px 25px;
 }
 .subscription_list{
     padding: unset;
@@ -496,6 +514,9 @@ line-height: normal;
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+.author_pict{
+    display: flex;
 }
 .author_pict_img{
     width: 20px;
@@ -574,4 +595,90 @@ line-height: normal;
 }
 .postImage{
     width: 100%;
+}
+.recommend_title{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.71px;
+    color: #595959;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+.recommend_icon_img{
+    border-radius: 4px;
+    object-fit: cover;
+}
+.recommends_list{
+    margin: unset;
+    padding: unset;
+}
+.recommend_element{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+    box-sizing: border-box;
+}
+.recommend_left{
+    display: flex;
+}
+.channel_desc{
+    margin-top: 6px;
+}
+.recommend_icon{
+    margin-right: 15px;
+}
+.button_subscribe{
+    width: 170px;
+    height: 27px;
+    border-radius: 6px;
+    background-color: #0091D5;
+    color: #FFF;
+    margin: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: unset;
+    padding: 0;
+}
+.button_unsubscribe{
+    width: 170px;
+    height: 27px;
+    border-radius: 6px;
+    background-color: unset;
+    color: #000000;
+    margin: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0;
+}
+.block_button_icon_unsubscribe{
+    margin-right: 4px;
+}
+.button_unsubscribe:hover{
+    background-color: unset !important;
+    color: #000000 !important;
+    border: 1px solid rgba(0, 0, 0, 0.3) !important;
+}
+.block_button_icon{
+    margin-right: 4px;
+    margin-top: 2px;
+}
+.NotFoundIcon{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.NotFoundText{
+    font-weight: 600;
+    margin-top: 10px;
+}
+.NotFoundImg{
+    transition: 0.4s;
+}
+.no_comments{
+    color: rgba(0, 0, 0, .5);
 }
