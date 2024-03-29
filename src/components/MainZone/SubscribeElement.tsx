@@ -11,10 +11,11 @@ import popularAutors from "../../store/popularAutors";
 function SubscribeElement(props: ISubscribeElement) {
   const [hoverIcon, setHoverIcon] = useState<boolean>(false);
 
-  function unfollow() {
+  async function unfollow() {
     news.blogFollow(props.id);
-    mySubscriptions.unfollow(props.id);
+    await mySubscriptions.unfollow(props.id);
     popularAutors.getPopularAutors();
+    mySubscriptions.getRecommendChannels();
   }
 
   return (

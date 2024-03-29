@@ -8,6 +8,7 @@ import FavouriteIconActive from "./MainIcons/FavouriteIconActive";
 import LikeIcon from "./MainIcons/LikeIcon";
 import LikeIconActive from "./MainIcons/LikeIconActive";
 import postBody from "../../store/postBody";
+import comments from "../../store/comments";
 
 function PostFooter(props: IPostFooter) {
   return (
@@ -37,6 +38,7 @@ function PostFooter(props: IPostFooter) {
         onClick={(event) => {
           news.getFavourites(props.id, props.my_favourite, event);
           postBody.updateFavorites();
+          comments.getAllComments();
         }}
       >
         {!props.my_favourite && <FavouriteIcon />}

@@ -56,7 +56,7 @@
 
   .blockForMyChannelInfo_cover {
     border-radius: 0 0 15px 15px;
-    width: 85vh;
+    width: 100%;
     background-color: #FFF;
     display: flex;
     flex-direction: column;
@@ -500,7 +500,7 @@
   .blockForMyChannelArticles {
     display: flex;
     justify-content: space-between;
-    width: 85vh;
+    width: 100%;
   }
 
   .createAndNewArticles {
@@ -767,14 +767,14 @@
   }
 
   .imgCoverChannel {
-    width: 85vh;
+    width: 100%;
     height: 230px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
   }
 
   .blockForImgCoverChannel {
-    width: 85vh;
+    width: 100%;
     height: 230px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;

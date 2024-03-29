@@ -22,7 +22,7 @@ function TabElement(props: ITabElement) {
       case "lxp_subscribes":
         tabNavigation.navigatorUpdate("Подписки");
         break;
-      case "eqvatoria_lxp_channels":
+      case "lxp_channels":
         tabNavigation.navigatorUpdate("Каналы");
         break;
       case "lxp_saved":
