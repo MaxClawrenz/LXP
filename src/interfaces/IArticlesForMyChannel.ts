@@ -16,5 +16,6 @@ export interface IArticlesForMyChannel{
     setViewMyComments: React.Dispatch<React.SetStateAction<boolean>>,
     createMyFirstPost: any,
     setCreateMyFirstPost: any,
-    arrCountSubscriptionsChannels: number
+    arrCountSubscriptionsChannels: number,
+    posts: any[]
 }

@@ -2,8 +2,9 @@ import { IArticlesForMyChannel } from "../../interfaces/IArticlesForMyChannel";
 import CommentsForMyChannel from "./CommentsForMyChannel";
 import MyFirstArticle from "./MyFirstArticle";
 import MySubscriebers from "./MySubsribers";
-import PostCardForMyChannel from "./PostCardForMyChannel";
+import PostCard from "./PostCard";
 import style_channels from "./style_channels.module.css";
+import styles from "../../style.module.css";
 
 function ArticlesForMyChannel(props: IArticlesForMyChannel) {
   return (
@@ -73,26 +74,27 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
           />
         )}
         {props.viewMyPosts &&
-          props.arrPostsInChannel.length > 0 &&
-          props.arrPostsInChannel.map((post) => (
-            <PostCardForMyChannel
-              key={post.postChannelsId}
-              postChannelsId={post.postChannelsId}
-              postChannelsTitle={post.postChannelsTitle}
-              postChannelsAnonce={post.postChannelsAnonce}
-              postText={post.postText}
-              postCreateDate={post.postCreateDate}
-              arrCountLikesPost={post.arrCountLikesPost}
-              arrCountCommentsPost={post.arrCountCommentsPost}
-              arrCountSubscriptionsPost={post.arrCountSubscriptionsPost}
-              channelId={props.channelId}
-              channelName={props.channelName}
-              authorID={props.authorID}
-              avatarChannelID={props.avatarChannelID}
-              arrKnowlegesPost={post.arrKnowlegesPost}
-              arrTagsPost={post.arrTagsPost}
-              arrKnowlegesParts={props.arrKnowlegesParts}
-            />
+          props.posts.length > 0 &&
+          props.posts.map((post) => (
+            <PostCard 
+              id={post.id} 
+              channel_pict={post.channel_pict} 
+              channel_name={post.channel_name} 
+              channel_id={post.channel_id} 
+              knowledge_name={post.knowledge_name} 
+              time_posted={post.time_posted} 
+              create_date={post.create_date} 
+              is_follow={post.is_follow} 
+              post_name={post.post_name} 
+              post_text={post.post_text} 
+              likes_count={post.likes_count} 
+              my_like={post.my_like} 
+              comments_count={post.comments_count} 
+              favourite_count={post.favourite_count} 
+              my_favourite={post.my_favourite} 
+              is_my_blog={post.is_my_blog} 
+              blog_id={post.blog_id} 
+              file_id={post.file_id} />
           ))}
         {props.viewMyComments && props.arrComments.length > 0 && (
           <CommentsForMyChannel arrComments={props.arrComments} />
