@@ -14,5 +14,6 @@ export interface IMyChannel{
     arrComments: any[],
     arrCountSubscriptionsChannels: number,
     arrAuthors: any[],
-    arrAllClassificators: any[]
+    arrAllClassificators: any[],
+    posts: any[]
 }

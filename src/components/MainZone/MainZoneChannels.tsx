@@ -29,8 +29,8 @@ function MainZoneChannels() {
           arrComments={channel.arrComments}
           arrCountSubscriptionsChannels={channel.arrCountSubscriptionsChannels}
           arrAuthors={channel.arrAuthors}
-          arrAllClassificators={channel.arrAllClassificators}
-        />
+          arrAllClassificators={channel.arrAllClassificators} 
+          posts={channel.posts}        />
       ))}
     </div>
   );

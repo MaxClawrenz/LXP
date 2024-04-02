@@ -182,7 +182,7 @@
 }
 
 .PostCard{
-    width: 568px;
+    /* width: 568px; */
     min-height: 272px;
     height: auto;
     border-radius: 15px;
