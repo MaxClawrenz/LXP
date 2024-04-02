@@ -73,9 +73,11 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
             authorID={props.authorID}
           />
         )}
+        <div className={style_channels.block_for_components_articles}>
         {props.viewMyPosts &&
           props.posts.length > 0 &&
           props.posts.map((post) => (
+           
             <PostCard 
               id={post.id} 
               channel_pict={post.channel_pict} 
@@ -95,7 +97,9 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
               is_my_blog={post.is_my_blog} 
               blog_id={post.blog_id} 
               file_id={post.file_id} />
+              
           ))}
+          </div>
         {props.viewMyComments && props.arrComments.length > 0 && (
           <CommentsForMyChannel arrComments={props.arrComments} />
         )}

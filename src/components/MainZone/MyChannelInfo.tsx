@@ -90,7 +90,7 @@ function MyChannelInfo(props:IMyChannelInfo) {
             </div>
         </div>
         
-        <ArticlesForMyChannel 
+            <ArticlesForMyChannel 
                 viewMyPosts={viewMyPosts}
                 setViewMyPosts={setViewMyPosts}
                 viewMyComments={viewMyComments}
@@ -110,8 +110,9 @@ function MyChannelInfo(props:IMyChannelInfo) {
                 arrComments={props.arrComments}
                 arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels} 
                 posts={props.posts}                />
-
+      
         </>
+        
     )
   }
   
