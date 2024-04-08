@@ -119,7 +119,7 @@ function SkeletCard() {
           paddingBottom={""}
           paddingLeft={""}
           paddingRight={""}
-          borderRadius={"4px"}
+          borderRadius={"50%"}
         />
         <UniversalSkelet
           width={"15px"}

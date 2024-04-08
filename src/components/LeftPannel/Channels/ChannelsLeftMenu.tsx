@@ -10,7 +10,7 @@ function ChannelsLeftMenu() {
         <ChannelElement
           name={channel.name}
           pict_id={channel.pict_id}
-          channel_id={channel.pict_id}
+          channel_id={channel.channel_id}
           count={channel.count}
         />
       ))}

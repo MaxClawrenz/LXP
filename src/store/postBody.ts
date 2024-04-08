@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { makeAutoObservable, runInAction } from "mobx"
 import { IPostCard } from "../interfaces/IPostCard";
+import { IPostCommentsObj } from "../interfaces/IPostCommentsObj";
 
 class postBody {
     post: IPostCard = {
@@ -24,6 +25,10 @@ class postBody {
         file_id: ""
     };
     isLoading: boolean = false;
+    postComments: IPostCommentsObj = {
+        allComments: []
+    };
+    isLoadingComments: boolean = false;
 
     constructor(){
         makeAutoObservable(this)
@@ -65,6 +70,21 @@ class postBody {
             }
             this.post.my_favourite = !this.post.my_favourite;
         })
+    }
+
+    //метод загрузки комментариев к посту
+    async getPostComment(id: string){
+        try {
+            const response: AxiosResponse<IPostCommentsObj> = await axios.get('/custom_web_template.html?object_code=comments_ajax_recursion', {params: {new_id: id}})
+            runInAction(()=>{
+                this.postComments.allComments = response.data.allComments;
+            })
+        } catch (error) {
+            console.log(error)
+        } finally {
+            this.isLoadingComments = false;
+        }
+
     }
 }
 
