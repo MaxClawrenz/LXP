@@ -9,6 +9,7 @@ import postBody from "../../store/postBody";
 import PostImages from "./PostImages";
 import PostFooter from "./PostFooter";
 import UniversalSkelet from "./UniversalSkelet";
+import CommentsZone from "./CommentsZone";
 
 function PostZone() {
   const { hours, minutes } = useTime(postBody.post.time_posted);
@@ -193,6 +194,10 @@ function PostZone() {
           favourite_count={postBody.post.favourite_count}
         />
       </div>
+      <CommentsZone
+        id={postBody.post.id}
+        comments_count={postBody.post.comments_count}
+      />
     </div>
   );
 }
