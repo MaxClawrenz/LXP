@@ -597,6 +597,7 @@ line-height: normal;
 }
 .postImage{
     width: 100%;
+    cursor: zoom-in;
 }
 .recommend_title{
     font-weight: 400;
