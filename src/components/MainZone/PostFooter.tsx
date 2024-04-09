@@ -9,6 +9,7 @@ import LikeIcon from "./MainIcons/LikeIcon";
 import LikeIconActive from "./MainIcons/LikeIconActive";
 import postBody from "../../store/postBody";
 import comments from "../../store/comments";
+import Channels from "../../store/MainZoneChannels"
 
 function PostFooter(props: IPostFooter) {
   return (
@@ -18,6 +19,7 @@ function PostFooter(props: IPostFooter) {
         onClick={(event) => {
           news.getLike(props.id, event);
           postBody.updateLikes();
+          Channels.updateLikesMyChannel(props.id);
         }}
       >
         {!props.my_like && <LikeIcon />}
@@ -39,6 +41,7 @@ function PostFooter(props: IPostFooter) {
           news.getFavourites(props.id, props.my_favourite, event);
           postBody.updateFavorites();
           comments.getAllComments();
+          Channels.updateSavedPostsMyChannel(props.id);
         }}
       >
         {!props.my_favourite && <FavouriteIcon />}
