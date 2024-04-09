@@ -554,7 +554,8 @@ line-height: normal;
 }
 
 .postImg{
-    width: 528px;
+    /* width: 528px; */
+    width: 98%;
     object-fit: contain;
     border-radius: 10px;
 }
