@@ -4,9 +4,12 @@ import MyFirstArticle from "./MyFirstArticle";
 import MySubscriebers from "./MySubsribers";
 import PostCard from "./PostCard";
 import style_channels from "./style_channels.module.css";
-import styles from "../../style.module.css";
+import { observer } from "mobx-react-lite";
+import Channels from "../../store/MainZoneChannels"
+import SkeletCard from "./SkeletCard";
 
 function ArticlesForMyChannel(props: IArticlesForMyChannel) {
+  
   return (
     <div className={style_channels.blockForMyChannelArticles}>
       <div className={style_channels.createAndNewArticles}>
@@ -99,10 +102,13 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
               file_id={post.file_id} />
               
           ))}
-          </div>
+          
+            {/* {Channels.isLoading && <SkeletCard />} */}
+
         {props.viewMyComments && props.arrComments.length > 0 && (
           <CommentsForMyChannel arrComments={props.arrComments} />
         )}
+        </div>
       </div>
       {props.arrSubscriptionsInChannel.length > 0 && (
         <MySubscriebers
@@ -114,4 +120,4 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
   );
 }
 
-export default ArticlesForMyChannel;
+export default observer(ArticlesForMyChannel);

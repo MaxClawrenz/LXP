@@ -53,8 +53,12 @@ class postBody {
         runInAction(()=>{
             if(this.post.my_like){
                 this.post.likes_count--;
+                console.log('My like ' + this.post.my_like + ' id ' + this.post.id);
+                console.log('Count likes ' + this.post.likes_count);
             }else{
-                this.post.likes_count++
+                this.post.likes_count++;
+                console.log('My like ' + this.post.my_like + ' id ' + this.post.id);
+                console.log('Count likes ' + this.post.likes_count);
             }
             this.post.my_like = !this.post.my_like;
         })

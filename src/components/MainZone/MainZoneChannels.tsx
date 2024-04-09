@@ -3,6 +3,8 @@ import Channels from "../../store/MainZoneChannels";
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import style from "../../style.module.css";
+import SkeletCard from "./SkeletCard";
+import NotFoundIcon from "./MainIcons/NotFoundIcon";
 
 function MainZoneChannels() {
   useEffect(() => {
@@ -11,7 +13,7 @@ function MainZoneChannels() {
 
   return (
     <div className={style.MainZone}>
-      {Channels.channelsArr.slice(0, 1).map((channel) => (
+      {Channels.channelsArr.length > 0 && !Channels.isLoading && Channels.channelsArr.slice(0, 1).map((channel) => (
         // Отрисовываем компонент только для первого элемента в массиве
         <MyChannel
           key={channel.channelId}
@@ -32,6 +34,13 @@ function MainZoneChannels() {
           arrAllClassificators={channel.arrAllClassificators} 
           posts={channel.posts}        />
       ))}
+
+        {Channels.isLoading && <SkeletCard />}
+
+        {Channels.channelsArr.length === 0 && !Channels.isLoading && (
+        <NotFoundIcon text={"У вас нет действующих каналов"} width={"568px"} />
+      )}
+
     </div>
   );
 }

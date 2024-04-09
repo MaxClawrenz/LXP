@@ -5,6 +5,7 @@ import CoverMyChannel from './CoverMyChannel';
 import style_channels from './style_channels.module.css';
 import BtnChangeChannel from './BtnChangeChannel';
 import EditAvatarChannelForm from './EditAvatarChannelForm';
+import { observer } from 'mobx-react-lite';
 
 function MyChannelInfo(props:IMyChannelInfo) {
 
@@ -116,5 +117,5 @@ function MyChannelInfo(props:IMyChannelInfo) {
     )
   }
   
-  export default MyChannelInfo;
+  export default observer(MyChannelInfo);
   
