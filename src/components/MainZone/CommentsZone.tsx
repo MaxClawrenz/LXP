@@ -20,7 +20,6 @@ function CommentsZone({
 
   useEffect(() => {
     if (id) {
-      postBody.isLoadingComments = true;
       postBody.getPostComment(id);
     }
   }, [id]);
