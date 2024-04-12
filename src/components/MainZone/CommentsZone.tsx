@@ -19,9 +19,11 @@ function CommentsZone({
   ]);
 
   useEffect(() => {
-    postBody.isLoadingComments = true;
-    postBody.getPostComment(id);
-  }, []);
+    if (id) {
+      postBody.isLoadingComments = true;
+      postBody.getPostComment(id);
+    }
+  }, [id]);
 
   return (
     <div className={style.CommentsZone}>
