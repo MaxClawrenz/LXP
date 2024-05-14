@@ -189,14 +189,15 @@ function PostZone() {
           id={postBody.post.id}
           my_like={postBody.post.my_like}
           likes_count={postBody.post.likes_count}
-          comments_count={postBody.post.comments_count}
+          comments_count={postBody.commentsCount}
           my_favourite={postBody.post.my_favourite}
           favourite_count={postBody.post.favourite_count}
         />
       </div>
       <CommentsZone
         id={postBody.post.id}
-        comments_count={postBody.post.comments_count}
+        comments_count={postBody.commentsCount}
+        blog_id={postBody.post.blog_id}
       />
     </div>
   );
