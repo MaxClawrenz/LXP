@@ -101,19 +101,6 @@ class postBody {
       (comment) => comment.id === commentId
     );
 
-
-    //метод обновления лайка
-    updateLikes(){
-        runInAction(()=>{
-            if(this.post.my_like){
-                this.post.likes_count--;
-               
-            }else{
-                this.post.likes_count++;
-            }
-            this.post.my_like = !this.post.my_like;
-        })
-
     if (commentIndex !== -1) {
       const childCommentIndex = this.postComments.allComments[
         commentIndex
@@ -126,7 +113,6 @@ class postBody {
           ].message = updatedMessage;
         });
       }
-
     }
   }
   //добавление ответа в cheldren
