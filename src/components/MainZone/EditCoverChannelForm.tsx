@@ -116,7 +116,7 @@ const EditCoverChannelForm = forwardRef(
               ref={imgRef as any}
             />
             <button
-              className="btn_save_photo"
+              className={style_channels.btn_save_photo}
               onClick={() => handleCrop(image, props.channelId)}
             >
               Сохранить
