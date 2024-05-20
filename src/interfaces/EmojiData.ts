@@ -1,0 +1,3 @@
+interface EmojiData {
+  emoji: string;
+}
