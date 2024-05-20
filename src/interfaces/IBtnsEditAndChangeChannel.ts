@@ -20,5 +20,9 @@ export interface IBtnsEditAndChangeChannel{
     avatarChannel: number, 
     setAvatarChannel: any,
     channelAvatarDialog: boolean, 
-    setChannelAvatarDialog: any
+    setChannelAvatarDialog: any,
+    nameChannel: string,
+    setNameChannel: any,
+    descriptChannel: string,
+    setDescriptChannel: any
 }

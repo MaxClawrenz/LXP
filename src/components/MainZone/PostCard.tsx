@@ -9,7 +9,7 @@ import MapIcon from "./MainIcons/MapIcon";
 import { Link } from "react-router-dom";
 import MapTitle from "./MapTitle";
 import FollowIcon from "./MainIcons/FollowIcon";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from 'framer-motion';
 import { observer } from "mobx-react-lite";
 import popularAutors from "../../store/popularAutors";
 import MapIconOpened from "./MainIcons/MapIconOpened";
