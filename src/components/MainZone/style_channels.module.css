@@ -1061,7 +1061,7 @@
   width: 50%;
   position: fixed;
   z-index: 101;
-  height: 50%;
+  height: 70%;
   top: 0;
   left: 25%;
   background-color: #FFF;
@@ -1072,6 +1072,12 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 8px 0 #4c4e4f;
+}
+
+.btn_save_photo {
+  position: relative;
+  z-index: 10000;
+  top: -20%;
 }
 
 .title_and_close {
