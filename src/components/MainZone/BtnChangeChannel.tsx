@@ -54,7 +54,11 @@ function BtnChangeChannel(props:IBtnChangeChannel) {
                             avatarChannel={props.avatarChannel} 
                             setAvatarChannel={props.setAvatarChannel} 
                             channelAvatarDialog={props.channelAvatarDialog} 
-                            setChannelAvatarDialog={props.setChannelAvatarDialog} />
+                            setChannelAvatarDialog={props.setChannelAvatarDialog}
+                            nameChannel = {props.nameChannel}
+                            setNameChannel = {props.setNameChannel}
+                            descriptChannel = {props.descriptChannel}
+                            setDescriptChannel = {props.setDescriptChannel}  />
                         </div>
                         </CSSTransition>
                     }
