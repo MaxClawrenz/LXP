@@ -202,5 +202,5 @@ class postBody {
     }
   }
 }
-}
+
 export default new postBody();
