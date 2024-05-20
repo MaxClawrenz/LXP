@@ -8,6 +8,8 @@ import EditCoverChannelForm from './EditCoverChannelForm';
 import EditAvatarChannelForm from './EditAvatarChannelForm';
 import { observer } from 'mobx-react-lite';
 import EditFormChannel from '../../store/EditFormChannel';
+import { values } from 'mobx';
+import MainZoneChannels from '../../store/MainZoneChannels';
 
 
 
@@ -16,6 +18,8 @@ function FormEditChannel(props:IFormEditChannel) {
     const [channelName, setChannelName] = useState<string>(props.channelName);
     const [channelDecript, setChannelDecript] = useState<string>(props.channelDecript);
     const [arrAuthors, setArrAuthors] = useState<any>(props.arrAuthors);
+    const [themeChannel, setThemeChannel] = useState<any>(props.arrKnowlegesParts[0].knowlegeName);
+    const [searchAuthor, setSearchAuthor] = useState<string>('');
 
     const handleChannelNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setChannelName(e.target.value);
@@ -25,11 +29,38 @@ function FormEditChannel(props:IFormEditChannel) {
         setChannelDecript(e.target.value);
     };
 
-    // Демо-данные для чипса
-      const handleDeleteAuthor = () => {
-        // EditFormChannel.deleteAuthor(props.channelId, author.authorInArrId);
-        console.info('You clicked the delete icon.');
-      };
+    const handleThemeChannel = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setThemeChannel(e.target.value);
+    };
+
+
+    // Удаление автора канала
+    const handleDeleteAuthor = (key: number, id: number, arrAuthors: any) => () => {
+        EditFormChannel.deleteAuthor(key, id, arrAuthors);
+        // Обновление массива авторов в компоненте после удаления
+        const updatedAuthors = arrAuthors.filter((author: any) => author.authorInArrId !== id);
+        setArrAuthors(updatedAuthors);
+    };
+
+    const saveChangeChannel = () => {
+       // Создаем объект с данными для отправки
+    const formData = {
+        channel_id: props.channelId,
+        channel_name: channelName,
+        channel_decript: channelDecript,
+        selected_classificatorId: themeChannel
+    };
+
+    // Вызываем метод в MobX для сохранения изменений
+    EditFormChannel.saveChannelChanges(formData);
+    props.setEditChannelForm(false);
+    props.setNameChannel(channelName);
+    props.setDescriptChannel(channelDecript);
+    };
+
+    const handleSearchAuthor = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchAuthor(e.target.value);
+    }
 
       
 
@@ -106,9 +137,10 @@ function FormEditChannel(props:IFormEditChannel) {
                                         <Stack direction="row" spacing={1}>
                                             {arrAuthors.map( (author: any) => (
                                                 <Chip
+                                                key = {props.channelId}
                                                 sx={{ fontSize: 14}}
                                                 label={author.authorInArrFullname}
-                                                onDelete={handleDeleteAuthor}
+                                                onDelete={handleDeleteAuthor(props.channelId, author.authorInArrId, arrAuthors)}
                                                 id={author.authorInArrId}
                                                 size="medium"
                                                 /> 
@@ -137,7 +169,7 @@ function FormEditChannel(props:IFormEditChannel) {
 
 
                                       
-                                        <input id="channelNameInputEditForm" className={style_channels.inputFormEditAddAuthor} placeholder='Добавить автора' value='' />
+                                        <input id="channelNameInputEditForm" className={style_channels.inputFormEditAddAuthor} placeholder='Добавить автора' value={searchAuthor} onChange={handleSearchAuthor} />
                                     </div>
 
 
@@ -150,18 +182,18 @@ function FormEditChannel(props:IFormEditChannel) {
                                     </div>
                                     <div className={style_channels.allThemesBlock}>
                                     <label>
-                                    <select className={style_channels.radioLabel} value=''>
+                                    <select className={style_channels.radioLabel} value={themeChannel} onChange={handleThemeChannel}>
                                         {props.arrAllClassificators.map( (classificator) => 
-                                            <option className={style_channels.radioVariant} value={classificator.classificatorId} id="idTheme">{classificator.classificatorName}</option>
+                                            <option className={style_channels.radioVariant} value={classificator.classificatorId} id="idTheme" >{classificator.classificatorName}</option>
                                         )
                                         }
-                                        </select>
+                                    </select>
                                         </label>
                                     </div>
                                 </div>
 
                                 <div className={style_channels.blockButtonsSaveAndDel}>
-                                    <div className={style_channels.btnSaveChannel}>Сохранить</div>
+                                    <div className={style_channels.btnSaveChannel} onClick={saveChangeChannel}>Сохранить</div>
                                     <div className={style_channels.btnDeleteChannel}>Удалить канал</div>
                                 </div>
 

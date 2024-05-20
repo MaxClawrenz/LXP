@@ -20,6 +20,9 @@ function MyChannelInfo(props:IMyChannelInfo) {
     const [avatarChannel, setAvatarChannel] = useState<number>(props.avatarChannelID);
     const [channelAvatarDialog, setChannelAvatarDialog] = useState<boolean>(false);
 
+    const [nameChannel, setNameChannel] = useState<string>(props.channelName);
+    const [descriptChannel, setDescriptChannel] = useState<string>(props.channelDecript);
+
     return (
         <>
     { channelAvatarDialog &&
@@ -69,11 +72,15 @@ function MyChannelInfo(props:IMyChannelInfo) {
                         avatarChannel={avatarChannel} 
                         setAvatarChannel={setAvatarChannel} 
                         channelAvatarDialog={channelAvatarDialog} 
-                        setChannelAvatarDialog={setChannelAvatarDialog}               />
+                        setChannelAvatarDialog={setChannelAvatarDialog} 
+                        nameChannel = {nameChannel}
+                        setNameChannel = {setNameChannel}
+                        descriptChannel = {descriptChannel}
+                        setDescriptChannel = {setDescriptChannel}             />
                
             </div>
-            <div className={style_channels.titleChannel}>{props.channelName}</div>
-            <div className={style_channels.channelDescript}>{props.channelDecript}</div>
+            <div className={style_channels.titleChannel}>{nameChannel}</div>
+            <div className={style_channels.channelDescript}>{descriptChannel}</div>
             <div className={style_channels.changeDescript}>Изменить описание</div>
             <div className={style_channels.authorChannel}>Авторы канала:
             <div className={style_channels.listAuthors}>
