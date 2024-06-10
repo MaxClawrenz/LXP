@@ -20,6 +20,7 @@ function FormEditChannel(props:IFormEditChannel) {
     const [arrAuthors, setArrAuthors] = useState<any>(props.arrAuthors);
     const [themeChannel, setThemeChannel] = useState<any>(props.arrKnowlegesParts[0].knowlegeName);
     const [searchAuthor, setSearchAuthor] = useState<string>('');
+    const [arrCollaborators, setArrCollaborators] = useState<any>([]);
 
     const handleChannelNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setChannelName(e.target.value);
@@ -35,13 +36,16 @@ function FormEditChannel(props:IFormEditChannel) {
 
 
     // Удаление автора канала
-    const handleDeleteAuthor = (key: number, id: number, arrAuthors: any) => () => {
-        EditFormChannel.deleteAuthor(key, id, arrAuthors);
-        // Обновление массива авторов в компоненте после удаления
-        const updatedAuthors = arrAuthors.filter((author: any) => author.authorInArrId !== id);
-        setArrAuthors(updatedAuthors);
+    const handleDeleteAuthor = (id_channel: number, id_author: number) => async () => {
+        try {
+            await EditFormChannel.deleteAuthor(id_channel, id_author);
+            setArrAuthors((prevAuthors: any[]) => prevAuthors.filter((author: any) => author.authorInArrId !== id_author));
+        } catch (error) {
+            console.error('Ошибка при удалении автора:', error);
+        }
     };
-
+    
+    
     const saveChangeChannel = () => {
        // Создаем объект с данными для отправки
     const formData = {
@@ -58,9 +62,36 @@ function FormEditChannel(props:IFormEditChannel) {
     props.setDescriptChannel(channelDecript);
     };
 
-    const handleSearchAuthor = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchAuthor(e.target.value);
-    }
+    const handleSearchAuthor = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const query = e.target.value;
+        setSearchAuthor(query);
+    
+        if (query.trim() === '') {
+            setArrCollaborators([]);
+            return;
+        }
+    
+        try {
+            const results = await EditFormChannel.searchAuthor(query);
+            setArrCollaborators(results);
+        } catch (error) {
+            console.error('Error searching for authors:', error);
+            setArrCollaborators([]);
+        }
+    };
+
+    const addNewAuthor = async (collId: number, collFullname: string, channelId: number) => {
+        try {
+            const resultArr = await EditFormChannel.addNewAuthor(collId, collFullname, channelId);
+            setArrAuthors(resultArr);
+            setArrCollaborators([]);
+        } catch (error) {
+            console.error('Error adding new author:', error);
+        }
+    };
+    
+
+    
 
       
 
@@ -132,22 +163,21 @@ function FormEditChannel(props:IFormEditChannel) {
                                 <div className={style_channels.inputsInfoEditForm}>
                                     <div className={style_channels.titleInputFormEdit}>Авторы канала</div>
                                     <div className={style_channels.inputStyleBlockFormEdit}>
-                                       
+                                       <div className={style_channels.block_chips}>
                                     {arrAuthors.length > 1 &&
-                                        <Stack direction="row" spacing={1}>
-                                            {arrAuthors.map( (author: any) => (
-                                                <Chip
-                                                key = {props.channelId}
-                                                sx={{ fontSize: 14}}
-                                                label={author.authorInArrFullname}
-                                                onDelete={handleDeleteAuthor(props.channelId, author.authorInArrId, arrAuthors)}
-                                                id={author.authorInArrId}
-                                                size="medium"
-                                                /> 
-                                            )
-                                            )
-                                            }
-                                        </Stack>
+                                       <Stack direction="row" spacing={1}>
+                                       {arrAuthors.map((author: any) => (
+                                           <Chip
+                                               key={author.authorInArrId} // используем уникальный ключ для каждого автора
+                                               sx={{ fontSize: 14 }}
+                                               label={author.authorInArrFullname}
+                                               onDelete={handleDeleteAuthor(props.channelId, author.authorInArrId)}
+                                               id={author.authorInArrId}
+                                               size="medium"
+                                           />
+                                       ))}
+                                   </Stack>
+                                   
                                     }
 
                                     {arrAuthors.length === 1 &&
@@ -167,10 +197,24 @@ function FormEditChannel(props:IFormEditChannel) {
                                     }
 
 
-
+                                            </div>
                                       
                                         <input id="channelNameInputEditForm" className={style_channels.inputFormEditAddAuthor} placeholder='Добавить автора' value={searchAuthor} onChange={handleSearchAuthor} />
+
                                     </div>
+
+                                    {arrCollaborators.length > 0 &&
+                                           <div className={style_channels.block_for_searchauthor}>
+                                                {arrCollaborators.map ( (elem:any) => (
+                                                    <div key={elem.collID} className={style_channels.elem_new_author} id={elem.collID} lang={elem.collFullname} onClick={() => addNewAuthor(elem.collID, elem.collFullname, props.channelId)}>
+                                                        {elem.collFullname}
+                                                    </div>
+                                                )
+                                                )
+
+                                                }
+                                           </div>
+                                    }
 
 
                                 </div>

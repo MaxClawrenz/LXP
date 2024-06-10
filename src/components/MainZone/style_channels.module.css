@@ -1111,3 +1111,34 @@
   margin-top: 20px;
   box-sizing: border-box;
 }
+
+.block_for_searchauthor {
+  background: #fff;
+  border: 1px solid silver;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 0 10px;
+  position: relative;
+  top: 10px;
+  z-index: 1000;
+  width: fit-content;
+  float: right;
+}
+
+.elem_new_author {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.elem_new_author:hover {
+  color: #FBBB10;
+}
+
+.block_chips {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
