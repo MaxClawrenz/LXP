@@ -399,7 +399,7 @@
   .topBlockTitle {
     display: flex;
     align-items: center;
-    margin-bottom: 17px;
+    /* margin-bottom: 17px; */
   }
 
   .avatarBlock {
