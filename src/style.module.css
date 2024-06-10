@@ -1268,3 +1268,41 @@
 .EmojiIcon_articles:hover g {
   opacity: 1;
 }
+.CreatePostModal{
+  background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .15);
+    left: 50%;
+    margin-bottom: 25px;
+    max-height: 90%;
+    max-width: 100%;
+    min-height: 160px;
+    min-width: 200px;
+    overflow-x: hidden;
+    padding: 70px;
+    position: fixed;
+    top: 10%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 65%;
+    z-index: 1000;
+}
+.CreatePostModal_header{
+    display: flex;
+    justify-content: space-between;
+}
+.CreatePostModal_leftBlock{
+  display: flex;
+}
+.CreatePostModal_icon{
+  object-fit: cover;
+  margin-right: 30px;
+}
+.CreatePostModal_Name{
+  font-size: 24px;
+  line-height: 28.13px;
+  color: #151D2D;
+}
+.CloseIcon{
+  cursor: pointer;
+}
