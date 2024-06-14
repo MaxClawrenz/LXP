@@ -5,17 +5,9 @@ import MySubscriebers from "./MySubsribers";
 import PostCard from "./PostCard";
 import style_channels from "./style_channels.module.css";
 import { observer } from "mobx-react-lite";
-import Channels from "../../store/MainZoneChannels";
-import SkeletCard from "./SkeletCard";
-import { useState } from "react";
-import ReactDOM from "react-dom";
-import CreatePostModal from "./CreatePostModal";
 
 function ArticlesForMyChannel(props: IArticlesForMyChannel) {
-  const [isModalOpen, setModalOpen] = useState<boolean>(false);
-  const postModalNode = document.getElementById("create_modal");
-  if (!postModalNode) return null;
-
+  
   return (
     <div className={style_channels.blockForMyChannelArticles}>
       <div className={style_channels.createAndNewArticles}>
@@ -28,16 +20,9 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
                 className={style_channels.imgChannelAvatar}
               />
             </div>
-            <div
-              onClick={() => {
-                setModalOpen(true);
-              }}
-              className={style_channels.btnNewPost}
-            >
-              Новая запись
-            </div>
+            <div className={style_channels.btnNewPost}>Новая запись</div>
           </div>
-          {/* <div className={style_channels.blockForBtnsPhotoAndLink}>
+          <div className={style_channels.blockForBtnsPhotoAndLink}>
             <div className={style_channels.btnPhotoVideo}>
               <div className={style_channels.iconPhotoAndVideo}>
                 <svg
@@ -81,7 +66,7 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
               </div>
               <div className={style_channels.textBtn}>Ссылка</div>
             </div>
-          </div> */}
+          </div>
         </div>
         {props.createMyFirstPost && props.arrPostsInChannel.length === 0 && (
           <MyFirstArticle
@@ -90,36 +75,36 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
           />
         )}
         <div className={style_channels.block_for_components_articles}>
-          {props.viewMyPosts &&
-            props.posts.length > 0 &&
-            props.posts.map((post) => (
-              <PostCard
-                id={post.id}
-                channel_pict={post.channel_pict}
-                channel_name={post.channel_name}
-                channel_id={post.channel_id}
-                knowledge_name={post.knowledge_name}
-                time_posted={post.time_posted}
-                create_date={post.create_date}
-                is_follow={post.is_follow}
-                post_name={post.post_name}
-                post_text={post.post_text}
-                likes_count={post.likes_count}
-                my_like={post.my_like}
-                comments_count={post.comments_count}
-                favourite_count={post.favourite_count}
-                my_favourite={post.my_favourite}
-                is_my_blog={post.is_my_blog}
-                blog_id={post.blog_id}
-                file_id={post.file_id}
-              />
-            ))}
+        {props.viewMyPosts &&
+          props.posts.length > 0 &&
+          props.posts.map((post) => (
+           
+            <PostCard 
+              id={post.id} 
+              channel_pict={post.channel_pict} 
+              channel_name={post.channel_name} 
+              channel_id={post.channel_id} 
+              knowledge_name={post.knowledge_name} 
+              time_posted={post.time_posted} 
+              create_date={post.create_date} 
+              is_follow={post.is_follow} 
+              post_name={post.post_name} 
+              post_text={post.post_text} 
+              likes_count={post.likes_count} 
+              my_like={post.my_like} 
+              comments_count={post.comments_count} 
+              favourite_count={post.favourite_count} 
+              my_favourite={post.my_favourite} 
+              is_my_blog={post.is_my_blog} 
+              blog_id={post.blog_id} 
+              file_id={post.file_id} />
+              
+          ))}
+          
 
-          {/* {Channels.isLoading && <SkeletCard />} */}
-
-          {props.viewMyComments && props.arrComments.length > 0 && (
-            <CommentsForMyChannel arrComments={props.arrComments} />
-          )}
+        {props.viewMyComments && props.arrComments.length > 0 && (
+          <CommentsForMyChannel arrComments={props.arrComments} />
+        )}
         </div>
       </div>
       {props.arrSubscriptionsInChannel.length > 0 && (
@@ -128,15 +113,6 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
           arrCountSubscriptionsChannels={props.arrCountSubscriptionsChannels}
         />
       )}
-      {isModalOpen &&
-        ReactDOM.createPortal(
-          <CreatePostModal
-            avatarChannelID={props.avatarChannelID}
-            channelName={props.channelName}
-            setModalOpen={setModalOpen}
-          />,
-          postModalNode
-        )}
     </div>
   );
 }
