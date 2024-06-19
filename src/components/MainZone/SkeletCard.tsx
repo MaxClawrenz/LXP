@@ -1,7 +1,9 @@
 import UniversalSkelet from "./UniversalSkelet";
 import styles from "../../style.module.css";
+import { useLocation } from "react-router-dom";
 
 function SkeletCard() {
+  const location = useLocation();
   return (
     <div className={styles.PostCard}>
       <div className={styles.topZone}>
@@ -65,7 +67,9 @@ function SkeletCard() {
         </div>
         <div className={styles.cardTitle}>
           <UniversalSkelet
-            width={"100%"}
+            width={
+              location.pathname.includes("lxp_channels") ? "502px" : "528px"
+            }
             height={"24px"}
             marginTop={""}
             marginBottom={""}

@@ -16,6 +16,17 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
   const postModalNode = document.getElementById("create_modal");
   if (!postModalNode) return null;
 
+  function openModal() {
+    const mask = document.getElementById("get_report_mask");
+    if (!isModalOpen) {
+      if (mask) mask.style.display = "block";
+      setModalOpen(true);
+    } else {
+      if (mask) mask.style.display = "none";
+      setModalOpen(false);
+    }
+  }
+
   return (
     <div className={style_channels.blockForMyChannelArticles}>
       <div className={style_channels.createAndNewArticles}>
@@ -28,12 +39,7 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
                 className={style_channels.imgChannelAvatar}
               />
             </div>
-            <div
-              onClick={() => {
-                setModalOpen(true);
-              }}
-              className={style_channels.btnNewPost}
-            >
+            <div onClick={openModal} className={style_channels.btnNewPost}>
               Новая запись
             </div>
           </div>
@@ -90,6 +96,7 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
           />
         )}
         <div className={style_channels.block_for_components_articles}>
+          {Channels.isLoadingPosts && <SkeletCard />}
           {props.viewMyPosts &&
             props.posts.length > 0 &&
             props.posts.map((post) => (
@@ -115,8 +122,6 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
               />
             ))}
 
-          {/* {Channels.isLoading && <SkeletCard />} */}
-
           {props.viewMyComments && props.arrComments.length > 0 && (
             <CommentsForMyChannel arrComments={props.arrComments} />
           )}
@@ -133,7 +138,8 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
           <CreatePostModal
             avatarChannelID={props.avatarChannelID}
             channelName={props.channelName}
-            setModalOpen={setModalOpen}
+            openModal={openModal}
+            channelId={props.channelId}
           />,
           postModalNode
         )}

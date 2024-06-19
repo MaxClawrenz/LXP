@@ -5,6 +5,7 @@ import PostCard from "./PostCard";
 import styles from "../../style.module.css";
 import SkeletCard from "./SkeletCard";
 import NotFoundIcon from "./MainIcons/NotFoundIcon";
+import LoadNewPostsButton from "./LoadNewPostsButton";
 
 function MainZone() {
   const bottomOfList = useRef<HTMLDivElement>(null);
@@ -31,8 +32,18 @@ function MainZone() {
     };
   }, [bottomOfList.current]);
 
+  useEffect(() => {
+    if (news._target === "empty" || news.newsArr.length > 0) {
+      news.getVeryNewPostsCount(news.newsArr[0].id);
+    }
+  }, []);
+
   return (
     <div className={styles.MainZone}>
+      {news.veryNewPostsCounter > 0 ? (
+        <LoadNewPostsButton count={news.veryNewPostsCounter} />
+      ) : null}
+      {news.isLoadingVeryNewPosts && <SkeletCard />}
       {news.newsArr.length > 0 &&
         news.newsArr.map((post) => (
           <PostCard
@@ -58,7 +69,7 @@ function MainZone() {
           />
         ))}
       {news.newsArr.length === 0 && !news.isLoading && (
-        <NotFoundIcon text={"Нет популярных постов"} width={"568px"} />
+        <NotFoundIcon text={"Нет постов"} width={"568px"} />
       )}
       {news.isLoading && <SkeletCard />}
       <div ref={bottomOfList} className={styles.news_observer}></div>

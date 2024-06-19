@@ -10,6 +10,7 @@ import PostImages from "./PostImages";
 import PostFooter from "./PostFooter";
 import UniversalSkelet from "./UniversalSkelet";
 import CommentsZone from "./CommentsZone";
+import parse from "html-react-parser";
 
 function PostZone() {
   const { hours, minutes } = useTime(postBody.post.time_posted);
@@ -149,7 +150,7 @@ function PostZone() {
         <div className={style.postText}>
           <pre className={style.bodyText}>
             {!postBody.isLoading ? (
-              postBody.post.post_text
+              parse(postBody.post.post_text)
             ) : (
               <>
                 <UniversalSkelet
