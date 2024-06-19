@@ -5,7 +5,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 class Channels {
     channelsArr: any[] = [];
     isLoading:boolean = false; //признак выполнения загрузки. По умолчанию false, в момент начала загрузки ставится в true
-   
+    isLoadingPosts: boolean = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -17,6 +17,7 @@ class Channels {
             const response = await axios.get('/custom_web_template.html?object_code=my_channel_axios');
             runInAction(() => {
                     this.channelsArr = response.data;
+                    console.log(this.channelsArr)
                 }
             )
         } catch (error) {
@@ -61,7 +62,24 @@ class Channels {
         )
     }
 
-    
+    async addNewPost(channelId: number, postName: string, content: string){
+        this.isLoadingPosts = true;
+        try {
+            const response = await axios.post('/custom_web_template.html?object_code=create_post_lxp', {params: {
+                channel_id: channelId, post_name: postName, content: content
+            }});
+            runInAction(() => {
+                const needChannel = this.channelsArr.find(obj => obj.channelId === String(channelId));
+                if(needChannel) needChannel.posts.unshift(response.data);
+                }
+            )
+        } catch (error) {
+            console.error('Ошибка создания поста: ', error);
+        } finally {
+            this.isLoadingPosts = false;
+        }
+    }
+
 }
 
 export default new Channels();

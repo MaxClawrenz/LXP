@@ -6,20 +6,23 @@ import news from "../../store/news";
 import useTime from "../../hooks/useTime";
 import useTimeName from "../../hooks/useTimeName";
 import MapIcon from "./MainIcons/MapIcon";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import MapTitle from "./MapTitle";
 import FollowIcon from "./MainIcons/FollowIcon";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
 import { observer } from "mobx-react-lite";
 import popularAutors from "../../store/popularAutors";
 import MapIconOpened from "./MainIcons/MapIconOpened";
 import PostFooter from "./PostFooter";
+import parse from "html-react-parser";
+import { Box } from "@chakra-ui/react";
 
 function PostCard(props: IPostCard) {
   const { hours, minutes } = useTime(props.time_posted);
   const hoursName = useTimeName(hours, ["час", "часа", "часов"]);
   const minutesName = useTimeName(minutes, ["минута", "минуты", "минут"]);
   const [mapShow, setMapShow] = useState<boolean>(false);
+  const location = useLocation();
 
   function handleMapWindow(event: React.MouseEvent<HTMLDivElement>) {
     event.preventDefault();
@@ -99,8 +102,24 @@ function PostCard(props: IPostCard) {
                 )}
               </div>
             </div>
-            <div className={styles.cardTitle}>{props.post_name}</div>
-            <div className={styles.cardDesc}>{props.post_text}</div>
+            <div className={styles.cardTitle}>
+              <Box
+                w={location.pathname.includes("lxp_channels") ? 502 : 528}
+                minW={502}
+                noOfLines={2}
+              >
+                {props.post_name}
+              </Box>
+            </div>
+            <div className={styles.cardDesc}>
+              <Box
+                w={location.pathname.includes("lxp_channels") ? 502 : 528}
+                minW={502}
+                noOfLines={4}
+              >
+                {parse(props.post_text)}
+              </Box>
+            </div>
             {props.file_id && (
               <div className={styles.postImgBlock}>
                 <img
