@@ -285,6 +285,15 @@ class News {
         }
 
     }
+
+    //метод для удаления поста из всех массивов
+    deletePost(postId: string){ 
+            runInAction(() => {
+                this.newsArr = this.newsArr.filter(post => post.id !== postId);
+                this.populArr = this.populArr.filter(post => post.id !== postId);
+                this.savedArr = this.savedArr.filter(post => post.id !== postId);
+            })
+    }
 }
 
 
