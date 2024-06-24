@@ -223,6 +223,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 .RightZone {
   margin-left: 35px;
@@ -613,7 +614,10 @@
 }
 .bodyText {
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
+}
+.bodyText img{
+  cursor: zoom-in;
 }
 .postImages {
   margin: 40px 0;
@@ -1374,4 +1378,132 @@
 }
 .TabElement:hover .freshPoint{
   background: #fff;
+}
+.PostManageButton{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+.PostManageButton:hover{
+  background: rgba(0,0,0,.06);
+}
+.PostManageButtonActive{
+  background: rgba(0,0,0,.06);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+.PostButtonsBlock_list{
+  background: #fff;
+  border: .5px solid rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  box-sizing: border-box;
+}
+.PostButtonsBlock_list_elem{
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+}
+.PostButtonsBlock_list_elem:hover{
+  color: #0091d5;
+}
+.DeletePostModal{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 30%;
+  margin: auto;
+  display: flex;
+  width: 420px;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  z-index: 18997;
+  border-radius: 6px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.DeletePostModal_text{
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 30px;
+  margin-top: 14px;
+}
+.DeletePostModal_buttons{
+  display: flex;
+  width: 70%;
+  justify-content: space-evenly;
+}
+.DeletePostModal_buttonYes{
+  align-items: center;
+  background-color: #0091d5;
+  border: unset;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 400;
+  height: 35px;
+  justify-content: center;
+  line-height: 23.87px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  width: 80px;
+}
+.DeletePostModal_buttonYes:hover{
+  background-color: rgba(0,0,0,.6);
+}
+.DeletePostModal_buttonNo{
+  align-items: center;
+  background-color: rgba(0,0,0,.6);
+  border: unset;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 400;
+  height: 35px;
+  justify-content: center;
+  line-height: 23.87px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  width: 80px;
+}
+.DeletePostModal_buttonNo:hover{
+  background-color: #0091d5;
+}
+.PostWasDeletedMessage{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.goBack{
+  cursor: pointer;
+  margin-top: 14px;
+  background-color: #e4e5e7;
+  padding: 6px;
+  width: 75px;
+  text-align: center;
+  border-radius: 20px;
+}
+.goBack:hover{
+  background-color: #0091d5;
+  color: #fff;
 }
