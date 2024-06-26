@@ -119,6 +119,9 @@ function ArticlesForMyChannel(props: IArticlesForMyChannel) {
                 is_my_blog={post.is_my_blog}
                 blog_id={post.blog_id}
                 file_id={post.file_id}
+                handlePosition={function (): void {
+                  throw new Error("Function not implemented.");
+                }}
               />
             ))}
 

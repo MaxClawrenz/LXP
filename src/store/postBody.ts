@@ -28,6 +28,9 @@ class postBody {
     is_my_blog: false,
     blog_id: "",
     file_id: "",
+    handlePosition: function (): void {
+      throw new Error("Function not implemented.");
+    }
   };
   isLoading: boolean = false;
   postComments: IPostCommentsObj = {

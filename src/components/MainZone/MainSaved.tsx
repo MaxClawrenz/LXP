@@ -5,9 +5,12 @@ import PostCard from "./PostCard";
 import styles from "../../style.module.css";
 import SkeletCard from "./SkeletCard";
 import NotFoundIcon from "./MainIcons/NotFoundIcon";
+import news from "../../store/news";
 
 function MainSaved() {
   const bottomOfList = useRef<HTMLDivElement>(null);
+  const scrollTop = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const newsObserver = new IntersectionObserver(
       (entries) => {
@@ -31,8 +34,19 @@ function MainSaved() {
     };
   }, [bottomOfList.current]);
 
+  useEffect(() => {
+    if (scrollTop.current) {
+      scrollTop.current.scrollTop = news.savedScrollTop;
+      console.log(news.savedScrollTop);
+    }
+  }, []);
+
+  function handlePosition() {
+    if (scrollTop.current) news.savedScrollTop = scrollTop.current.scrollTop;
+  }
+
   return (
-    <div className={styles.MainZone}>
+    <div ref={scrollTop} className={styles.MainZone}>
       {saved.savedArr.length > 0 &&
         saved.savedArr.map((post) => (
           <PostCard
@@ -55,6 +69,7 @@ function MainSaved() {
             is_my_blog={post.is_my_blog}
             blog_id={post.blog_id}
             file_id={post.file_id}
+            handlePosition={handlePosition}
           />
         ))}
       {saved.savedArr.length === 0 && !saved.isLoading && (

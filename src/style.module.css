@@ -224,6 +224,9 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: calc(100vh - 288px);
+  overflow: overlay;
+  border-radius: 14px;
 }
 .RightZone {
   margin-left: 35px;
@@ -416,6 +419,8 @@
 }
 .news_observer {
   width: 100%;
+  position: relative;
+  bottom: 10px;
 }
 
 .blockForButtonAddCover {

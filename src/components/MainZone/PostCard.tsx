@@ -44,6 +44,7 @@ function PostCard(props: IPostCard) {
           exit={{ height: 0, opacity: 0 }}
           style={{ overflow: "hidden" }}
           className={styles.PostCard}
+          onClick={props.handlePosition}
         >
           <div className={styles.topZone}>
             <div className={styles.cardHeader}>
