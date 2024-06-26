@@ -15,6 +15,9 @@ class News {
     _targetSaved: string | number = 0; //дата последнего выгруженного сохраненного поста
     veryNewPostsCounter: number = 0; //счетчик новейших постов 
     isLoadingVeryNewPosts:boolean = false; //признак выполнения загрузки новейших постов. По умолчанию false, в момент начала загрузки ставится в true
+    newsScrollTop: number = 0; //дефолтная позиция курсора в свежих постах
+    popularrScrollTop: number = 0; //дефолтная позиция курсора в свежих постах
+    savedScrollTop: number = 0; //дефолтная позиция курсора в свежих постах
 
     constructor() {
         makeAutoObservable(this)

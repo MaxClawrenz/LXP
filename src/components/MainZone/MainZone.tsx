@@ -9,6 +9,8 @@ import LoadNewPostsButton from "./LoadNewPostsButton";
 
 function MainZone() {
   const bottomOfList = useRef<HTMLDivElement>(null);
+  const scrollTop = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const newsObserver = new IntersectionObserver(
       (entries) => {
@@ -38,8 +40,19 @@ function MainZone() {
     }
   }, []);
 
+  useEffect(() => {
+    if (scrollTop.current) {
+      scrollTop.current.scrollTop = news.newsScrollTop;
+      console.log(news.newsScrollTop);
+    }
+  }, []);
+
+  function handlePosition() {
+    if (scrollTop.current) news.newsScrollTop = scrollTop.current.scrollTop;
+  }
+
   return (
-    <div className={styles.MainZone}>
+    <div ref={scrollTop} className={styles.MainZone}>
       {news.veryNewPostsCounter > 0 ? (
         <LoadNewPostsButton count={news.veryNewPostsCounter} />
       ) : null}
@@ -66,6 +79,7 @@ function MainZone() {
             is_my_blog={post.is_my_blog}
             blog_id={post.blog_id}
             file_id={post.file_id}
+            handlePosition={handlePosition}
           />
         ))}
       {news.newsArr.length === 0 && !news.isLoading && (

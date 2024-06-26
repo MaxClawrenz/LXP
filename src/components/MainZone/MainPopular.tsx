@@ -8,6 +8,7 @@ import NotFoundIcon from "./MainIcons/NotFoundIcon";
 
 function MainPopular() {
   const bottomOfList = useRef<HTMLDivElement>(null);
+  const scrollTop = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const newsObserver = new IntersectionObserver(
       (entries) => {
@@ -31,8 +32,16 @@ function MainPopular() {
     };
   }, [bottomOfList.current]);
 
+  useEffect(() => {
+    if (scrollTop.current) scrollTop.current.scrollTop = news.popularrScrollTop;
+  }, []);
+
+  function handlePosition() {
+    if (scrollTop.current) news.popularrScrollTop = scrollTop.current.scrollTop;
+  }
+
   return (
-    <div className={styles.MainZone}>
+    <div ref={scrollTop} className={styles.MainZone}>
       {news.populArr.length > 0 &&
         news.populArr.map((post) => (
           <PostCard
@@ -55,6 +64,7 @@ function MainPopular() {
             is_my_blog={post.is_my_blog}
             blog_id={post.blog_id}
             file_id={post.file_id}
+            handlePosition={handlePosition}
           />
         ))}
       {news.populArr.length === 0 && !news.isLoading && (
