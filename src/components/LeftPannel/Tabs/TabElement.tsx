@@ -5,37 +5,43 @@ import styles from "../../../style.module.css";
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import news from "../../../store/news";
-import { style } from "@mui/system";
 
 function TabElement(props: ITabElement) {
   const location = useLocation();
 
   useEffect(() => {
+    news.searchString = "";
     const pathArr = location.pathname.split("/");
     const tab_name = pathArr[pathArr.length - 1];
-
     switch (tab_name) {
       case "lxp":
         tabNavigation.navigatorUpdate("Свежее");
+        news.modeString = "newsArr";
         break;
       case "lxp_popular":
         tabNavigation.navigatorUpdate("Популярное");
+        news.modeString = "populArr";
         break;
       case "lxp_subscribes":
         tabNavigation.navigatorUpdate("Подписки");
+        news.modeString = "";
         break;
       case "lxp_channels":
         tabNavigation.navigatorUpdate("Каналы");
+        news.modeString = "";
         break;
       case "lxp_saved":
         tabNavigation.navigatorUpdate("Сохранённое");
+        news.modeString = "savedArr";
         break;
 
       default:
         tabNavigation.navigatorUpdate("Свежее");
+        news.modeString = "newsArr";
         break;
     }
-  }, []);
+    news.findText();
+  }, [location.pathname]);
 
   return (
     <li

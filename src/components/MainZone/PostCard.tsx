@@ -109,7 +109,7 @@ function PostCard(props: IPostCard) {
                 minW={502}
                 noOfLines={2}
               >
-                {props.post_name}
+                {parse(props.post_name)}
               </Box>
             </div>
             <div className={styles.cardDesc}>

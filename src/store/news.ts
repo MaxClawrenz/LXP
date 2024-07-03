@@ -8,6 +8,7 @@ class News {
     newsArr:IPostCard[] = []; //пустой массив для новых постов
     populArr:IPostCard[] = []; //пустой массив для популярных постов
     savedArr:IPostCard[] = []; //пустой массив для сохраненных постов
+    filteredArr: IPostCard[] = []; //пустой массив для отфильтрованных постов
     isLoading:boolean = false; //признак выполнения загрузки. По умолчанию false, в момент начала загрузки ставится в true
     _limit:number = 4; //количество запрашиваемых с сервера постов
     _target: string | number = 0; //дата последнего выгруженного поста
@@ -18,6 +19,8 @@ class News {
     newsScrollTop: number = 0; //дефолтная позиция курсора в свежих постах
     popularrScrollTop: number = 0; //дефолтная позиция курсора в свежих постах
     savedScrollTop: number = 0; //дефолтная позиция курсора в свежих постах
+    searchString: string = ''; //строка хранения состояния поисковой строки
+    modeString: string = 'newsArr'; //строка для хранения текущего mode, которая используется для фильтрации массива
 
     constructor() {
         makeAutoObservable(this)
@@ -37,6 +40,7 @@ class News {
             runInAction(() => {
                 this.newsArr.push(...response.data.posts);
                 this._target = response.data.new_target_date;
+                this.findText();
             })
         } catch (error) {
             console.error('Ошибка при получении новостей:', error);
@@ -280,6 +284,7 @@ class News {
             });
             runInAction(() => {
                 this.newsArr = [...response.data.posts, ...this.newsArr];
+                this.filteredArr = [...response.data.posts, ...this.filteredArr];
             })
         } catch (error) {
             console.error('Ошибка при получении новостей:', error);
@@ -295,7 +300,40 @@ class News {
                 this.newsArr = this.newsArr.filter(post => post.id !== postId);
                 this.populArr = this.populArr.filter(post => post.id !== postId);
                 this.savedArr = this.savedArr.filter(post => post.id !== postId);
+                this.filteredArr = this.filteredArr.filter(post => post.id !== postId);
             })
+    }
+
+    //метод для выделения искомых слов желтым цветом
+    findText(){
+        runInAction(() => {
+            if(this.searchString && this.searchString !== ' '){
+                this.filteredArr = this.filterArray(this.searchString);
+                this.filteredArr = this.filteredArr.map(post => {
+                    if(post.post_text.includes(this.searchString) || post.post_name.includes(this.searchString)){ 
+                        return {
+                        ...post,
+                        post_text: post.post_text.replaceAll(this.searchString, 
+                            `<span className="selectedText">${this.searchString}</span>`),
+                        post_name: post.post_name.replaceAll(this.searchString, 
+                            `<span className="selectedText">${this.searchString}</span>`)
+                        }
+                    }
+                    return post
+                })
+            }else{
+                //console.log(this.modeString);
+                this.filteredArr = this[this.modeString as keyof this] as IPostCard[];
+            }
+
+        })
+    }
+
+    //фильтрация массива новостей с возвращением нового массива
+    filterArray(searchString: string){
+        let filteredArray: IPostCard[] = [];
+            filteredArray = (this[this.modeString as keyof this] as IPostCard[]).filter(post => post.post_name.includes(searchString) || post.post_text.includes(searchString));
+        return filteredArray
     }
 }
 
