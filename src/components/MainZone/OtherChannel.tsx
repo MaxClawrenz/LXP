@@ -47,16 +47,14 @@ function OtherChannel(props: IOtherChannel) {
         </div>
         <div className={style_channels.authorChannel}>
           Авторы канала:
-          <span className={style_channels.nameAuthor}>
-            <a
-              className={style_channels.linkAuthor}
-              href={`/_wt/${props.authorID}`}
-              target="_blank"
-            >
-              {" "}
-              {props.authorFullname}
-            </a>
-          </span>
+          <div className={style_channels.listAuthors}>
+                <ul className={style_channels.ulListAuthors}>
+            {props.arrAuthors.map( (author) =>
+                <li className={style_channels.liListAuthors}><span className={style_channels.nameAuthor}><a className={style_channels.linkAuthor} href={`/_wt/${author.authorInArrId}`} target='_blank'> {author.authorInArrFullname}</a></span></li>
+            )
+            }
+            </ul>
+          </div>
         </div>
       </div>
 
