@@ -36,6 +36,7 @@ function MainZoneOtherChannel() {
             arrCountSubscriptionsChannels={
               channel.arrCountSubscriptionsChannels
             }
+            arrAuthors = {channel.arrAuthors}
           />
         ))}
       </div>

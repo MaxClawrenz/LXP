@@ -1,14 +1,8 @@
 
-import useTime from '../../hooks/useTime';
-import useTimeName from '../../hooks/useTimeName';
 import { IPostCardForMyChannel } from '../../interfaces/IPostCardForMyChannel';
 import style_channels from './style_channels.module.css';
 
 function PostCardForMyChannel(props: IPostCardForMyChannel) {
-
-    // const { hours, minutes } = useTime(props.postCreateDate);
-    // const hoursName = useTimeName(hours, ["час", "часа", "часов"]);
-    // const minutesName = useTimeName(minutes, ["минута", "минуты", "минут"]);
     
     return (
                   

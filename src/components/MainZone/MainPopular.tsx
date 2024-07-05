@@ -42,6 +42,7 @@ function MainPopular() {
 
   return (
     <div ref={scrollTop} className={styles.MainZone}>
+
       {(news.filteredArr &&
         news.filteredArr.length > 0 &&
         news.filteredArr.map((post) => (

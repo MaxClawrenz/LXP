@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import news from "../../../store/news";
 
+
 function TabElement(props: ITabElement) {
   const location = useLocation();
 

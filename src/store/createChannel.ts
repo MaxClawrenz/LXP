@@ -2,10 +2,11 @@ import axios from "axios";
 import { makeAutoObservable, runInAction } from "mobx";
 
 
-class EditFormChannel {
+class createChannel {
     result: number = 0;
     arrAuthors: any[] = [];
     arrCollaborators: any[] = [];
+    newChannel: any = {};
     
     constructor() {
         makeAutoObservable(this, {
@@ -13,7 +14,7 @@ class EditFormChannel {
         });
     } 
 
-    async deleteAuthor(id_channel: number, id_author: number) {
+    async deleteAuthor(id_channel: string, id_author: number) {
         try {
             // console.log('Отправка запроса на сервер с данными:', { id_author, id_channel });
     
@@ -23,7 +24,6 @@ class EditFormChannel {
                 id_channel: id_channel
                 }
             });
-
     
             // Логирование ответа сервера для отладки
             // console.log('Ответ сервера:', response.data);
@@ -40,8 +40,7 @@ class EditFormChannel {
             console.error('Ошибка удаления автора канала: ', error);
         }
     }
-
-
+    
     
 
     async saveChannelChanges(forma: any) {
@@ -84,7 +83,7 @@ class EditFormChannel {
     }
 
 
-    async addNewAuthor(collId: number, collFullname: string, channelId: number) {
+    async addNewAuthor(collId: number, collFullname: string, channelId: string) {
         try {
             const response = await axios.post('/custom_web_template.html?object_code=add_new_author_lxp', null, {
                 params: {
@@ -106,7 +105,53 @@ class EditFormChannel {
         }
     }
 
+    async createChannelStageOne() {
+        try {
+            const response = await axios.post('/custom_web_template.html?object_code=create_new_channel_back', null);
+            
+            runInAction(() => {
+                this.result = response.data;
+                this.newChannel = response.data;
+            });
+            return response.data; // Возвращаем данные для использования в компоненте
+        } catch (error) {
+            console.error('Ошибка поиска автора: ', error);
+            return []; // Возвращаем пустой массив в случае ошибки
+        }
+    }
+
+    // Удаление канала
+
+    async deleteChannel(id_channel: string) {
+        try {
+            // console.log('Отправка запроса на сервер с данными:', { id_author, id_channel });
+    
+            const response = await axios.post('/custom_web_template.html?object_code=lxp_delete_channel_back', null, {
+                params: {
+                id_channel: id_channel
+                }
+            });
+
+    
+            // Логирование ответа сервера для отладки
+            // console.log('Ответ сервера:', response.data);
+    
+            // Проверка на успешный ответ
+            if (response.data === 1) {
+                runInAction(() => {
+                    this.result = response.data;
+                });
+            } else {
+                console.error('Ошибка удаления автора канала: Неверный ответ от сервера', response.data);
+            }
+        } catch (error) {
+            console.error('Ошибка удаления автора канала: ', error);
+        }
+    }
+    
+
+
     
 }
 
-export default new EditFormChannel();
+export default new createChannel();
