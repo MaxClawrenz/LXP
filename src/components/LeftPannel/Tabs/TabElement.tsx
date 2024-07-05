@@ -4,6 +4,8 @@ import tabNavigation from "../../../store/tabNavigation";
 import styles from "../../../style.module.css";
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
+import news from "../../../store/news";
+import { style } from "@mui/system";
 
 function TabElement(props: ITabElement) {
   const location = useLocation();
@@ -46,8 +48,13 @@ function TabElement(props: ITabElement) {
           : styles.TabElement
       }
     >
-      {props.children}
-      {props.name}
+      <div className={styles.navigatorLeftZone}>
+        {props.children}
+        {props.name}
+      </div>
+      {props.name === "Свежее" && news.veryNewPostsCounter > 0 ? (
+        <div className={styles.freshPoint}></div>
+      ) : null}
     </li>
   );
 }

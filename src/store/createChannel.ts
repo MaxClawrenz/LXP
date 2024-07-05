@@ -120,6 +120,36 @@ class createChannel {
         }
     }
 
+    // Удаление канала
+
+    async deleteChannel(id_channel: string) {
+        try {
+            // console.log('Отправка запроса на сервер с данными:', { id_author, id_channel });
+    
+            const response = await axios.post('/custom_web_template.html?object_code=lxp_delete_channel_back', null, {
+                params: {
+                id_channel: id_channel
+                }
+            });
+
+    
+            // Логирование ответа сервера для отладки
+            // console.log('Ответ сервера:', response.data);
+    
+            // Проверка на успешный ответ
+            if (response.data === 1) {
+                runInAction(() => {
+                    this.result = response.data;
+                });
+            } else {
+                console.error('Ошибка удаления автора канала: Неверный ответ от сервера', response.data);
+            }
+        } catch (error) {
+            console.error('Ошибка удаления автора канала: ', error);
+        }
+    }
+    
+
 
     
 }

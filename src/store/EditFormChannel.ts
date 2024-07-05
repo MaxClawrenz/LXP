@@ -40,7 +40,8 @@ class EditFormChannel {
             console.error('Ошибка удаления автора канала: ', error);
         }
     }
-    
+
+
     
 
     async saveChannelChanges(forma: any) {

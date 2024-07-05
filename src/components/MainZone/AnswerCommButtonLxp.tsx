@@ -1,5 +1,4 @@
 import CommentIcon from "./MainIcons/CommentIcon";
-import React from "react";
 import styles from "../../style.module.css";
 
 function AnswerCommButtonLxp(props: any) {

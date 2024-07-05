@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { CommentLxp } from "../../interfaces/CommentLxp";
 import style from "../../style.module.css";
 
 function MenuToolsDropdownLxp(props: any) {

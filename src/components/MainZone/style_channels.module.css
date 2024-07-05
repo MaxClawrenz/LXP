@@ -1174,3 +1174,72 @@
   margin-bottom: 30px;
   font-family: SF UI Display Bold !important;
 }
+
+.DeleteChannelModal{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 30%;
+  margin: auto;
+  display: flex;
+  width: 420px;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  z-index: 18997;
+  border-radius: 6px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid silver;
+}
+.DeleteChannelModal_text{
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 30px;
+  margin-top: 14px;
+}
+.DeleteChannelModal_buttons{
+  display: flex;
+  width: 70%;
+  justify-content: space-evenly;
+}
+.DeleteChannelModal_buttonYes{
+  align-items: center;
+  background-color: #0091d5;
+  border: unset;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 400;
+  height: 35px;
+  justify-content: center;
+  line-height: 23.87px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  width: 80px;
+}
+.DeleteChannelModal_buttonYes:hover{
+  background-color: rgba(0,0,0,.6);
+}
+.DeleteChannelModal_buttonNo{
+  align-items: center;
+  background-color: rgba(0,0,0,.6);
+  border: unset;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 400;
+  height: 35px;
+  justify-content: center;
+  line-height: 23.87px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  width: 80px;
+}
+.DeleteChannelModal_buttonNo:hover{
+  background-color: #0091d5;
+}

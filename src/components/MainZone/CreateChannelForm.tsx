@@ -1,19 +1,13 @@
-import { useState } from 'react';
-import { IFormEditChannel } from '../../interfaces/IFormEditChannel';
+import { SetStateAction, useState } from 'react';
 import style_channels from './style_channels.module.css';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import Cropper from 'react-easy-crop';
-import EditCoverChannelForm from './EditCoverChannelForm';
-import EditAvatarChannelForm from './EditAvatarChannelForm';
 import { observer } from 'mobx-react-lite';
-import EditFormChannel from '../../store/EditFormChannel';
-import { values } from 'mobx';
-import MainZoneChannels from '../../store/MainZoneChannels';
-import { IAuthor, IClassificators, ICreateChannelForm } from '../../interfaces/ICreateChannelForm';
+import { IAuthor, ICreateChannelForm } from '../../interfaces/ICreateChannelForm';
 import CreateCoverChannelForm from './CreateCoverChannelForm';
 import CreateAvatarChannelForm from './CreateAvatarChannelForm';
 import createChannel from '../../store/createChannel';
+import DeleteChannelModal from './DeleteChannelModal';
 
 
 function CreateChannelForm({createChannelForm, setCreateChannelForm, channelData}: ICreateChannelForm) {
@@ -27,6 +21,8 @@ function CreateChannelForm({createChannelForm, setCreateChannelForm, channelData
     const [arrCollaborators, setArrCollaborators] = useState<any>([]);
     const [coverChannel, setCoverChannel] = useState<string>(channelData.coverChannelID);
     const [avatarChannel, setAvatarChannel] = useState<string>(channelData.avatarChannelID);
+
+    const [modalDeleteChannel, setModalDeleteChannel] = useState<boolean>(false);
 
     const handleChannelNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setChannelName(e.target.value);
@@ -109,6 +105,18 @@ function CreateChannelForm({createChannelForm, setCreateChannelForm, channelData
             <CreateAvatarChannelForm channelId={channelData.channelId} coverChannelID={channelData.coverChannelID} avatarChannel={avatarChannel} setAvatarChannel={setAvatarChannel} channelAvatarDialog={channelAvatarDialog} setChannelAvatarDialog={setChannelAvatarDialog} />
         }
 
+
+{ modalDeleteChannel &&
+        <DeleteChannelModal channelId={channelData.channelId} 
+        setModalDelete={function (value: SetStateAction<boolean>): void {
+                throw new Error('Function not implemented.');
+            } } setOpenButtons={function (value: SetStateAction<boolean>): void {
+                throw new Error('Function not implemented.');
+            } } 
+            setModalDeleteChannel = {setModalDeleteChannel}
+            setCreateChannelForm = {setCreateChannelForm}
+        />
+}
                <div className={style_channels.blockForFormEdit}>
                     <div className={style_channels.allInfoChannelBlock}>
                         <div className={style_channels.blockForImgCoverChannelFormEdit}>
@@ -139,7 +147,7 @@ function CreateChannelForm({createChannelForm, setCreateChannelForm, channelData
                             <div className={style_channels.blockForInfoFormEdit}>
                                 <div className={style_channels.titleAndCloseFormEdit}>
                                     <div className={style_channels.titleFormEdit}>Информация о канале</div>
-                                    <div className={style_channels.btnCloseFormEdit} onClick={() => {setCreateChannelForm(false)}}>
+                                    <div className={style_channels.btnCloseFormEdit} onClick={() => {setModalDeleteChannel(true)}}>
                                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M2 2L20 20" stroke="#606060" stroke-width="3" stroke-linecap="round"/>
                                             <path d="M20 2L2 20" stroke="#606060" stroke-width="3" stroke-linecap="round"/>

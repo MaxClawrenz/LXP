@@ -1,5 +1,4 @@
 import Cropper from "react-easy-crop";
-import { IEditCoverChannelForm } from "../../interfaces/IEditCoverChannelForm";
 import style_channels from "./style_channels.module.css";
 import { forwardRef, useRef, useState } from "react";
 import axios from "axios";

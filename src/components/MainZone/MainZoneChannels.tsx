@@ -13,34 +13,38 @@ function MainZoneChannels() {
 
   return (
     <div className={style.MainZone}>
-      {Channels.channelsArr.length > 0 && !Channels.isLoading && Channels.channelsArr.slice(0, 1).map((channel) => (
-        // Отрисовываем компонент только для первого элемента в массиве
-        <MyChannel
-          key={channel.channelId}
-          channelId={channel.channelId}
-          channelName={channel.channelName}
-          authorID={channel.authorID}
-          channelDecript={channel.channelDecript}
-          avatarChannelID={channel.avatarChannelID}
-          coverChannelID={channel.coverChannelID}
-          arrPostsInChannel={channel.arrPostsInChannel}
-          arrSubscriptionsInChannel={channel.arrSubscriptionsInChannel}
-          arrKnowlegesParts={channel.arrKnowlegesParts}
-          arrTags={channel.arrTags}
-          authorFullname={channel.authorFullname}
-          arrComments={channel.arrComments}
-          arrCountSubscriptionsChannels={channel.arrCountSubscriptionsChannels}
-          arrAuthors={channel.arrAuthors}
-          arrAllClassificators={channel.arrAllClassificators} 
-          posts={channel.posts}        />
-      ))}
+      {Channels.channelsArr.length > 0 &&
+        !Channels.isLoading &&
+        Channels.channelsArr.slice(0, 1).map((channel) => (
+          // Отрисовываем компонент только для первого элемента в массиве
+          <MyChannel
+            key={channel.channelId}
+            channelId={channel.channelId}
+            channelName={channel.channelName}
+            authorID={channel.authorID}
+            channelDecript={channel.channelDecript}
+            avatarChannelID={channel.avatarChannelID}
+            coverChannelID={channel.coverChannelID}
+            arrPostsInChannel={channel.arrPostsInChannel}
+            arrSubscriptionsInChannel={channel.arrSubscriptionsInChannel}
+            arrKnowlegesParts={channel.arrKnowlegesParts}
+            arrTags={channel.arrTags}
+            authorFullname={channel.authorFullname}
+            arrComments={channel.arrComments}
+            arrCountSubscriptionsChannels={
+              channel.arrCountSubscriptionsChannels
+            }
+            arrAuthors={channel.arrAuthors}
+            arrAllClassificators={channel.arrAllClassificators}
+            posts={channel.posts}
+          />
+        ))}
 
-        {Channels.isLoading && <SkeletCard />}
+      {Channels.isLoading && <SkeletCard />}
 
-        {Channels.channelsArr.length === 0 && !Channels.isLoading && (
+      {Channels.channelsArr.length === 0 && !Channels.isLoading && (
         <NotFoundIcon text={"У вас нет действующих каналов"} width={"568px"} />
       )}
-
     </div>
   );
 }

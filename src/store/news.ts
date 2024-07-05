@@ -13,6 +13,11 @@ class News {
     _target: string | number = 0; //дата последнего выгруженного поста
     _targetPop: string | number = 0; //дата последнего выгруженного популярного поста
     _targetSaved: string | number = 0; //дата последнего выгруженного сохраненного поста
+    veryNewPostsCounter: number = 0; //счетчик новейших постов 
+    isLoadingVeryNewPosts:boolean = false; //признак выполнения загрузки новейших постов. По умолчанию false, в момент начала загрузки ставится в true
+    newsScrollTop: number = 0; //дефолтная позиция курсора в свежих постах
+    popularrScrollTop: number = 0; //дефолтная позиция курсора в свежих постах
+    savedScrollTop: number = 0; //дефолтная позиция курсора в свежих постах
 
     constructor() {
         makeAutoObservable(this)
@@ -243,6 +248,54 @@ class News {
             this.isLoading = false;
         }
 
+    }
+
+    //метод для получения количества новых постов если старые посты уже были загружены ранее
+    async getVeryNewPostsCount(postId: string){ 
+        // this.isLoading = true;
+        try {
+            const response: AxiosResponse<number> = await axios.get('/custom_web_template.html?object_code=very_new_posts_counter', {
+                params: {
+                    post_id: postId
+                }
+            });
+            runInAction(() => {
+                this.veryNewPostsCounter = response.data;
+            })
+        } catch (error) {
+            console.error('Ошибка при получении новостей:', error);
+        } 
+
+    }
+
+    //метод для загрузки новых постов если старые посты уже были загружены ранее
+    async getVeryNewPosts(){ 
+        this.isLoadingVeryNewPosts = true;
+        this.veryNewPostsCounter = 0;
+        try {
+            const response: AxiosResponse<IResPosts> = await axios.get('/custom_web_template.html?object_code=get_very_new_posts', {
+                params: {
+                    post_id: this.newsArr[0].id
+                }
+            });
+            runInAction(() => {
+                this.newsArr = [...response.data.posts, ...this.newsArr];
+            })
+        } catch (error) {
+            console.error('Ошибка при получении новостей:', error);
+        } finally {
+            this.isLoadingVeryNewPosts = false;
+        }
+
+    }
+
+    //метод для удаления поста из всех массивов
+    deletePost(postId: string){ 
+            runInAction(() => {
+                this.newsArr = this.newsArr.filter(post => post.id !== postId);
+                this.populArr = this.populArr.filter(post => post.id !== postId);
+                this.savedArr = this.savedArr.filter(post => post.id !== postId);
+            })
     }
 }
 

@@ -4,6 +4,7 @@ import { IPostCard } from "../interfaces/IPostCard";
 import { IPostCommentsObj } from "../interfaces/IPostCommentsObj";
 import { CommentLxp } from "../interfaces/CommentLxp";
 
+
 class postBody {
   reaction(arg0: () => void) {
     throw new Error("Method not implemented.");
@@ -27,6 +28,9 @@ class postBody {
     is_my_blog: false,
     blog_id: "",
     file_id: "",
+    handlePosition: function (): void {
+      throw new Error("Function not implemented.");
+    }
   };
   isLoading: boolean = false;
   postComments: IPostCommentsObj = {
@@ -54,7 +58,6 @@ class postBody {
   }
 
   //   Обновление комментария
-
   updateComment(updatedComment: CommentLxp) {
     const index = this.postComments.allComments.findIndex(
       (comment) => comment.id === updatedComment.id
@@ -115,7 +118,7 @@ class postBody {
       }
     }
   }
-  //добавление ответа в cheldren
+  //добавление ответа в children
   addReply(commentId: string, newReply: CommentLxp) {
     const commentIndex = this.postComments.allComments.findIndex(
       (comment) => comment.id === commentId
@@ -161,24 +164,28 @@ class postBody {
   //метод обновления лайка
   updateLikes() {
     runInAction(() => {
-      if (this.post.my_like) {
-        this.post.likes_count--;
-      } else {
-        this.post.likes_count++;
+      if(typeof this.post !== "number"){
+        if (this.post.my_like) {
+          this.post.likes_count--;
+        } else {
+          this.post.likes_count++;
+        }
+        this.post.my_like = !this.post.my_like;
       }
-      this.post.my_like = !this.post.my_like;
     });
   }
 
   //метод обновления счетчика сохраненных
   updateFavorites() {
     runInAction(() => {
-      if (this.post.my_favourite) {
-        this.post.favourite_count--;
-      } else {
-        this.post.favourite_count++;
+      if(typeof this.post !== "number"){
+        if (this.post.my_favourite) {
+          this.post.favourite_count--;
+        } else {
+          this.post.favourite_count++;
+        }
+        this.post.my_favourite = !this.post.my_favourite;
       }
-      this.post.my_favourite = !this.post.my_favourite;
     });
   }
 
@@ -201,6 +208,25 @@ class postBody {
       this.isLoadingComments = false;
     }
   }
+
+  //метод удаления поста с сервера
+  async deletePostFromServer(postId: string) {
+    try {
+      const response: AxiosResponse<string> = await axios.delete(
+        "/custom_web_template.html?object_code=delete_post_lxp",
+        { params: { id: postId } }
+      );
+      runInAction(() => {
+        //@ts-ignore
+        //когда-нибудь переделаем, пока некогда(
+        this.post = 0;
+      });
+    } catch (error) {
+      console.log("Ошибка при удалении поста: ", error);
+    }
+  }
+
+
 }
 
 export default new postBody();

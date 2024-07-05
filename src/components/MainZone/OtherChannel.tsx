@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CoverMyChannel from "./CoverMyChannel";
 import style_channels from "./style_channels.module.css";
 import { IOtherChannel } from "../../interfaces/IOtherChannel";
 import ArticlesForOtherChannel from "./ArticlesForOtherChannel";
@@ -7,8 +6,6 @@ import CoverOtherChannel from "./CoverOtherChannel";
 import visitedChannels from "../../store/visitedChannels";
 
 function OtherChannel(props: IOtherChannel) {
-  // const [coverChannel, setCoverChannel] = useState<number>(props.coverChannelID);
-  // const [channelCoverDialog, setchannelCoverDialog] = useState<boolean>(false);
 
   useEffect(() => {
     const channelObj = {
