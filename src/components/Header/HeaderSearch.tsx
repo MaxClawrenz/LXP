@@ -1,9 +1,23 @@
+import { ChangeEvent, useState } from "react";
 import styles from "../../style.module.css";
+import { observer } from "mobx-react-lite";
+import news from "../../store/news";
 
 function HeaderSearch() {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    news.searchString = e.target.value;
+    news.findText();
+  }
+
   return (
-    <input className={styles.HeaderSearch} placeholder="Поиск" type="text" />
+    <input
+      value={news.searchString}
+      onChange={handleChange}
+      className={styles.HeaderSearch}
+      placeholder="Поиск"
+      type="text"
+    />
   );
 }
 
-export default HeaderSearch;
+export default observer(HeaderSearch);
