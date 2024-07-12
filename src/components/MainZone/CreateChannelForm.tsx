@@ -50,20 +50,27 @@ function CreateChannelForm({createChannelForm, setCreateChannelForm, channelData
     
     
     const createChannelSave = () => {
-       // Создаем объект с данными для отправки
-    const formData = {
-        channel_id: channelData.channelId,
-        channel_name: channelName,
-        channel_decript: channelDecript,
-        selected_classificatorId: themeChannel
+        // Проверяем заполненность обязательных полей
+        if (!channelName.trim() || !channelDecript.trim()) {
+            alert('Пожалуйста, заполните название и описание канала');
+            return;
+        }
+    
+        // Создаем объект с данными для отправки
+        const formData = {
+            channel_id: channelData.channelId,
+            channel_name: channelName,
+            channel_decript: channelDecript,
+            selected_classificatorId: themeChannel
+        };
+    
+        // Вызываем метод в MobX для сохранения изменений
+        createChannel.saveChannelChanges(formData);
+        setCreateChannelForm(false);
+        setChannelName(channelName);
+        setChannelDecript(channelDecript);
     };
-
-    // Вызываем метод в MobX для сохранения изменений
-    createChannel.saveChannelChanges(formData);
-    setCreateChannelForm(false);
-    setChannelName(channelName);
-    setChannelDecript(channelDecript);
-    };
+    
 
     const handleSearchAuthor = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
