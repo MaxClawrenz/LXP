@@ -248,6 +248,7 @@
     background: #FFF;
     position: absolute;
     margin-left: -90px;
+    position: relative;
   }
 
   .blockForIconChangeAndAvatar {
