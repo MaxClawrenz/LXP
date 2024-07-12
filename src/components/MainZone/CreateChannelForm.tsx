@@ -51,8 +51,8 @@ function CreateChannelForm({createChannelForm, setCreateChannelForm, channelData
     
     const createChannelSave = () => {
         // Проверяем заполненность обязательных полей
-        if (!channelName.trim() || !channelDecript.trim()) {
-            alert('Пожалуйста, заполните название и описание канала');
+        if (!channelName.trim() || !channelDecript.trim() || !themeChannel.trim()) {
+            alert('Пожалуйста, заполните название и описание канала, а также выберите тематику канала');
             return;
         }
     
