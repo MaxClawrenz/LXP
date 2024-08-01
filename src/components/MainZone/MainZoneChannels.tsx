@@ -11,34 +11,37 @@ function MainZoneChannels() {
     Channels.getChannels();
   }, []);
 
+  const currentChannel = Channels.currentChannel;
+
   return (
     <div className={style.MainZone}>
-      {Channels.channelsArr.length > 0 &&
+      {currentChannel &&
         !Channels.isLoading &&
-        Channels.channelsArr.slice(0, 1).map((channel) => (
+        // Channels.channelsArr.slice(0, 1).map((channel) => (
           // Отрисовываем компонент только для первого элемента в массиве
           <MyChannel
-            key={channel.channelId}
-            channelId={channel.channelId}
-            channelName={channel.channelName}
-            authorID={channel.authorID}
-            channelDecript={channel.channelDecript}
-            avatarChannelID={channel.avatarChannelID}
-            coverChannelID={channel.coverChannelID}
-            arrPostsInChannel={channel.arrPostsInChannel}
-            arrSubscriptionsInChannel={channel.arrSubscriptionsInChannel}
-            arrKnowlegesParts={channel.arrKnowlegesParts}
-            arrTags={channel.arrTags}
-            authorFullname={channel.authorFullname}
-            arrComments={channel.arrComments}
+            key={currentChannel.channelId}
+            channelId={currentChannel.channelId}
+            channelName={currentChannel.channelName}
+            authorID={currentChannel.authorID}
+            channelDecript={currentChannel.channelDecript}
+            avatarChannelID={currentChannel.avatarChannelID}
+            coverChannelID={currentChannel.coverChannelID}
+            arrPostsInChannel={currentChannel.arrPostsInChannel}
+            arrSubscriptionsInChannel={currentChannel.arrSubscriptionsInChannel}
+            arrKnowlegesParts={currentChannel.arrKnowlegesParts}
+            arrTags={currentChannel.arrTags}
+            authorFullname={currentChannel.authorFullname}
+            arrComments={currentChannel.arrComments}
             arrCountSubscriptionsChannels={
-              channel.arrCountSubscriptionsChannels
+              currentChannel.arrCountSubscriptionsChannels
             }
-            arrAuthors={channel.arrAuthors}
-            arrAllClassificators={channel.arrAllClassificators}
-            posts={channel.posts}
+            arrAuthors={currentChannel.arrAuthors}
+            arrAllClassificators={currentChannel.arrAllClassificators}
+            posts={currentChannel.posts}
           />
-        ))}
+        // ))
+        }
 
       {Channels.isLoading && <SkeletCard />}
 

@@ -6,6 +6,7 @@ class Channels {
     channelsArr: any[] = [];
     isLoading:boolean = false; //признак выполнения загрузки. По умолчанию false, в момент начала загрузки ставится в true
     isLoadingPosts: boolean = false;
+    currentChannelIndex = 0;
 
     constructor() {
         makeAutoObservable(this);
@@ -78,6 +79,16 @@ class Channels {
         } finally {
             this.isLoadingPosts = false;
         }
+    }
+
+    changeChannel() {
+        if (this.channelsArr.length > 0) {
+            this.currentChannelIndex = (this.currentChannelIndex + 1) % this.channelsArr.length;
+        }
+    }
+
+    get currentChannel() {
+        return this.channelsArr[this.currentChannelIndex] || null;
     }
 
 }
